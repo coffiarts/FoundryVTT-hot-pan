@@ -32,6 +32,5 @@
   ],
   "socket": true,
   "url": "https://github.com/coffiarts/FoundryVTT-hot-pan",
-  "manifest": "https://github.com/coffiarts/FoundryVTT-hot-pan/blob/dev/src/hot-pan/module.json",
-  "download": "https://github.com/coffiarts/FoundryVTT-hot-pan/archive/refs/tags/dev.zip"
+  "manifest": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/0.0.1-alpha/module.json"
 }
