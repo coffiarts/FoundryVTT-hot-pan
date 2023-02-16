@@ -2,8 +2,8 @@ name: Module Builder
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - master
 
 jobs:
   build:
@@ -32,4 +32,4 @@ jobs:
           prerelease: true
           token: ${{secrets.GITHUB_TOKEN}}
           artifacts: './module.zip, ./src/hot-pan/module.json'
-          tag: ${{ steps.get-version.outputs.version }}
+          tag: 0.0.2-alpha
