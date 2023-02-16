@@ -1,7 +1,7 @@
 {
   "id": "hot-pan",
-  "title": "Hot Pan - One pan to bind them all",
-  "description": "Globally syncs the GM's canvas position to the players' clients.",
+  "title": "UNDER CONSTRUCTION! Hot Pan - One pan to bind them all",
+  "description": "DO NOT USE THIS YET! Globally syncs the GM's canvas position to the players' clients.",
   "system": [
     "dsa5"
   ],
