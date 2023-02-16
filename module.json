@@ -2,36 +2,33 @@
   "id": "hot-pan",
   "title": "UNDER CONSTRUCTION! Hot Pan - One pan to bind them all",
   "description": "DO NOT USE THIS YET! Globally syncs the GM's canvas position to the players' clients.",
-  "system": [
-    "dsa5"
-  ],
+  "version": "0.0.1-alpha",
+  "compatibility": {
+    "minimum": 10,
+    "verified": 10
+  },
   "authors": [
     {
       "name": "coffiarts"
     }
   ],
-  "version": "0.0.1-alpha",
-  "compatibility": {
-    "minimum": "10",
-    "verified": "10",
-    "relationships": {
-      "requires": [
-        {
-          "id": "socketlib",
-          "type": "module",
-          "manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json",
-          "compatibility": {
-            "verified": "1.0.12"
-          }
+  "relationships": {
+    "requires": [
+      {
+        "id": "socketlib",
+        "type": "module",
+        "manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json",
+        "compatibility": {
+          "verified": "1.0.12"
         }
-      ]
-    }
-  },
-  "scripts": [
-    "scripts/hot-pan-main.js"
-  ],
-  "socket": true,
-  "url": "https://github.com/coffiarts/FoundryVTT-hot-pan",
-  "manifest": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/0.0.1-alpha/module.json",
-  "download": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/0.0.1-alpha/FoundryVTT-hot-pan.zip"
+      }
+    ],
+    "esmodules": [
+      "/scripts/hot-pan-main.js"
+    ],
+    "socket": true,
+    "url": "https://github.com/coffiarts/FoundryVTT-hot-pan",
+    "manifest": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/0.0.1-alpha/module.json",
+    "download": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/0.0.1-alpha/FoundryVTT-hot-pan.zip"
+  }
 }
