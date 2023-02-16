@@ -4,8 +4,8 @@
   "description": "DO NOT USE THIS YET! Globally syncs the GM's canvas position to the players' clients.",
   "version": "0.0.1-alpha",
   "compatibility": {
-    "minimum": 10,
-    "verified": 10
+    "minimum": "10",
+    "verified": "10.291"
   },
   "authors": [
     {
@@ -22,12 +22,12 @@
           "verified": "1.0.12"
         }
       }
-    ],
-    "esmodules": [
-      "/scripts/hot-pan-main.js"
-    ],
-    "url": "https://github.com/coffiarts/FoundryVTT-hot-pan",
-    "manifest": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/0.0.1-alpha/module.json",
-    "download": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/0.0.1-alpha/hot-pan.zip"
-  }
+    ]
+  },
+  "esmodules": [
+    "/scripts/hot-pan-main.js"
+  ],
+  "url": "https://github.com/coffiarts/FoundryVTT-hot-pan",
+  "manifest": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/0.0.1-alpha/module.json",
+  "download": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/0.0.1-alpha/hot-pan.zip"
 }
