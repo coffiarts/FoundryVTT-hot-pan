@@ -26,9 +26,8 @@
     "esmodules": [
       "/scripts/hot-pan-main.js"
     ],
-    "socket": true,
     "url": "https://github.com/coffiarts/FoundryVTT-hot-pan",
     "manifest": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/0.0.1-alpha/module.json",
-    "download": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/0.0.1-alpha/FoundryVTT-hot-pan.zip"
+    "download": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/0.0.1-alpha/hot-pan.zip"
   }
 }
