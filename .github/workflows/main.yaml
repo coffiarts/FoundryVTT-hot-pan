@@ -32,4 +32,4 @@ jobs:
           prerelease: true
           token: ${{secrets.GITHUB_TOKEN}}
           artifacts: './module.zip, ./src/hot-pan/module.json'
-          tag: 0.0.2-alpha
+          tag: ${{ steps.get-version.outputs.version }}
