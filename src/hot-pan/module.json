@@ -1,30 +1,37 @@
 {
-	"id": "hot-pan",
-	"title": "Hot Pan - One pan to bind them all",
-	"description": "Globally syncs the GM's canvas position to the players' clients.",
-	"system": [
-		"dsa5"
-	],
-	"authors": [
-		{
-			"name": "coffiarts"
-		}
-	],
-	"version": "1.0.0",
-	"compatibility": {
-		"minimum": "10",
-		"verified": "10",
-		"relationships": {
-			"requires": [
-				{
-					"id": "socketlib",
-					"type": "module",
-					"manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json",
-					"compatibility": {
-						"verified": "1.0.12"
-					}
-				}
-			]
-		}
-	}
+  "id": "hot-pan",
+  "title": "Hot Pan - One pan to bind them all",
+  "description": "Globally syncs the GM's canvas position to the players' clients.",
+  "system": [
+    "dsa5"
+  ],
+  "authors": [
+    {
+      "name": "coffiarts"
+    }
+  ],
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10",
+    "relationships": {
+      "requires": [
+        {
+          "id": "socketlib",
+          "type": "module",
+          "manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json",
+          "compatibility": {
+            "verified": "1.0.12"
+          }
+        }
+      ]
+    }
+  },
+  "scripts": [
+    "scripts/hot-pan-main.js"
+  ],
+  "socket": true,
+  "url": "https://github.com/coffiarts/FoundryVTT-hot-pan",
+  "manifest": "https://github.com/coffiarts/FoundryVTT-hot-pan/blob/dev/src/hot-pan/module.json",
+  "download": "https://github.com/coffiarts/FoundryVTT-hot-pan/archive/refs/tags/dev.zip"
 }
