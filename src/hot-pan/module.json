@@ -2,7 +2,7 @@
   "id": "hot-pan",
   "title": "UNDER CONSTRUCTION! Hot Pan - One pan to bind them all",
   "description": "DO NOT USE THIS YET! Globally syncs the GM's canvas position to the players' clients.",
-  "version": "0.0.3-alpha",
+  "version": "0.0.1-alpha",
   "compatibility": {
     "minimum": "10",
     "verified": "10.291"
@@ -28,6 +28,6 @@
     "/scripts/hot-pan-main.js"
   ],
   "url": "https://github.com/coffiarts/FoundryVTT-hot-pan",
-  "manifest": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/0.0.3-alpha/module.json",
-  "download": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/0.0.3-alpha/module.zip"
+  "manifest": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/0.0.1-alpha/module.json",
+  "download": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/0.0.1-alpha/module.zip"
 }
