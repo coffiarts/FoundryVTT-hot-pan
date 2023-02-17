@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import { MODULE } from '../module'
+import { MODULE } from '../module.js'
 
 export class logger {
     static info(...args) {
@@ -55,7 +55,7 @@ export class logger {
         const config = true;
         const settingsData = {
             debug : {
-                scope: "client", config, default: false, type: Boolean,
+                scope: "client", config, type: Boolean, default: false,
             },
         };
 

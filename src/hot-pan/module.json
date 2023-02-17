@@ -28,9 +28,23 @@
     ]
   },
   "esmodules": [
-    "/scripts/hot-pan.js",
+    "/scripts/main.js",
     "/scripts/module.js",
     "/scripts/3rd-party/logger.js"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    },
+    {
+      "lang": "de",
+      "name": "German",
+      "path": "lang/de.json",
+      "flags": {}
+    }
   ],
   "socket": true
 }

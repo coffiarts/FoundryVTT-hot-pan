@@ -1,4 +1,5 @@
-import { logger } from './3rd-party/logger.js';
+import {logger} from './3rd-party/logger.js';
+
 const NAME = "hot-pan";
 const PATH = `/modules/${NAME}`;
 
@@ -20,9 +21,9 @@ export class MODULE {
 
     static settings() {
         const data = {
-            // disablePermCheck: {
-            //     config: true, scope: 'world', type: Boolean, default: false,
-            // }
+            someFancyGMSetting: {
+                scope: 'world', config: true, type: Boolean, default: false,
+            }
         };
 
         MODULE.registerSettings(data);
@@ -39,7 +40,7 @@ export class MODULE {
                     ...data
                 }
             );
-            logger.debug("Game Setting registered: ", name);
+            logger.info("Game Setting registered:", name);
         });
     }
 
@@ -48,7 +49,7 @@ export class MODULE {
     }
 
     /**
-     * Returns the localized string for a given warpgate scoped i18n key
+     * Returns the localized string for a given module scoped i18n key
      *
      * @ignore
      * @static
@@ -57,13 +58,12 @@ export class MODULE {
      * @memberof MODULE
      */
     static localize(key) {
-        return game.i18n.localize(`warpgate.${key}`);
+        return game.i18n.localize(`${MODULE.data.name}.${key}`);
     }
 
     static format(key, data) {
-        return game.i18n.format(`warpgate.${key}`, data);
+        return game.i18n.format(`${MODULE.data.name}.${key}`, data);
     }
-
 
 
 }
