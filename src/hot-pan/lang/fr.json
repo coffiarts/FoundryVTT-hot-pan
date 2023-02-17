@@ -1,0 +1,10 @@
+{
+  "hot-pan": {
+    "setting": {
+      "debug": {
+        "name": "Déboguer",
+        "hint": "Active la journalisation de débogage et la collecte de données."
+      }
+    }
+  }
+}

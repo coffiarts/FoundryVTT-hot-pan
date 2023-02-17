@@ -1,0 +1,10 @@
+{
+  "hot-pan": {
+    "setting": {
+      "debug": {
+        "name": "Debug-Modus",
+        "hint": "Aktiviert das Debug Logging"
+      }
+    }
+  }
+}
