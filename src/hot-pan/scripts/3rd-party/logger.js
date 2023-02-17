@@ -55,7 +55,7 @@ export class logger {
         const config = true;
         const settingsData = {
             debug : {
-                scope: "client", config, default: false, type: Boolean,
+                scope: "client", config, type: Boolean, default: false,
             },
         };
 
