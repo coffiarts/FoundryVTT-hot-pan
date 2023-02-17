@@ -3,7 +3,7 @@
     "setting": {
       "debug": {
         "name": "Debug Mode",
-        "hint": "Client-side setting enabling extended debug logging and data collection"
+        "hint": "Client-side setting enabling extended debug logging."
       }
     }
   }

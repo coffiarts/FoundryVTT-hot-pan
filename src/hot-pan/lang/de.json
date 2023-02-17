@@ -3,7 +3,7 @@
     "setting": {
       "debug": {
         "name": "Debug-Modus",
-        "hint": "Aktiviert das Debug Logging"
+        "hint": "Aktiviert das Debug Logging."
       }
     }
   }
