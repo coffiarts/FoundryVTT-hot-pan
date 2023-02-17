@@ -30,7 +30,7 @@
   "esmodules": [
     "/scripts/main.js",
     "/scripts/module.js",
-    "/scripts/3rd-party/logger.js"
+    "/scripts/logger.js"
   ],
   "languages": [
     {

@@ -1,4 +1,4 @@
-import {logger} from './3rd-party/logger.js';
+import {logger} from './logger.js';
 
 const NAME = "hot-pan";
 const PATH = `/modules/${NAME}`;
@@ -11,13 +11,13 @@ export class MODULE {
     };
 
     static async register() {
-        logger.info("Initializing Module");
+        // logger.info("Initializing Module");
         MODULE.settings();
     }
 
-    static async build() {
-        //logger.info("Module Data Built");
-    }
+    // static async build() {
+    //     logger.info("Module Data Built");
+    // }
 
     static settings() {
         const data = {
