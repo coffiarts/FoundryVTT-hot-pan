@@ -63,25 +63,15 @@ async function registerToSocketlib() {
 }
 
 async function registerCanvasListeners() {
-    Hooks.on("canvasPan", function (canvas) {
-        // logger.debug("game.user.isGM: ", game.user.isGM);
-        if (!game.user.isGM) return;
-        logger.debug("Pushing new Canvas.canvasPan event to players' clients.");
-        socket.executeAsGM("pushPanToClients", {canvasPosition: canvas.position, username: game.user.name});
+    Hooks.on("canvasPan", async function (canvas, position) {
+        if (!game.user.isGM) return; // Only the GM shall be allowed to force canvas position on others!
+        logger.debug("Pushing canvas position from GM to clients.");
+        socket.executeForOthers("pushPanToClients", {position: position, username: game.user.name});
     });
 }
 
-function pushPanToClients(data) {
-    // ignore for the GM
-    // logger.debug("game.user.isGM: ", game.user.isGM);
-    //if (game.user.isGM) return;
-
-    // const isResponsibleGM = game.users
-    //     .filter(user => user.isGM && user.isActive)
-    //     .some(other => other.data._id < game.user.data._id);
-    // logger.debug("isResponsibleGM: ", isResponsibleGM);
-    // if (!isResponsibleGM) return;
-    logger.debug("pushPanToClients from", data.username, "to", data.canvasPosition);
-    //canvas.animatePan(data.canvasPosition);
+async function pushPanToClients(data) {
+    logger.debug("pushPanToClients from", data.username, "to", game.user.name, "canvasPosition", data.position);
+    canvas.animatePan(data.position);
 }
 
