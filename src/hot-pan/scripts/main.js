@@ -14,7 +14,7 @@ let socket;
 (async () => {
     console.log("Hot Pan | Initializing Module");
     await preRequisitesReady();
-    logger.info("Ready to play!")
+    logger.info("Ready to play! Module Status is", MODULE.setting('isActive') ? "ON" : "OFF")
 })();
 
 async function preRequisitesReady() {
@@ -65,6 +65,7 @@ async function registerToSocketlib() {
 async function registerCanvasListeners() {
     Hooks.on("canvasPan", async function (canvas, position) {
         if (!game.user.isGM) return; // Only the GM shall be allowed to force canvas position on others!
+        if (!MODULE.setting('isActive')) return;
         logger.debug("Pushing canvas position from GM to clients.");
         socket.executeForOthers("pushPanToClients", {position: position, username: game.user.name});
     });

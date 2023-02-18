@@ -5,9 +5,9 @@
         "name": "Debug-Modus",
         "hint": "Aktiviert das Debug Logging."
       },
-      "someFancyGMSetting": {
-        "name": "Fantastische SL-Option",
-        "hint": "Nur für den Spielleiter natürlich!"
+      "isActive": {
+        "name": "Aktiviert?",
+        "hint": "Auto-Pan ein- und ausschalten!"
       }
     }
   }

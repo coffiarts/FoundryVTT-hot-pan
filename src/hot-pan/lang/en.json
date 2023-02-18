@@ -5,9 +5,9 @@
         "name": "Debug Mode",
         "hint": "Client-side setting enabling extended debug logging."
       },
-      "someFancyGMSetting": {
-        "name": "Some Fancy Setting",
-        "hint": "For the GM only, naturally!"
+      "isActive": {
+        "name": "Active?",
+        "hint": "Toggle Hot Pan on and off."
       }
     }
   }

@@ -21,7 +21,7 @@ export class MODULE {
 
     static settings() {
         const data = {
-            someFancyGMSetting: {
+            isActive: {
                 scope: 'world', config: true, type: Boolean, default: false,
             }
         };
