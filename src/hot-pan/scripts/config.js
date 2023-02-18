@@ -1,15 +1,20 @@
 import {Logger} from './logger.js';
 
+// keep values in sync with module.json!
 const MOD_NAME = "hot-pan";
 const MOD_PATH = `/modules/${MOD_NAME}`;
+const MOD_TITLE = "Hot Pan & Zoom!";
+const MOD_DESCRIPTION = "One Mod to Pan Them! One Mod to Zoom Them! One Mod to Find them and to the GM's Canvas Bind Them!";
+const MOD_LINK = `https://github.com/coffiarts/FoundryVTT-hot-pan`;
 
 export class Config {
     static data = {
         // keep these values in sync with your module.json!
         modName: MOD_NAME,
         modPath: MOD_PATH,
-        modTitle: "Hot Pan & Zoom!",
-        modDescription: "One Mod to Pan Them! One Mod to Zoom Them! One Mod to Find them and to the GM's Canvas Bind Them!"
+        modTitle: MOD_TITLE,
+        modDescription: MOD_DESCRIPTION,
+        modlink: MOD_LINK
     };
 
     static async init() {
