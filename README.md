@@ -12,7 +12,7 @@ Have a look at the video demo: [Hot Pan & Zoom! Demo on youtube](https://youtu.b
 
 By this, you (as the GM) have a convenient option to point players' attention to relevant things.
 
-Best practise is always to use this only temporarily in specific situation ("hey all of you, please have a look at THIS!"). That's why the feature can be toggled on and of, either in the game settings or by a very easy-to-create custom macro (see below).
+Best practise is always to use this only temporarily in specific situation ("hey all of you, please have a look at THIS!"). That's why the feature can be toggled on and off, either in the game settings or by a very easy-to-create custom macro (see below).
 
 Even more, you can use it for cinematic reasons, like in the long animation sequence shown in the video above. Feel free to experiment!
 
