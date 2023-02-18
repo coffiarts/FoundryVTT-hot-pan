@@ -120,14 +120,18 @@ Public class for accessing this module through macro code
  */
 export class HotPan {
     static #isActive = false;
-    static #stateBefore;
+    static #previousState;
 
     static switchOn() {
         this.#switch(true);
     }
 
-    static switchOff(restoreStateBefore = false) {
-        this.#switch(restoreStateBefore ? this.#stateBefore : false);
+    static switchOff() {
+        this.#switch(false);
+    }
+
+    static switchBack() {
+        this.#switch(this.#previousState);
     }
 
     static isOn() {
@@ -143,7 +147,7 @@ export class HotPan {
     }
 
     static #switch(newState) {
-        this.#stateBefore = this.#isActive;
+        this.#previousState = this.#isActive;
         this.#isActive = newState;
         Config.modifySetting('isActive', this.#isActive);
     }

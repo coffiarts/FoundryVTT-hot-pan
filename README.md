@@ -3,6 +3,46 @@
 # Hot Pan & Zoom! for Foundry VTT
 *"One Thing to Pan Them! One Thing to Find Them! One Thing to Zoom them and to the GM's Canvas Bind Them!"*
 
+- [Changelog](#changelog)
+- [What does it do?](#what-does-it-do-)
+- [Tech stuff](#tech-stuff)
+    * [Module settings (i.e. game settings)](#module-settings--ie-game-settings-)
+    * [Control it by macro!](#control-it-by-macro-)
+    * [Compatibility & Dependencies](#compatibility---dependencies)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+## Changelog
+<table>
+    <tr>
+        <th colspan="3" style="text-align: left">Latest Version</th>
+    </tr>
+    <tr>
+        <td>1.0.1</td>
+        <td>2023-??-??</td>
+        <td>
+            <ul>
+                <li>Macro API more intuitive:<br/>Use HotPan.switchBack() instead of HotPan.switchOff(restoreStateBefore=true)</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<details><summary>Click to see older versions</summary>
+<table>
+    <tr>
+        <th>Release #</th>
+        <th>Date</th>
+        <th>Changes</th>
+    </tr>
+    <tr>
+        <td>1.0.0</td>
+        <td>2023-02-18</td>
+        <td>Going out into the world!</td>
+    </tr>
+</table>
+</details>
+
 ## What does it do?
 Have a look at the video demo: [Hot Pan & Zoom! Demo on youtube](https://youtu.be/irUmWkSJ_4M)
 
@@ -19,7 +59,7 @@ Even more, you can use it for cinematic reasons, like in the long animation sequ
 This "canvas sync" is considered a pure GM feature in this mod. It does not support players to use it.
 
 ## Tech stuff
-### Module settings (under game settings)
+### Module settings (i.e. game settings)
 This screenshot shows the default values.
 
 (!) Note that especially the UI notification messages can be configured to your needs.
@@ -44,7 +84,7 @@ Some more variants:
     
     // And now the advanced scenario:
     // Use HotPan (optionally) in a macro running a multi-step animation sequence,
-    // AND prevent that the GM's preference (active state of the mod) ist not overriden afterwards:
+    // AND prevent that the GM's preference (active state of the mod) is not overridden afterwards:
     
     // Step 1: activate Hot Pan & Zoom!
     HotPan?.SetOn();
@@ -54,13 +94,10 @@ Some more variants:
     
     // Step 3: When all is done, switch of HotPan again, but gracefully: If the user setting was ON before,
     // you don't want to set it to OFF now!
-    // This is done by using the restoreStateBefore param
-    HotPan?.switchOff(restoreStateBefore=true);
+    // This is done by using the switchBack() method instead of switchOff().
+    HotPan?.switchBack();
 
 ### Compatibility & Dependencies
 - ***Hot Pan & Zoom!*** uses [socketlib](https://github.com/manuelVo/foundryvtt-socketlib) for sending sync messages between the GM's session and the clients.
 - Developed and tested on Foundry VTT 10.2xx, with Chrome as the players' client.
 - **DISCLAIMER:** Be aware that I have developed and tested this mainly in local network sessions (including plain localhost connections)! So I can't claim to have run tough reality checks with this. So I am very to know how it works out for others!
-
-
-
