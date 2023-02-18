@@ -12,6 +12,18 @@
       "hideChatInfo": {
         "name": "Modulinfo im Chat ausblenden",
         "hint": "Blendet beim Start den Chat-Infotext zu diesem Modul wieder ein (zum Wiederanzeigen hier deaktivieren)."
+      },
+      "notifyOnChange": {
+        "name": "UI-Meldungen beim Umschalten",
+        "hint": "Zeige kurze Bannermeldungen an, wenn das Panning & Zooming aus- oder eingeschaltet wird (funktioniert auch beim Umschalten via Macro)."
+      },
+      "warnWhenON": {
+        "name": "Warnung bei Aktivierung",
+        "hint": "Bannermeldung beim Anschalten hervorheben (Warnung). Nur wirksam, wenn \"UI-Meldungen beim Umschalten\" aktiviert ist."
+      },
+      "warnWhenOFF": {
+        "name": "Warnung bei Deaktivierung",
+        "hint": "Bannermeldung beim Abschalten hervorheben (Warnung). Nur wirksam, wenn \"UI-Meldungen beim Umschalten\" aktiviert ist."
       }
     },
     "chatInfoContent": {
@@ -19,6 +31,10 @@
       "text": "[Text]",
       "link": "Hier findest Du Hot Pan & Zoom! auf GitHub",
       "footer": "Diese Nachricht wird nur einmal angezeigt. Zum Wiederanzeigen bitte die entsprechende Option in den Moduleinstellungen verwenden."
+    },
+    "onOffUIMessage": {
+      "whenON": "Bildschirm wird vom Spielleiter gesteuert!",
+      "whenOFF": "Bildschirm ist wieder freigegeben."
     }
   }
 }

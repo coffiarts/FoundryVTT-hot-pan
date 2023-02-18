@@ -17,6 +17,15 @@ export class Config {
         const data = {
             isActive: {
                 scope: 'world', config: true, type: Boolean, default: false,
+            },
+            notifyOnChange: {
+                scope: 'world', config: true, type: Boolean, default: true
+            },
+            warnWhenON: {
+                scope: 'world', config: true, type: Boolean, default: true
+            },
+            warnWhenOFF: {
+                scope: 'world', config: true, type: Boolean, default: false
             }
         };
         Config.registerSettings(data);

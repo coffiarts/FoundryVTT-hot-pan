@@ -23,6 +23,7 @@ let socket;
         Logger.info(Config.data.modDescription);
         if (Config.setting('isActive')) {
             HotPan.switchOn();
+            HotPan.stateChangeUIMessage();
         } else {
             HotPan.switchOff();
         }
@@ -96,6 +97,11 @@ async function initCanvasListeners() {
 
 async function initExposedClasses() {
     window.HotPan = HotPan;
+    Hooks.on("updateSetting", async function (setting, value) {
+        if (setting.key.startsWith(Config.data.modName)) {
+            HotPan.applyChangedGameSetting(setting, value);
+        }
+    });
     Logger.debug("Exposed classes are ready");
 }
 
@@ -120,7 +126,7 @@ export class HotPan {
         this.#switch(true);
     }
 
-    static switchOff(restoreStateBefore=false) {
+    static switchOff(restoreStateBefore = false) {
         this.#switch(restoreStateBefore ? this.#stateBefore : false);
     }
 
@@ -139,7 +145,37 @@ export class HotPan {
     static #switch(newState) {
         this.#stateBefore = this.#isActive;
         this.#isActive = newState;
-        Config.modifySetting('isActive', this.#isActive)
-        Logger.info(`${Config?.data?.modTitle ?? "" } is now`, this.#isActive ? `ON` : `OFF`);
+        Config.modifySetting('isActive', this.#isActive);
+    }
+
+    static applyChangedGameSetting() {
+        this.#isActive = Config.setting('isActive');
+        this.stateChangeUIMessage();
+    }
+
+    static stateChangeUIMessage() {
+        let message =
+            (this.#isActive ? Config.localize('onOffUIMessage.whenON') : Config.localize('onOffUIMessage.whenOFF'));
+
+        if (this.#isActive && Config.setting('warnWhenON') ||
+            !this.#isActive && Config.setting('warnWhenOFF')) {
+            if (Config.setting('notifyOnChange')) {
+                ui.notifications.warn(Config.data.modTitle + " " + message, {
+                    permanent: false,
+                    localize: false,
+                    console: false
+                });
+            }
+            Logger.warn(true, message);
+        } else {
+            if (Config.setting('notifyOnChange')) {
+                ui.notifications.info(Config.data.modTitle + " " + message, {
+                    permanent: false,
+                    localize: false,
+                    console: false
+                });
+            }
+            Logger.info(message);
+        }
     }
 }

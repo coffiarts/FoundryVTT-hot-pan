@@ -25,14 +25,16 @@ export class Logger {
             console.debug(`${Config?.data?.modTitle ?? "" }  | DEBUG | `, ...args);
     }
 
-    static warn(...args) {
+    static warn(suppressUIMsg = false, ...args) {
         console.warn(`${Config?.data?.modTitle ?? "" } | WARNING | `, ...args);
-        ui.notifications.warn(`${Config?.data?.modTitle ?? "" } | WARNING | ${args[0]}`);
+        if (!suppressUIMsg)
+            ui.notifications.warn(`${Config?.data?.modTitle ?? "" } | WARNING | ${args[0]}`);
     }
 
-    static error(...args) {
+    static error(suppressUIMsg = false, ...args) {
         console.error(`${Config?.data?.modTitle ?? "" } | ERROR | `, ...args);
-        ui.notifications.error(`${Config?.data?.modTitle ?? "" } | ERROR | ${args[0]}`);
+        if (!suppressUIMsg)
+            ui.notifications.error(`${Config?.data?.modTitle ?? "" } | ERROR | ${args[0]}`);
     }
 
     static catchThrow(thrown, toastMsg = undefined) {

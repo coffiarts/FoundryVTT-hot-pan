@@ -12,6 +12,18 @@
       "hideChatInfo": {
         "name": "Hide module info in chat window",
         "hint": "Hides the info text about this module in the chat window on game start (deactivate this option to see it again)."
+      },
+      "notifyOnChange": {
+        "name": "UI messages on toggle",
+        "hint": "Show temporary UI messages whenever toggling on and off (also works when switching via macro code)."
+      },
+      "warnWhenON": {
+        "name": "Warning on activate",
+        "hint": "Show extra prominent UI message (warning) when toggling ON. Needs option \"UI messages on toggle\" to be enabled."
+      },
+      "warnWhenOFF": {
+        "name": "Warning on deactivate",
+        "hint": "Show extra prominent UI message (warning) when toggling OFF. Needs option \"UI messages on toggle\" to be enabled."
       }
     },
     "chatInfoContent": {
@@ -19,6 +31,10 @@
       "text": "[Text]",
       "link": "Visit Hot Pan & Zoom! auf GitHub",
       "footer": "This chat card will only be shown once. Activate once more in the module settings if needed."
+    },
+    "onOffUIMessage": {
+      "whenON": "Screen is remote controlled by the gamemaster!",
+      "whenOFF": "Screen control has been released."
     }
   }
 }
