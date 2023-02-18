@@ -11,13 +11,11 @@ export class ChatInfo {
             <hr>
             <div>
                 <p>chatInfoContent.text</p>
-                <p style="text-align: center;"> <a href="https://github.com/coffiarts/FoundryVTT-hot-pan">chatInfoContent.link</a></p>
+                <p style="text-align: center;"><a href="https://github.com/coffiarts/FoundryVTT-hot-pan">chatInfoContent.link</a></p>
             </div>
             <hr>
             <div class="div-styled" style="font-style:italic;">
-                <p style="text-align: justify;">
-                chatInfoContent.footer
-                </p>
+                <p style="text-align: justify;">chatInfoContent.footer</p>
             </div>
 
         </div>

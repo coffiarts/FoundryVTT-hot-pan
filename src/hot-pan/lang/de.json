@@ -6,8 +6,8 @@
         "hint": "Aktiviert das Debug Logging."
       },
       "isActive": {
-        "name": "Aktiviert",
-        "hint": "Modul ein- und ausschalten!"
+        "name": "Immer aktiviert",
+        "hint": "Modul permanent aktivieren (kann durch Macros übersteuert werden)."
       },
       "hideChatInfo": {
         "name": "Modulinfo im Chat ausblenden",

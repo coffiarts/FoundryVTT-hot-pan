@@ -6,8 +6,8 @@
         "hint": "Client-side setting enabling extended debug logging."
       },
       "isActive": {
-        "name": "Active",
-        "hint": "Toggle module on and off."
+        "name": "Always active",
+        "hint": "Keep module always activated (unless overridden by macro code)."
       },
       "hideChatInfo": {
         "name": "Hide module info in chat window",

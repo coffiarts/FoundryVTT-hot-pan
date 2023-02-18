@@ -15,7 +15,13 @@ export class Logger {
         console.log(`${Config?.data?.modTitle ?? "" }  | `, ...args);
     }
     static debug(...args) {
-        if (Config.setting('debug'))
+        // During initialization, Config settings might not yet be present.
+        // We can't rely on them here, so we need a fallback.
+        let isDebugMode = false;
+        try {
+            isDebugMode = Config.setting('debug');
+        } catch {}
+        if (isDebugMode)
             console.debug(`${Config?.data?.modTitle ?? "" }  | DEBUG | `, ...args);
     }
 

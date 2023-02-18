@@ -21,7 +21,11 @@ let socket;
 
         Logger.info("Ready to play!");
         Logger.info(Config.data.modDescription);
-        Logger.info("Module Status is", Config.setting('isActive') ? "ON" : "OFF")
+        if (Config.setting('isActive')) {
+            HotPan.switchOn();
+        } else {
+            HotPan.switchOff();
+        }
     }
 )
 ();
@@ -30,7 +34,9 @@ async function allPrerequisitesReady() {
     return Promise.all([
         areDependenciesReady(),
         isSocketlibReady(),
-        areCanvasListenersReady()]);
+        areCanvasListenersReady(),
+        areExposedClassesReady()
+    ]);
 }
 
 async function areDependenciesReady() {
@@ -53,7 +59,14 @@ async function areCanvasListenersReady() {
     return new Promise(resolve => {
         Hooks.once('canvasReady', () => {
             resolve(initCanvasListeners());
-            Logger.info("Canvas is ready (listeners registered)");
+        });
+    });
+}
+
+async function areExposedClassesReady() {
+    return new Promise(resolve => {
+        Hooks.once('init', () => {
+            resolve(initExposedClasses());
         });
     });
 }
@@ -61,14 +74,14 @@ async function areCanvasListenersReady() {
 async function initDependencies() {
     Object.values(DEPENDENCIES).forEach(function (cl) {
         cl.init(); // includes loading each module's settings
-        Logger.info("Submodule registered:", cl.name);
+        Logger.debug("Dependency loaded:", cl.name);
     });
 }
 
 async function initSocketlib() {
     socket = socketlib.registerModule(Config.data.modName);
     socket.register("pushPanToClients", pushPanToClients);
-    Logger.info(`Module ${Config.data.modName} registered in socketlib.`);
+    Logger.debug(`Module ${Config.data.modName} registered in socketlib.`);
 }
 
 async function initCanvasListeners() {
@@ -78,6 +91,12 @@ async function initCanvasListeners() {
         Logger.debug("Pushing canvas position from GM to clients.");
         socket.executeForOthers("pushPanToClients", {position: position, username: game.user.name});
     });
+    Logger.debug("Canvas is ready (listeners registered)");
+}
+
+async function initExposedClasses() {
+    window.HotPan = HotPan;
+    Logger.debug("Exposed classes are ready");
 }
 
 /*
@@ -90,3 +109,37 @@ async function pushPanToClients(data) {
     canvas.animatePan(data.position);
 }
 
+/*
+Public class for accessing this module through macro code
+ */
+export class HotPan {
+    static #isActive = false;
+    static #stateBefore;
+
+    static switchOn() {
+        this.#switch(true);
+    }
+
+    static switchOff(restoreStateBefore=false) {
+        this.#switch(restoreStateBefore ? this.#stateBefore : false);
+    }
+
+    static isOn() {
+        return this.#isActive;
+    }
+
+    static isOff() {
+        return !this.#isActive;
+    }
+
+    static toggle() {
+        this.#switch(!this.#isActive);
+    }
+
+    static #switch(newState) {
+        this.#stateBefore = this.#isActive;
+        this.#isActive = newState;
+        Config.modifySetting('isActive', this.#isActive)
+        Logger.info(`${Config?.data?.modTitle ?? "" } is now`, this.#isActive ? `ON` : `OFF`);
+    }
+}

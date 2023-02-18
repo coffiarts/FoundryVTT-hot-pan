@@ -43,6 +43,7 @@ export class Config {
 
     static async modifySetting(key, newValue) {
         game.settings.set(Config.data.modName, key, newValue);
+        Logger.debug("Game Setting changed by module:", key, "=>", newValue);
     }
 
     /**
