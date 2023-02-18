@@ -21,44 +21,40 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import { MODULE } from './module.js'
+import { Config } from './config.js'
 
-export class logger {
-    static info(...args) {
-        console.log(`${MODULE?.data?.title ?? "" }  | `, ...args);
-    }
-    static debug(...args) {
-        if (MODULE.setting('debug'))
-            console.debug(`${MODULE?.data?.title ?? "" }  | DEBUG | `, ...args);
-    }
+export class Logger {
 
-    static warn(...args) {
-        console.warn(`${MODULE?.data?.title ?? "" } | WARNING | `, ...args);
-        ui.notifications.warn(`${MODULE?.data?.title ?? "" } | WARNING | ${args[0]}`);
-    }
-
-    static error(...args) {
-        console.error(`${MODULE?.data?.title ?? "" } | ERROR | `, ...args);
-        ui.notifications.error(`${MODULE?.data?.title ?? "" } | ERROR | ${args[0]}`);
-    }
-
-    static catchThrow(thrown, toastMsg = undefined) {
-        console.warn(thrown);
-        if(toastMsg) logger.error(toastMsg);
-    }
-
-    static register(){
-        this.settings()
-    }
-
-    static settings(){
+    static init(){
+        // Here is the space for registering any game settings relevant for this very component (i.e. Logger)
         const config = true;
         const settingsData = {
             debug : {
                 scope: "client", config, type: Boolean, default: false,
             },
         };
+        Config.registerSettings(settingsData);
+    }
+    static info(...args) {
+        console.log(`${Config?.data?.modTitle ?? "" }  | `, ...args);
+    }
+    static debug(...args) {
+        if (Config.setting('debug'))
+            console.debug(`${Config?.data?.modTitle ?? "" }  | DEBUG | `, ...args);
+    }
 
-        MODULE.registerSettings(settingsData);
+    static warn(...args) {
+        console.warn(`${Config?.data?.modTitle ?? "" } | WARNING | `, ...args);
+        ui.notifications.warn(`${Config?.data?.modTitle ?? "" } | WARNING | ${args[0]}`);
+    }
+
+    static error(...args) {
+        console.error(`${Config?.data?.modTitle ?? "" } | ERROR | `, ...args);
+        ui.notifications.error(`${Config?.data?.modTitle ?? "" } | ERROR | ${args[0]}`);
+    }
+
+    static catchThrow(thrown, toastMsg = undefined) {
+        console.warn(thrown);
+        if(toastMsg) Logger.error(toastMsg);
     }
 }

@@ -1,78 +1,86 @@
-import {logger} from './logger.js';
-import {MODULE} from './module.js'
+import {Logger} from './logger.js';
+import {Config} from './config.js'
 
-const SUB_MODULES = {
-    MODULE,
-    logger
+const DEPENDENCIES = {
+    MODULE: Config,
+    logger: Logger
 }
 
 let socket;
 
 /*
-  Initialize Anything
+  Global initializer:
+  First of all, we need to initialize a lot of stuff in correct order:
  */
 (async () => {
-    console.log("Hot Pan | Initializing Module");
-    await preRequisitesReady();
-    logger.info("Ready to play! Module Status is", MODULE.setting('isActive') ? "ON" : "OFF")
+    console.log("Hot Pan & Zoom! | Initializing Module");
+    await allPrerequisitesReady();
+    Logger.info("Ready to play!");
+    Logger.info(Config.data.modDescription);
+    Logger.info("Module Status is", Config.setting('isActive') ? "ON" : "OFF")
 })();
 
-async function preRequisitesReady() {
+async function allPrerequisitesReady() {
     return Promise.all([
-        areSubmodulesReady(),
-        isSocketlibRegistered(),
-        isCanvasReady()]);
+        areDependenciesReady(),
+        isSocketlibReady(),
+        areCanvasListenersReady()]);
 }
 
-async function areSubmodulesReady() {
+async function areDependenciesReady() {
     return new Promise(resolve => {
         Hooks.once('setup', () => {
-            resolve(registerSubmodules());
+            resolve(initDependencies());
         });
     });
 }
 
-async function isSocketlibRegistered() {
+async function isSocketlibReady() {
     return new Promise(resolve => {
         Hooks.once('socketlib.ready', () => {
-            resolve(registerToSocketlib());
+            resolve(initSocketlib());
         });
     });
 }
 
-async function isCanvasReady() {
+async function areCanvasListenersReady() {
     return new Promise(resolve => {
         Hooks.once('canvasReady', () => {
-            resolve(registerCanvasListeners());
-            logger.info("Canvas is ready (listeners registered)");
+            resolve(initCanvasListeners());
+            Logger.info("Canvas is ready (listeners registered)");
         });
     });
 }
 
-async function registerSubmodules() {
-    Object.values(SUB_MODULES).forEach(function(cl) {
-        cl.register(); // includes loading each module's settings
-        logger.info("Submodule registered:", cl.name);
+async function initDependencies() {
+    Object.values(DEPENDENCIES).forEach(function(cl) {
+        cl.init(); // includes loading each module's settings
+        Logger.info("Submodule registered:", cl.name);
     });
 }
 
-async function registerToSocketlib() {
-    socket = socketlib.registerModule(MODULE.data.name);
+async function initSocketlib() {
+    socket = socketlib.registerModule(Config.data.modName);
     socket.register("pushPanToClients", pushPanToClients);
-    logger.info(`Module ${MODULE.data.name} registered in socketlib.`);
+    Logger.info(`Module ${Config.data.modName} registered in socketlib.`);
 }
 
-async function registerCanvasListeners() {
+async function initCanvasListeners() {
     Hooks.on("canvasPan", async function (canvas, position) {
         if (!game.user.isGM) return; // Only the GM shall be allowed to force canvas position on others!
-        if (!MODULE.setting('isActive')) return;
-        logger.debug("Pushing canvas position from GM to clients.");
+        if (!Config.setting('isActive')) return;
+        Logger.debug("Pushing canvas position from GM to clients.");
         socket.executeForOthers("pushPanToClients", {position: position, username: game.user.name});
     });
 }
 
+/*
+And then, finally...
+HERE is our core function doing all the work while in game!
+Nice and nifty...
+*/
 async function pushPanToClients(data) {
-    logger.debug("pushPanToClients from", data.username, "to", game.user.name, "canvasPosition", data.position);
+    Logger.debug("pushPanToClients from", data.username, "to", game.user.name, "canvasPosition", data.position);
     canvas.animatePan(data.position);
 }
 
