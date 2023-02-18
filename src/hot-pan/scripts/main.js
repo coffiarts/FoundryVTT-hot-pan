@@ -1,9 +1,11 @@
 import {Logger} from './logger.js';
 import {Config} from './config.js'
+import {ChatInfo} from "./chatinfo.js";
 
 const DEPENDENCIES = {
     MODULE: Config,
-    logger: Logger
+    logger: Logger,
+    chatinfo: ChatInfo
 }
 
 let socket;
@@ -13,12 +15,16 @@ let socket;
   First of all, we need to initialize a lot of stuff in correct order:
  */
 (async () => {
-    console.log("Hot Pan & Zoom! | Initializing Module");
-    await allPrerequisitesReady();
-    Logger.info("Ready to play!");
-    Logger.info(Config.data.modDescription);
-    Logger.info("Module Status is", Config.setting('isActive') ? "ON" : "OFF")
-})();
+        console.log("Hot Pan & Zoom! | Initializing Module");
+
+        await allPrerequisitesReady();
+
+        Logger.info("Ready to play!");
+        Logger.info(Config.data.modDescription);
+        Logger.info("Module Status is", Config.setting('isActive') ? "ON" : "OFF")
+    }
+)
+();
 
 async function allPrerequisitesReady() {
     return Promise.all([
@@ -53,7 +59,7 @@ async function areCanvasListenersReady() {
 }
 
 async function initDependencies() {
-    Object.values(DEPENDENCIES).forEach(function(cl) {
+    Object.values(DEPENDENCIES).forEach(function (cl) {
         cl.init(); // includes loading each module's settings
         Logger.info("Submodule registered:", cl.name);
     });

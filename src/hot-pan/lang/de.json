@@ -6,9 +6,19 @@
         "hint": "Aktiviert das Debug Logging."
       },
       "isActive": {
-        "name": "Aktiviert?",
-        "hint": "Auto-Pan ein- und ausschalten!"
+        "name": "Aktiviert",
+        "hint": "Modul ein- und ausschalten!"
+      },
+      "hideChatInfo": {
+        "name": "Modulinfo im Chat ausblenden",
+        "hint": "Blendet beim Start den Chat-Infotext zu diesem Modul wieder ein (zum Wiederanzeigen hier deaktivieren)."
       }
+    },
+    "chatInfoContent": {
+      "title": "Hot Pan & Zoom!",
+      "text": "[Text]",
+      "link": "Hier findest Du Hot Pan & Zoom! auf GitHub",
+      "footer": "Diese Nachricht wird nur einmal angezeigt. Zum Wiederanzeigen bitte die entsprechende Option in den Moduleinstellungen verwenden."
     }
   }
 }

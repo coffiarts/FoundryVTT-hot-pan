@@ -30,7 +30,8 @@
   "esmodules": [
     "/scripts/main.js",
     "/scripts/config.js",
-    "/scripts/logger.js"
+    "/scripts/logger.js",
+    "/scripts/chatinfo.js"
   ],
   "languages": [
     {

@@ -2,13 +2,23 @@
   "hot-pan": {
     "setting": {
       "debug": {
-        "name": "Debug Mode",
+        "name": "Debug mode",
         "hint": "Client-side setting enabling extended debug logging."
       },
       "isActive": {
-        "name": "Active?",
-        "hint": "Toggle Hot Pan on and off."
+        "name": "Active",
+        "hint": "Toggle module on and off."
+      },
+      "hideChatInfo": {
+        "name": "Hide module info in chat window",
+        "hint": "Hides the info text about this module in the chat window on game start (deactivate this option to see it again)."
       }
+    },
+    "chatInfoContent": {
+      "title": "Hot Pan & Zoom!",
+      "text": "[Text]",
+      "link": "Visit Hot Pan & Zoom! auf GitHub",
+      "footer": "This chat card will only be shown once. Activate once more in the module settings if needed."
     }
   }
 }

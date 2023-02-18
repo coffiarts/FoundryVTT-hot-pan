@@ -41,6 +41,10 @@ export class Config {
         return game.settings.get(Config.data.modName, key);
     }
 
+    static async modifySetting(key, newValue) {
+        game.settings.set(Config.data.modName, key, newValue);
+    }
+
     /**
      * Returns the localized string for a given module scoped i18n key
      *
