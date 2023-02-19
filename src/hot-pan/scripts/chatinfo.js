@@ -31,7 +31,7 @@ export class ChatInfo {
     </div>`;
 
     static init() {
-        // Here is the space for registering any game settings relevant for this very component (i.e. Logger)
+        // Register game settings relevant to this class specifically (all globally relevant settings are maintained by class Config)
         const settingsData = {
             hideChatInfo: {
                 scope: 'world', config: true, type: Boolean, default: false,

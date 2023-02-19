@@ -3,7 +3,7 @@ import { Config } from './config.js'
 export class Logger {
 
     static init(){
-        // Here is the space for registering any game settings relevant for this very component (i.e. Logger)
+        // Register game settings relevant to this class specifically (all globally relevant settings are maintained by class Config)
         const settingsData = {
             debug : {
                 scope: "client", config: true, type: Boolean, default: false,
