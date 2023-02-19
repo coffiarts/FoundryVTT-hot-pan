@@ -1,4 +1,5 @@
-<table>
+# Hot Pan & Zoom! for Foundry VTT
+<table style="border:0">
   <tr>
     <td><img src="src/hot-pan/artwork/hot-pan-logo.gif" alt="Hot Pan & Zoom! Logo"/></td>
     <td><span style="color:#da6502">Take control over your players' canvas position and zoom (manually or by macro) for demonstrations and cinematics.</span><br/>
@@ -7,19 +8,18 @@
             One Thing to Find Them!<br/>
             One Thing to Zoom them<br/>
             And to the GM's Canvas Bind Them!"</strong></i>
-    </tdstxle>
+    </td>
   </tr>
 </table>
 
-# Hot Pan & Zoom! for Foundry VTT
-... is a systems-agnostic utility for keeping players' canvas position & zoom in sync with the GM's screen.
+## Video demo on youtube
+[Hot Pan & Zoom! Demo](https://youtu.be/irUmWkSJ_4M)
 
-For instance, it allows to take over control of the players' canvas for a short time to draw their attention to important things ("Hey! Have a look at THIS!").
+[<img src="src/hot-pan/artwork/hot-pan-video-thumb.png" alt="Hot Pan & Zoom! - Video demo on youtube" width="600"/>](https://youtu.be/irUmWkSJ_4M)
 
-Even more, it comes in handy for cinematic reasons, like in the animation sequence shown in the video below. Feel free to experiment!
 
-- [Changelog](#changelog)
 - [What does it do?](#what-does-it-do-)
+- [Changelog](#changelog)
 - [Tech stuff](#tech-stuff)
   * [Adjustable module settings (i.e. game settings)](#adjustable-module-settings--ie-game-settings-)
   * [Control it by macro!](#control-it-by-macro-)
@@ -27,8 +27,16 @@ Even more, it comes in handy for cinematic reasons, like in the animation sequen
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
+
+## What does it do?
+It is a systems-agnostic utility for keeping players' canvas position & zoom in sync with the GM's screen.
+
+For instance, it allows to take over control of the players' canvas for a short time to draw their attention to important things ("Hey! Have a look at THIS!").
+
+Even more, it comes in handy for cinematic reasons, like in the animation sequence shown in the video below. Feel free to experiment!
+
 ## Changelog
-<table>
+<table style="border:0">
     <tr>
         <th colspan="3" style="text-align: left">Latest Version</th>
     </tr>
@@ -59,11 +67,6 @@ Even more, it comes in handy for cinematic reasons, like in the animation sequen
     </tr>
 </table>
 </details>
-
-## What does it do?
-Have a look at the video demo: [Hot Pan & Zoom! Demo on youtube](https://youtu.be/irUmWkSJ_4M)
-
-[<img src="src/hot-pan/artwork/hot-pan-video-thumb.png" alt="Hot Pan & Zoom! youtube demo" width="600"/>](https://youtu.be/irUmWkSJ_4M)
 
 This "canvas sync" is currently a pure GM feature. It does not support players to use it yet (maybe to come in a later release).
 
