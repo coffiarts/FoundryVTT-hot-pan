@@ -85,7 +85,8 @@ Feel free to follow the ["dev" branch on GitHub](https://github.com/coffiarts/Fo
 
 Some things I am *considering* to do (feedback welcome!):
 
-- `small`: expose some more features for usage in macros, e.g. better control over UI notifications
+- `small`: include ready-to-use macros for the most basic functions in the package 
+- `medium`: expose some more features for usage in macros, e.g. better control over UI notifications
 - `big`: allow players to request screen control as well (probably needs some socket-based mechanism for GM approval at runtime, so this might be complex)
 
 ## Tech stuff
