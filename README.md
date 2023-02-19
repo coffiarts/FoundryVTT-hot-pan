@@ -17,18 +17,17 @@
 
 [<img src="src/hot-pan/artwork/hot-pan-video-thumb.png" alt="Hot Pan & Zoom! - Video demo on youtube" width="600"/>](https://youtu.be/irUmWkSJ_4M)
 
-
-- [What does it do?](#what-does-it-do-)
+- [What does it do ...](#what-does-it-do-)
 - [Changelog](#changelog)
+- [Upcoming features](#upcoming-features)
 - [Tech stuff](#tech-stuff)
   * [Adjustable module settings (i.e. game settings)](#adjustable-module-settings--ie-game-settings-)
   * [Control it by macro!](#control-it-by-macro-)
-  * [Compatibility & Dependencies](#compatibility---dependencies)
+  * [Compatibility and Dependencies](#compatibility-and-dependencies)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+  <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-
-## What does it do?
+## What does it do ...
 It is a systems-agnostic utility for keeping players' canvas position & zoom in sync with the GM's screen.
 
 For instance, it allows to take over control of the players' canvas for a short time to draw their attention to important things ("Hey! Have a look at THIS!").
@@ -70,6 +69,14 @@ Even more, it comes in handy for cinematic reasons, like in the animation sequen
 
 This "canvas sync" is currently a pure GM feature. It does not support players to use it yet (maybe to come in a later release).
 
+## Upcoming features
+Feel free to follow the ["dev" branch on GitHub](https://github.com/coffiarts/FoundryVTT-hot-pan/tree/dev) to stay tuned: [https://github.com/coffiarts/FoundryVTT-hot-pan/tree/dev](https://github.com/coffiarts/FoundryVTT-hot-pan/tree/dev)
+
+Some things I am *considering* to do (feedback welcome!):
+
+- `small`: expose some more features for usage in macros, e.g. better control over UI notifications
+- `big`: allow players to request screen control as well (probably needs some socket-based mechanism for GM approval at runtime, so this might be complex)
+
 ## Tech stuff
 ### Adjustable module settings (i.e. game settings)
 This screenshot shows the default values.
@@ -109,7 +116,7 @@ Some more variants:
     // This is done by using the switchBack() method instead of switchOff().
     HotPan?.switchBack();
 
-### Compatibility & Dependencies
+### Compatibility and Dependencies
 - ***Hot Pan & Zoom!*** uses [socketlib](https://github.com/manuelVo/foundryvtt-socketlib) for sending sync messages between the GM's session and the clients.
 - Developed and tested on Foundry VTT 10.2xx, with Chrome as the players' client.
 - **DISCLAIMER:** Be aware that I have developed and tested this mainly in local network sessions (including plain localhost connections)! So I can't claim to have run tough reality checks with this. So I am very to know how it works out for others!
