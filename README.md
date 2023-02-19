@@ -1,14 +1,20 @@
-<img src="src/hot-pan/artwork/hot-pan-logo.gif" alt="Hot Pan & Zoom! Logo"/>
+|   |                                                                                                                         |
+|---|-------------------------------------------------------------------------------------------------------------------------|
+| <img src="src/hot-pan/artwork/hot-pan-logo.gif" alt="Hot Pan & Zoom! Logo"/>  | *"One Thing to Pan Them!<br/>One Thing to Find Them!<br/>One Thing to Zoom them<br/>And to the GM's Canvas Bind Them!"* |
 
 # Hot Pan & Zoom! for Foundry VTT
-*"One Thing to Pan Them! One Thing to Find Them! One Thing to Zoom them and to the GM's Canvas Bind Them!"*
+... is a systems-agnostic utility for keeping players' canvas position & zoom in sync with the GM's screen.
+
+For instance, it allows to take over control of the players' canvas for a short time to draw their attention to important things ("Hey! Have a look at THIS!").
+
+Even more, it comes in handy for cinematic reasons, like in the animation sequence shown in the video below. Feel free to experiment!
 
 - [Changelog](#changelog)
 - [What does it do?](#what-does-it-do-)
 - [Tech stuff](#tech-stuff)
-    * [Module settings (i.e. game settings)](#module-settings--ie-game-settings-)
-    * [Control it by macro!](#control-it-by-macro-)
-    * [Compatibility & Dependencies](#compatibility---dependencies)
+  * [Adjustable module settings (i.e. game settings)](#adjustable-module-settings--ie-game-settings-)
+  * [Control it by macro!](#control-it-by-macro-)
+  * [Compatibility & Dependencies](#compatibility---dependencies)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -48,18 +54,10 @@ Have a look at the video demo: [Hot Pan & Zoom! Demo on youtube](https://youtu.b
 
 [<img src="src/hot-pan/artwork/hot-pan-video-thumb.png" alt="Hot Pan & Zoom! youtube demo" width="600"/>](https://youtu.be/irUmWkSJ_4M)
 
-***Hot Pan & Zoom!*** is a systems-agnostic utility for keeping players' canvas position & zoom in sync with the GM's screen.
-
-By this, you (as the GM) have a convenient option to point players' attention to relevant things.
-
-Best practise is always to use this only temporarily in specific situation ("hey all of you, please have a look at THIS!"). That's why the feature can be toggled on and off, either in the game settings or by a very easy-to-create custom macro (see below).
-
-Even more, you can use it for cinematic reasons, like in the long animation sequence shown in the video above. Feel free to experiment!
-
-This "canvas sync" is considered a pure GM feature in this mod. It does not support players to use it.
+This "canvas sync" is currently a pure GM feature. It does not support players to use it yet (maybe to come in a later release).
 
 ## Tech stuff
-### Module settings (i.e. game settings)
+### Adjustable module settings (i.e. game settings)
 This screenshot shows the default values.
 
 (!) Note that especially the UI notification messages can be configured to your needs.
