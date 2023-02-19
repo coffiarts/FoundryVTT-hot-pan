@@ -1,6 +1,6 @@
-|   |                                                                                                                         |
-|---|-------------------------------------------------------------------------------------------------------------------------|
-| <img src="src/hot-pan/artwork/hot-pan-logo.gif" alt="Hot Pan & Zoom! Logo"/>  | *"One Thing to Pan Them!<br/>One Thing to Find Them!<br/>One Thing to Zoom them<br/>And to the GM's Canvas Bind Them!"* |
+|   |                                                                                                                                                                                                                                                   |
+|---|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <img src="src/hot-pan/artwork/hot-pan-logo.gif" alt="Hot Pan & Zoom! Logo"/>  | Take control over your players' canvas position and zoom (manually or by macro) for demonstrations and cinematics.<br/><br/>"One Thing to Pan Them!<br/>One Thing to Find Them!<br/>One Thing to Zoom them<br/>And to the GM's Canvas Bind Them!" |
 
 # Hot Pan & Zoom! for Foundry VTT
 ... is a systems-agnostic utility for keeping players' canvas position & zoom in sync with the GM's screen.
@@ -28,7 +28,9 @@ Even more, it comes in handy for cinematic reasons, like in the animation sequen
         <td>2023-??-??</td>
         <td>
             <ul>
-                <li>Macro API more intuitive:<br/>Use HotPan.switchBack() instead of HotPan.switchOff(restoreStateBefore=true)</li>
+                <li><b>More intuitive Macro API:</b><br/>
+                    Use `HotPan.switchBack()` now instead of `HotPan.switchOff(restoreStateBefore=true)`<br/>
+                    (Please adapt existing macros accordingly -  it isn't backward compatible!) </li>
             </ul>
         </td>
     </tr>
@@ -37,7 +39,7 @@ Even more, it comes in handy for cinematic reasons, like in the animation sequen
 <details><summary>Click to see older versions</summary>
 <table>
     <tr>
-        <th>Release #</th>
+        <th>Release</th>
         <th>Date</th>
         <th>Changes</th>
     </tr>
