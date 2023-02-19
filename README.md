@@ -1,6 +1,15 @@
-|   |                                                                                                                                                                                                                                                   |
-|---|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <img src="src/hot-pan/artwork/hot-pan-logo.gif" alt="Hot Pan & Zoom! Logo"/>  | Take control over your players' canvas position and zoom (manually or by macro) for demonstrations and cinematics.<br/><br/>"One Thing to Pan Them!<br/>One Thing to Find Them!<br/>One Thing to Zoom them<br/>And to the GM's Canvas Bind Them!" |
+<table>
+  <tr>
+    <td><img src="src/hot-pan/artwork/hot-pan-logo.gif" alt="Hot Pan & Zoom! Logo"/></td>
+    <td><span style="color:#da6502">Take control over your players' canvas position and zoom (manually or by macro) for demonstrations and cinematics.</span><br/>
+        <br/>
+        <i><strong>"One Thing to Pan Them!<br/>
+            One Thing to Find Them!<br/>
+            One Thing to Zoom them<br/>
+            And to the GM's Canvas Bind Them!"</strong></i>
+    </tdstxle>
+  </tr>
+</table>
 
 # Hot Pan & Zoom! for Foundry VTT
 ... is a systems-agnostic utility for keeping players' canvas position & zoom in sync with the GM's screen.
