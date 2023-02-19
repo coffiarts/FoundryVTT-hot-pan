@@ -28,11 +28,22 @@
   <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 ## What does it do ...
+Are you tired of your players complaining about things like...
+- *"Hey, where's my token gone again?"*
+- *"Where the h... are you (the GM)? I think you've lost us! What are you trying to show us over there?"*
+
+It happens to me quite often that I (as the GM) like panning and scrolling around, enthusiastically trying to demonstrate something in the scene to my players, but I tend to forget that they cannot follow me on their screens!
+So I am frequently losing their attention without noticing.
+
+And a more fancy thing: I like scripting big macros for playing cinematic animation sequences that do a lot of stuff across the scene. But then I forget that most of it won't be noticed by the players, as it happens to take place in a far-away corner of the scene that they are currently just *not* looking at! :(
+
+**This is why I've created this whole thing.**
+
 It is a systems-agnostic utility for keeping players' canvas position & zoom in sync with the GM's screen.
 
 For instance, it allows to take over control of the players' canvas for a short time to draw their attention to important things ("Hey! Have a look at THIS!").
 
-Even more, it comes in handy for cinematic reasons, like in the animation sequence shown in the video below. Feel free to experiment!
+And it comes in handy for cinematic reasons, like in the animation sequence shown in the video demo. Feel free to experiment!
 
 ## Changelog
 <table style="border:0">
