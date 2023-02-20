@@ -56,8 +56,25 @@ export class Config {
     }
 
     static async modifySetting(key, newValue) {
+        Logger.debug("Change of game.settings requested by module:", key, "=>", newValue);
         game.settings.set(Config.data.modName, key, newValue);
-        Logger.debug("Game Setting changed by module:", key, "=>", newValue);
+
+        // It turned out to be much more stable here by waiting for game.settings to be updated.
+        // Might be an ugly workaround, better ideas welcome!
+        return new Promise(resolve => {
+            resolve(this.gameSettingConfirmed(key, newValue));
+        });
+    }
+
+    static async gameSettingConfirmed(key, expectedValue) {
+        while (game.settings.get(Config.data.modName, key) !== expectedValue) {
+            await this.sleep(500);
+        }
+    }
+
+    static async sleep(msec) {
+        Logger.debug(`Waiting for ${msec} msec. Zzzzzz....`)
+        return new Promise(resolve => setTimeout(resolve, msec));
     }
 
     /**

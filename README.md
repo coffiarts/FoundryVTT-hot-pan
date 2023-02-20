@@ -24,7 +24,9 @@
   * [Adjustable module settings (i.e. game settings)](#adjustable-module-settings--ie-game-settings-)
   * [Control it by macro!](#control-it-by-macro-)
   * [Compatibility and Dependencies](#compatibility-and-dependencies)
-
+- [Troubleshooting](#troubleshooting)
+  * [Switching off after switching on inside the same macro fails](#switching-off-after-switching-on-inside-the-same-macro-fails)
+  
   <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 ## What does it do ...
@@ -56,8 +58,13 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
         <td>
             <ul>
                 <li><b>More intuitive Macro API:</b><br/>
-                    Use `HotPan.switchBack()` now instead of `HotPan.switchOff(restoreStateBefore=true)`<br/>
+                    Use <i>HotPan.switchBack()</i> now instead of <i>HotPan.switchOff(restoreStateBefore=true)</i><br/>
                     (Old function still valid, but flagged as deprecated. Migration recommended.) </li>
+                <li><b>Stability workaround for Macro API:</b><br/>
+                    Toggling within a single macro script (<i>switchOn() => switchOff()/switchBack(), toggle() => toggle()</i>) was unreliable.<br/>
+                    Some weird asynchronous / threading behaviour which I couldn't really understand.<br/>.
+                    Added some await / Promise logic, plus updated documentation about macro usage (new troubleshooting section).<br/>
+                    Any feedback on better solutions highly appreciated!</li>
             </ul>
         </td>
     </tr>
@@ -94,6 +101,7 @@ Some things I am *considering* to do (feedback welcome!):
 This screenshot shows the default values.
 
 (!) Note that especially the UI notification messages can be configured to your needs.
+
 <img src="src/hot-pan/artwork/hot-pan-settings.png" alt="Hot Pan & Zoom! settings"/>
 
 ### Control it by macro!
@@ -107,7 +115,7 @@ Some more variants:
 
     // Toggle specifically on and off (pretty obvious)
     HotPan.switchOn();
-    HotPan.switchOff();
+    HotPan.switchOff(); // If this doesn't work, refer to "Troubleshooting" below
     
     // If your macro should not rely on HotPan being installed, to prevent runtime issues,
     // use it optionally (by using "?")
@@ -126,9 +134,28 @@ Some more variants:
     // Step 3: When all is done, switch of HotPan again, but gracefully: If the user setting was ON before,
     // you don't want to set it to OFF now!
     // This is done by using the switchBack() method instead of switchOff().
-    HotPan?.switchBack();
+    HotPan?.switchBack();  // If this doesn't work, refer to "Troubleshooting" below
 
 ### Compatibility and Dependencies
 - ***Hot Pan & Zoom!*** uses [socketlib](https://github.com/manuelVo/foundryvtt-socketlib) for sending sync messages between the GM's session and the clients.
 - Developed and tested on Foundry VTT 10.2xx, with Chrome as the players' client.
 - **DISCLAIMER:** Be aware that I have developed and tested this mainly in local network sessions (including plain localhost connections)! So I can't claim to have run tough reality checks with this. So I am very to know how it works out for others!
+
+## Troubleshooting
+### Switching off after switching on inside the same macro fails
+Toggling within a single thread (like a macro script) (e.g. <i>switchOn() => switchOff()/switchBack(), toggle() => toggle()</i>) can be unreliable.
+It's some weird asynchronicity / threading issue I haven't fully understood.
+
+Workaround:
+
+    // Toggle on (as usual)
+    HotPan.switchOn();
+    <...>
+    // But for switching off, encapsulate function calls within setTimeout():
+    setTimeout(function(){HotPan.switchOff()}, 100);
+    <or>
+    setTimeout(function(){HotPan.switchBack()}, 100);
+    <or>
+    setTimeout(function(){HotPan.toggle()}, 100);
+
+This might be an ugly solution caused by my noob-i-ness, any better ideas highly appreciated!

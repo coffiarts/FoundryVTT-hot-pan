@@ -89,7 +89,6 @@ async function initCanvasListeners() {
     Hooks.on("canvasPan", async function (canvas, position) {
         if (!game.user.isGM) return; // Only the GM shall be allowed to force canvas position on others!
         if (!Config.setting('isActive')) return;
-        Logger.debug("Pushing canvas position from GM to clients.");
         socket.executeForOthers("pushPanToClients", {position: position, username: game.user.name});
     });
     Logger.debug("Canvas is ready (listeners registered)");
@@ -97,9 +96,9 @@ async function initCanvasListeners() {
 
 async function initExposedClasses() {
     window.HotPan = HotPan;
-    Hooks.on("updateSetting", async function (setting, value) {
+    Hooks.on("updateSetting", async function (setting) {
         if (setting.key.startsWith(Config.data.modName)) {
-            HotPan.applyChangedGameSetting(setting, value);
+            HotPan.onGameSettingChanged();
         }
     });
     Logger.debug("Exposed classes are ready");
@@ -141,6 +140,10 @@ export class HotPan {
         this.#switch(this.#previousState);
     }
 
+    static toggle() {
+        this.#switch(!this.#isActive);
+    }
+
     static isOn() {
         return this.#isActive;
     }
@@ -149,17 +152,15 @@ export class HotPan {
         return !this.#isActive;
     }
 
-    static toggle() {
-        this.#switch(!this.#isActive);
-    }
-
-    static #switch(newState) {
+    static async #switch(newState) {
         this.#previousState = this.#isActive;
-        this.#isActive = newState;
-        Config.modifySetting('isActive', this.#isActive);
+        // propagate change to the game settings, and wait for it to complete
+        // It turned out to be much more stable here by waiting for game.settings to be updated.
+        // Might be an ugly workaround, better ideas welcome!
+        await Config.modifySetting('isActive', newState);
     }
 
-    static applyChangedGameSetting() {
+    static onGameSettingChanged() {
         this.#isActive = Config.setting('isActive');
         this.stateChangeUIMessage();
     }
