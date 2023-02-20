@@ -54,7 +54,7 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
     </tr>
     <tr>
         <td>1.0.1</td>
-        <td>2023-20-02</td>
+        <td>2023-02-20</td>
         <td>
             <ul>
                 <li><b>More intuitive Macro API:</b><br/>
