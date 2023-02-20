@@ -57,7 +57,7 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
             <ul>
                 <li><b>More intuitive Macro API:</b><br/>
                     Use `HotPan.switchBack()` now instead of `HotPan.switchOff(restoreStateBefore=true)`<br/>
-                    (Please adapt existing macros accordingly -  it isn't backward compatible!) </li>
+                    (Old function still valid, but flagged as deprecated. Migration recommended.) </li>
             </ul>
         </td>
     </tr>

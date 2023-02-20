@@ -130,6 +130,13 @@ export class HotPan {
         this.#switch(false);
     }
 
+    /**
+     * @deprecated - Parameter restoreStateBefore is deprecated. Please use switchBack() for restoring previous state.
+     */
+    static switchOff(restoreStateBefore = false) {
+        this.#switch(restoreStateBefore ? this.#previousState : false);
+    }
+
     static switchBack() {
         this.#switch(this.#previousState);
     }
