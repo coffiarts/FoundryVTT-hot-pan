@@ -53,8 +53,27 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
         <th colspan="3" style="text-align: left">Latest Version</th>
     </tr>
     <tr>
+        <td>1.0.2</td>
+        <td>2023-??-??</td>
+        <td>
+            <ul>
+                <li><b>(Feature):</b><br/>
+                    (Description)</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<details><summary>Click to see older versions</summary>
+<table>
+    <tr>
+        <th>Release</th>
+        <th>Date</th>
+        <th>Changes</th>
+    </tr>
+    <tr>
         <td>1.0.1</td>
-        <td>2023-20-02</td>
+        <td>2023-02-20</td>
         <td>
             <ul>
                 <li><b>More intuitive Macro API:</b><br/>
@@ -67,15 +86,6 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
                     Any feedback on better solutions highly appreciated!</li>
             </ul>
         </td>
-    </tr>
-</table>
-
-<details><summary>Click to see older versions</summary>
-<table>
-    <tr>
-        <th>Release</th>
-        <th>Date</th>
-        <th>Changes</th>
     </tr>
     <tr>
         <td>1.0.0</td>
