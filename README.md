@@ -62,7 +62,7 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
                     (Old function still valid, but flagged as deprecated. Migration recommended.) </li>
                 <li><b>Stability workaround for Macro API:</b><br/>
                     Toggling within a single macro script (<i>switchOn() => switchOff()/switchBack(), toggle() => toggle()</i>) was unreliable.<br/>
-                    Some weird asynchronous / threading behaviour which I couldn't really understand.<br/>.
+                    Some weird asynchronicity / threading behaviour which I couldn't really understand.<br/>.
                     Added some await / Promise logic, plus updated documentation about macro usage (new troubleshooting section).<br/>
                     Any feedback on better solutions highly appreciated!</li>
             </ul>
