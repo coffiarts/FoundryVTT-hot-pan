@@ -50,7 +50,29 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
 ## Changelog
 <table style="border:0">
     <tr>
-        <th colspan="3" style="text-align: left">Latest Version</th>
+        <th colspan="3" style="text-align: left">Latest Version <span style="color:red">(alpha!)</span></th>
+    </tr>
+    <tr>
+        <td>1.0.2-alpha</td>
+        <td>2023-02-21</td>
+        <td>
+            <ul>
+                <li><b>Example macro(s) now provided as compendium pack:</b><br/>
+                    Find included a compendium pack with a default macro that can easily be adjusted to your needs.<br/>
+                    Find further explanations inline in the macro's code:<br/>
+                    <img src="src/hot-pan/artwork/hot-pan-macro-compendium.png" alt="Hot Pan & Zoom! - Macro Compendium" width="400"/>
+                    </li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<details><summary>Click to see older versions</summary>
+<table>
+    <tr>
+        <th>Release</th>
+        <th>Date</th>
+        <th>Changes</th>
     </tr>
     <tr>
         <td>1.0.1</td>
@@ -68,15 +90,6 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
             </ul>
         </td>
     </tr>
-</table>
-
-<details><summary>Click to see older versions</summary>
-<table>
-    <tr>
-        <th>Release</th>
-        <th>Date</th>
-        <th>Changes</th>
-    </tr>
     <tr>
         <td>1.0.0</td>
         <td>2023-02-18</td>
@@ -92,7 +105,7 @@ Feel free to follow the ["dev" branch on GitHub](https://github.com/coffiarts/Fo
 
 Some things I am *considering* to do (feedback welcome!):
 
-- `small`: include ready-to-use macros for the most basic functions in the package 
+- `small`: ~~include ready-to-use macros for the most basic functions in the package~~ => **DONE (Rel. 1.0.2)** 
 - `medium`: expose some more features for usage in macros, e.g. better control over UI notifications
 - `big`: allow players to request screen control as well (probably needs some socket-based mechanism for GM approval at runtime, so this might be complex)
 
@@ -107,11 +120,15 @@ This screenshot shows the default values.
 ### Control it by macro!
 The module runs automatically in the backend as a module, but it can also easily be controlled through macro code.
 
-For this, use the exposed `class HotPan` - just like this, it's a no-brainer:
+The module comes with its own macro compendium pack containing just one prebuilt example. Use and modify this according to your needs:
+
+<img src="src/hot-pan/artwork/hot-pan-macro-compendium.png" alt="Hot Pan & Zoom! - Macro compendium"/>
+
+The macro uses the exposed `class HotPan` - just like this, it's a no-brainer:
 
 <img src="src/hot-pan/artwork/hot-pan-toggle-macro.png" alt="Hot Pan & Zoom! macro example"/>
 
-Some more variants:
+Some variants:
 
     // Toggle specifically on and off (pretty obvious)
     HotPan.switchOn();
