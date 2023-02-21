@@ -50,10 +50,10 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
 ## Changelog
 <table style="border:0">
     <tr>
-        <th colspan="3" style="text-align: left">Latest Version <span style="color:red">(alpha!)</span></th>
+        <th colspan="3" style="text-align: left">Latest Version</span></th>
     </tr>
     <tr>
-        <td>1.0.2-alpha</td>
+        <td>1.0.2</td>
         <td>2023-02-21</td>
         <td>
             <ul>
