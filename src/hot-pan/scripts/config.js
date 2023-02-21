@@ -20,6 +20,16 @@ export class Config {
     static async init() {
         // Register all globally relevant game settings here
         const data = {
+            modVersion: {
+                scope: 'client', config: true, type: String, default: game.modules.get('hot-pan').version,
+                onChange: value => {
+                    if (value !== game.modules.get('hot-pan').version) {
+                        // This "pseudo-setting" is meant for display only.
+                        // So we always want to snap back to its default on change
+                        game.settings.set(Config.data.modName, `modVersion`, game.modules.get('hot-pan').version);
+                    }
+                }
+            },
             isActive: {
                 scope: 'world', config: true, type: Boolean, default: false,
             },
@@ -34,6 +44,13 @@ export class Config {
             }
         };
         Config.registerSettings(data);
+
+        // Whenever loading up, we need to adjust the "pseudo-setting" modVersion once to the current value from
+        // the manifest. Otherwise, module updates won't be reflected in its value (users would always see their first
+        // installed version ever in the settings menu).
+        game.settings.set(Config.data.modName, 'modVersion', game.modules.get('hot-pan').version);
+        Logger.debug("Canvas is ready (listeners registered)");
+
     }
 
     static registerSettings(settingsData) {

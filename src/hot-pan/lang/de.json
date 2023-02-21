@@ -1,6 +1,10 @@
 {
   "hot-pan": {
     "setting": {
+      "modVersion": {
+        "name": "Version",
+        "hint": "Aktuell installierte Modulversion (hier nicht änderbar)."
+      },
       "debug": {
         "name": "Debug-Modus",
         "hint": "Aktiviert das Debug Logging."

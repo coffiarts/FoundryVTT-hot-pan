@@ -1,6 +1,10 @@
 {
   "hot-pan": {
     "setting": {
+      "modVersion": {
+        "name": "Version",
+        "hint": "Currently installed module version (can't be changed here)."
+      },
       "debug": {
         "name": "Debug mode",
         "hint": "Client-side setting enabling extended debug logging."
