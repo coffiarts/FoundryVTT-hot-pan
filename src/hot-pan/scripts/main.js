@@ -8,6 +8,7 @@ const SUBMODULES = {
     chatinfo: ChatInfo
 };
 
+let ready;
 let socket;
 
 /*
@@ -19,6 +20,7 @@ let socket;
 
         await allPrerequisitesReady();
 
+        ready = true;
         Logger.info(`Ready to play! Version: ${game.modules.get(Config.data.modID).version}`);
         Logger.info(Config.data.modDescription);
         if (Config.setting('isActive')) {
@@ -35,8 +37,7 @@ async function allPrerequisitesReady() {
     return Promise.all([
         areDependenciesReady(),
         isSocketlibReady(),
-        areCanvasListenersReady(),
-        areExposedClassesReady()
+        areCanvasListenersReady()
     ]);
 }
 
@@ -44,6 +45,7 @@ async function areDependenciesReady() {
     return new Promise(resolve => {
         Hooks.once('setup', () => {
             resolve(initDependencies());
+            resolve(initExposedClasses());
         });
     });
 }
@@ -64,19 +66,21 @@ async function areCanvasListenersReady() {
     });
 }
 
-async function areExposedClassesReady() {
-    return new Promise(resolve => {
-        Hooks.once('init', () => {
-            resolve(initExposedClasses());
-        });
-    });
-}
-
 async function initDependencies() {
     Object.values(SUBMODULES).forEach(function (cl) {
         cl.init(); // includes loading each module's settings
         Logger.debug("Submodule loaded:", cl.name);
     });
+}
+
+async function initExposedClasses() {
+    window.HotPan = HotPan;
+    Hooks.on("updateSetting", async function (setting) {
+        if (setting.key.startsWith(Config.data.modID)) {
+            HotPan.onGameSettingChanged();
+        }
+    });
+    Logger.debug("Exposed classes are ready");
 }
 
 async function initSocketlib() {
@@ -92,16 +96,6 @@ async function initCanvasListeners() {
         socket.executeForOthers("pushPanToClients", {position: position, username: game.user.name});
     });
     Logger.debug("Canvas is ready (listeners registered)");
-}
-
-async function initExposedClasses() {
-    window.HotPan = HotPan;
-    Hooks.on("updateSetting", async function (setting) {
-        if (setting.key.startsWith(Config.data.modID)) {
-            HotPan.onGameSettingChanged();
-        }
-    });
-    Logger.debug("Exposed classes are ready");
 }
 
 /*
@@ -121,6 +115,9 @@ export class HotPan {
     static #isActive = false;
     static #previousState;
 
+    static healthCheck() {
+        alert(`Module '${Config.data.modTitle}' says: '${ready ? `I am alive!` : `I am NOT ready - something went wrong:(`}'` );
+    }
     static switchOn() {
         this.#switch(true);
     }
