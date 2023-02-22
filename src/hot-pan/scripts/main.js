@@ -19,7 +19,7 @@ let socket;
 
         await allPrerequisitesReady();
 
-        Logger.info(`Ready to play! Version: ${game.modules.get('hot-pan').version}`);
+        Logger.info(`Ready to play! Version: ${game.modules.get(Config.data.modID).version}`);
         Logger.info(Config.data.modDescription);
         if (Config.setting('isActive')) {
             HotPan.switchOn();

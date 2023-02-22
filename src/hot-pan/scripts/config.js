@@ -5,7 +5,7 @@ const MOD_ID = "hot-pan";
 const MOD_PATH = `/modules/${MOD_ID}`;
 const MOD_TITLE = "Hot Pan & Zoom!";
 const MOD_DESCRIPTION = "One Mod to Pan Them! One Mod to Zoom Them! One Mod to Find them and to the GM's Canvas Bind Them!";
-const MOD_LINK = `https://github.com/coffiarts/FoundryVTT-hot-pan`;
+const MOD_LINK = `https://github.com/coffiarts/FoundryVTT-${MOD_ID}`;
 
 export class Config {
     static data = {
