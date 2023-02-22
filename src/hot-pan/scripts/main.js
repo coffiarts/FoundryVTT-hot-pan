@@ -8,7 +8,7 @@ const SUBMODULES = {
     chatinfo: ChatInfo
 };
 
-let ready;
+let ready2play;
 let socket;
 
 /*
@@ -20,7 +20,7 @@ let socket;
 
         await allPrerequisitesReady();
 
-        ready = true;
+        ready2play = true;
         Logger.info(`Ready to play! Version: ${game.modules.get(Config.data.modID).version}`);
         Logger.info(Config.data.modDescription);
         if (Config.setting('isActive')) {
@@ -116,7 +116,7 @@ export class HotPan {
     static #previousState;
 
     static healthCheck() {
-        alert(`Module '${Config.data.modTitle}' says: '${ready ? `I am alive!` : `I am NOT ready - something went wrong:(`}'` );
+        alert(`Module '${Config.data.modTitle}' says: '${ready2play ? `I am alive!` : `I am NOT ready - something went wrong:(`}'` );
     }
     static switchOn() {
         this.#switch(true);
