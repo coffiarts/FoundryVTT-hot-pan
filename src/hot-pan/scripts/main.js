@@ -2,11 +2,11 @@ import {Logger} from './logger.js';
 import {Config} from './config.js'
 import {ChatInfo} from "./chatinfo.js";
 
-const DEPENDENCIES = {
+const SUBMODULES = {
     MODULE: Config,
     logger: Logger,
     chatinfo: ChatInfo
-}
+};
 
 let socket;
 
@@ -73,16 +73,16 @@ async function areExposedClassesReady() {
 }
 
 async function initDependencies() {
-    Object.values(DEPENDENCIES).forEach(function (cl) {
+    Object.values(SUBMODULES).forEach(function (cl) {
         cl.init(); // includes loading each module's settings
-        Logger.debug("Dependency loaded:", cl.name);
+        Logger.debug("Submodule loaded:", cl.name);
     });
 }
 
 async function initSocketlib() {
-    socket = socketlib.registerModule(Config.data.modName);
+    socket = socketlib.registerModule(Config.data.modID);
     socket.register("pushPanToClients", pushPanToClients);
-    Logger.debug(`Module ${Config.data.modName} registered in socketlib.`);
+    Logger.debug(`Module ${Config.data.modID} registered in socketlib.`);
 }
 
 async function initCanvasListeners() {
@@ -97,7 +97,7 @@ async function initCanvasListeners() {
 async function initExposedClasses() {
     window.HotPan = HotPan;
     Hooks.on("updateSetting", async function (setting) {
-        if (setting.key.startsWith(Config.data.modName)) {
+        if (setting.key.startsWith(Config.data.modID)) {
             HotPan.onGameSettingChanged();
         }
     });

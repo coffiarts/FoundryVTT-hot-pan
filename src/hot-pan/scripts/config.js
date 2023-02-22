@@ -1,16 +1,15 @@
 import {Logger} from './logger.js';
 
 // keep values in sync with module.json!
-const MOD_NAME = "hot-pan";
-const MOD_PATH = `/modules/${MOD_NAME}`;
+const MOD_ID = "hot-pan";
+const MOD_PATH = `/modules/${MOD_ID}`;
 const MOD_TITLE = "Hot Pan & Zoom!";
 const MOD_DESCRIPTION = "One Mod to Pan Them! One Mod to Zoom Them! One Mod to Find them and to the GM's Canvas Bind Them!";
 const MOD_LINK = `https://github.com/coffiarts/FoundryVTT-hot-pan`;
 
 export class Config {
     static data = {
-        // keep these values in sync with your module.json!
-        modName: MOD_NAME,
+        modID: MOD_ID,
         modPath: MOD_PATH,
         modTitle: MOD_TITLE,
         modDescription: MOD_DESCRIPTION,
@@ -18,15 +17,16 @@ export class Config {
     };
 
     static async init() {
+
         // Register all globally relevant game settings here
         const data = {
             modVersion: {
-                scope: 'client', config: true, type: String, default: game.modules.get('hot-pan').version,
+                scope: 'client', config: true, type: String, default: game.modules.get(MOD_ID).version,
                 onChange: value => {
-                    if (value !== game.modules.get('hot-pan').version) {
+                    if (value !== game.modules.get(MOD_ID).version) {
                         // This "pseudo-setting" is meant for display only.
                         // So we always want to snap back to its default on change
-                        game.settings.set(Config.data.modName, `modVersion`, game.modules.get('hot-pan').version);
+                        game.settings.set(Config.data.modID, `modVersion`, game.modules.get(MOD_ID).version);
                     }
                 }
             },
@@ -48,8 +48,8 @@ export class Config {
         // Whenever loading up, we need to adjust the "pseudo-setting" modVersion once to the current value from
         // the manifest. Otherwise, module updates won't be reflected in its value (users would always see their first
         // installed version ever in the settings menu).
-        game.settings.set(Config.data.modName, 'modVersion', game.modules.get('hot-pan').version);
-        Logger.debug("Canvas is ready (listeners registered)");
+        game.settings.set(Config.data.modID, 'modVersion', game.modules.get(MOD_ID).version);
+        Logger.debug("Settings registered)");
 
     }
 
@@ -58,7 +58,7 @@ export class Config {
             let name = Config.localize(`setting.${key}.name`);
             let hint = Config.localize(`setting.${key}.hint`);
             game.settings.register(
-                Config.data.modName, key, {
+                Config.data.modID, key, {
                     name: name,
                     hint: hint,
                     ...data
@@ -69,12 +69,12 @@ export class Config {
     }
 
     static setting(key) {
-        return game.settings.get(Config.data.modName, key);
+        return game.settings.get(Config.data.modID, key);
     }
 
     static async modifySetting(key, newValue) {
         Logger.debug("Change of game.settings requested by module:", key, "=>", newValue);
-        game.settings.set(Config.data.modName, key, newValue);
+        game.settings.set(Config.data.modID, key, newValue);
 
         // It turned out to be much more stable here by waiting for game.settings to be updated.
         // Might be an ugly workaround, better ideas welcome!
@@ -84,7 +84,7 @@ export class Config {
     }
 
     static async gameSettingConfirmed(key, expectedValue) {
-        while (game.settings.get(Config.data.modName, key) !== expectedValue) {
+        while (game.settings.get(Config.data.modID, key) !== expectedValue) {
             await this.sleep(500);
         }
     }
@@ -104,11 +104,11 @@ export class Config {
      * @memberof Config
      */
     static localize(key) {
-        return game.i18n.localize(`${Config.data.modName}.${key}`);
+        return game.i18n.localize(`${Config.data.modID}.${key}`);
     }
 
     static format(key, data) {
-        return game.i18n.format(`${Config.data.modName}.${key}`, data);
+        return game.i18n.format(`${Config.data.modID}.${key}`, data);
     }
 
 
