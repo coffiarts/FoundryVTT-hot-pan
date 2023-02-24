@@ -156,7 +156,7 @@ Some variants:
 ### Compatibility and Dependencies
 - ***Hot Pan & Zoom!*** uses [socketlib](https://github.com/manuelVo/foundryvtt-socketlib) for sending sync messages between the GM's session and the clients.
 - Developed and tested on Foundry VTT 10.2xx, with Chrome as the players' client.
-- **DISCLAIMER:** Be aware that I have developed and tested this mainly in local network sessions (including plain localhost connections)! So I can't claim to have run tough reality checks with this. So I am very to know how it works out for others!
+- **DISCLAIMER:** Be aware that I have developed and tested this mainly in local network sessions (including plain localhost connections)! So I can't claim to have run tough reality checks with this. So I am very eager to know how it works out for others!
 
 ## Troubleshooting
 ### Switching off after switching on inside the same macro fails
