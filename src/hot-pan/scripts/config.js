@@ -73,7 +73,7 @@ export class Config {
     }
 
     static async modifySetting(key, newValue) {
-        Logger.debug("Change of game.settings requested by module:", key, "=>", newValue);
+        // Logger.debug("Change of game.settings requested by module:", key, "=>", newValue);
         game.settings.set(Config.data.modID, key, newValue);
 
         // It turned out to be much more stable here by waiting for game.settings to be updated.
@@ -84,7 +84,9 @@ export class Config {
     }
 
     static async gameSettingConfirmed(key, expectedValue) {
-        while (game.settings.get(Config.data.modID, key) !== expectedValue) {
+        // Logger.debug(`expected: ${Config.data.modID}.${key} = ${expectedValue}`);
+        let safetyCount = 0;
+        while (safetyCount++ <10 && game.settings.get(Config.data.modID, key) !== expectedValue) {
             await this.sleep(500);
         }
     }

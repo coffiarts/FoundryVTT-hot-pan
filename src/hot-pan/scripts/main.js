@@ -11,9 +11,9 @@ const SUBMODULES = {
 let ready2play;
 let socket;
 
-/*
-  Global initializer:
-  First of all, we need to initialize a lot of stuff in correct order:
+/**
+ * Global initializer block:
+ * First of all, we need to initialize a lot of stuff in correct order:
  */
 (async () => {
         console.log("Hot Pan & Zoom! | Initializing Module");
@@ -21,7 +21,7 @@ let socket;
         await allPrerequisitesReady();
 
         ready2play = true;
-        Logger.info(`Ready to play! Version: ${game.modules.get(Config.data.modID).version}`);
+        Logger.infoGreen(`Ready to play! Version: ${game.modules.get(Config.data.modID).version}`);
         Logger.info(Config.data.modDescription);
         if (Config.setting('isActive')) {
             HotPan.switchOn();
@@ -85,7 +85,8 @@ async function initExposedClasses() {
 
 async function initSocketlib() {
     socket = socketlib.registerModule(Config.data.modID);
-    socket.register("pushPanToClients", pushPanToClients);
+    socket.register("pushCanvasPositionToClients", pushCanvasPositionToClients);
+    socket.register("pushSilentModeToClients", pushSilentModeToClients);
     Logger.debug(`Module ${Config.data.modID} registered in socketlib.`);
 }
 
@@ -93,52 +94,66 @@ async function initCanvasListeners() {
     Hooks.on("canvasPan", async function (canvas, position) {
         if (!game.user.isGM) return; // Only the GM shall be allowed to force canvas position on others!
         if (!Config.setting('isActive')) return;
-        socket.executeForOthers("pushPanToClients", {position: position, username: game.user.name});
+        socket.executeForOthers("pushCanvasPositionToClients", {position: position, username: game.user.name});
     });
     Logger.debug("Canvas is ready (listeners registered)");
 }
 
-/*
-And then, finally...
-HERE is our core function doing all the work while in game!
-Nice and nifty...
-*/
-async function pushPanToClients(data) {
-    Logger.debug("pushPanToClients from", data.username, "to", game.user.name, "canvasPosition", data.position);
+/**
+ * And then, finally...
+ * HERE is our core function doing all the work while in game!
+ * Nice and nifty...
+ * @param data
+ * @returns {Promise<void>}
+ */
+async function pushCanvasPositionToClients(data) {
+    Logger.debug("pushCanvasPositionToClients from", data.username, "to", game.user.name, "canvasPosition", data.position);
     canvas.animatePan(data.position);
 }
 
-/*
-Public class for accessing this module through macro code
+/**
+ * A socketlib callback for propagating silentMode (=suppress UI message) to the clients
+ * @param data - silentMode, username
+ * @returns {Promise<void>}
+ */
+async function pushSilentModeToClients(data) {
+    Logger.debug("pushSilentModeToClients from", data.username, "to", game.user.name, data.silentMode);
+    HotPan.setSilentMode(data.silentMode);
+}
+
+/**
+ * Public class for accessing this module through macro code
  */
 export class HotPan {
     static #isActive = false;
     static #previousState;
+    static #isSilentMode;
 
     static healthCheck() {
         alert(`Module '${Config.data.modTitle}' says: '${ready2play ? `I am alive!` : `I am NOT ready - something went wrong:(`}'` );
     }
-    static switchOn() {
-        this.#switch(true);
+    static switchOn(silentMode = false) {
+        this.#switch(true, silentMode);
     }
 
-    static switchOff() {
-        this.#switch(false);
+    static switchOff(silentMode = false) {
+        this.#switch(false, silentMode);
     }
 
     /**
      * @deprecated - Parameter restoreStateBefore is deprecated. Please use switchBack() for restoring previous state.
      */
     static switchOff(restoreStateBefore = false) {
-        this.#switch(restoreStateBefore ? this.#previousState : false);
+        this.#switch(
+            restoreStateBefore ? this.#previousState : false);
     }
 
-    static switchBack() {
-        this.#switch(this.#previousState);
+    static switchBack(silentMode = false) {
+        this.#switch(this.#previousState, silentMode);
     }
 
-    static toggle() {
-        this.#switch(!this.#isActive);
+    static toggle(silentMode = false) {
+        this.#switch(!this.#isActive, silentMode);
     }
 
     static isOn() {
@@ -149,7 +164,19 @@ export class HotPan {
         return !this.#isActive;
     }
 
-    static async #switch(newState) {
+    static setSilentMode(newValue) {
+        this.#isSilentMode = newValue;
+        Logger.info(`this.#isSilentMode: ${this.#isSilentMode}`);
+    }
+
+    static async #switch(newState, silentMode = false) {
+        if (this.#isSilentMode !== silentMode) {
+            this.setSilentMode(silentMode);
+            // if (game.user.isGM) {
+            //     Logger.debug("pushSilentModeToClients from ", game.user.name, "to ALL.", data.silentMode);
+            //     socket.executeForOthers("pushSilentModeToClients", { silentMode: silentMode, username: game.user.name });
+            // }
+        }
         this.#previousState = this.#isActive;
         // propagate change to the game settings, and wait for it to complete
         // It turned out to be much more stable here by waiting for game.settings to be updated.
@@ -163,6 +190,10 @@ export class HotPan {
     }
 
     static stateChangeUIMessage() {
+        if (this.#isSilentMode) {
+            this.setSilentMode(false);
+            return;
+        }
         let message =
             (this.#isActive ? Config.localize('onOffUIMessage.whenON') : Config.localize('onOffUIMessage.whenOFF'));
 
