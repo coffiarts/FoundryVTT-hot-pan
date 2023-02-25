@@ -188,7 +188,7 @@ export class HotPan {
 
     static onGameSettingChanged() {
         this.#isActive = Config.setting('isActive');
-        Logger.debug(`game.user.isGM: ${game.user.isGM}`);
+
         if (game.user.isGM && Config.setting('notifyOnChange')) {
             // UI messages should only be triggered by the GM via sockets.
             // This seems to be the only way to suppress them if needed.

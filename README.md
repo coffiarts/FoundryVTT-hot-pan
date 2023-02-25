@@ -50,7 +50,34 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
 ## Changelog
 <table style="border:0">
     <tr>
-        <th colspan="3" style="text-align: left">Latest Version</span></th>
+        <th colspan="3" style="text-align: left">Latest Version</th>
+    </tr>
+    <tr>
+        <td>1.1.0</td>
+        <td>2023-02-25</td>
+        <td>
+            <ol>
+                <li>
+                    <b>Introducing new "silentMode" parameter for suppressing UI messages on demand:</b><br/>
+                    Especially when automating Hot Pan & Zoom in macros, UI messages can be tedious.<br/>
+                    Instead of switching them of in the game settings, you can now suppress them for individual calls of <i>switchOn(), switchOff(), switchBack() and toggle()</i> by an optional paramter:<br/>
+                    <i>swichOn(<b>true</b>);</i><br/>
+                    <i>swichOff(<b>true</b>);</i><br/>
+                    <i>swichBack(<b>true</b>);</i><br/>
+                    <i>toggle(<b>true</b>);</i>
+                </li>
+                <li>Various minor refactorings</li>
+            </ol>
+        </td>
+    </tr>
+</table>
+
+<details><summary>Click to see older versions</summary>
+<table>
+    <tr>
+        <th>Release</th>
+        <th>Date</th>
+        <th>Changes</th>
     </tr>
     <tr>
         <td>1.0.2</td>
@@ -65,20 +92,11 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
             </ul>
         </td>
     </tr>
-</table>
-
-<details><summary>Click to see older versions</summary>
-<table>
-    <tr>
-        <th>Release</th>
-        <th>Date</th>
-        <th>Changes</th>
-    </tr>
     <tr>
         <td>1.0.1</td>
         <td>2023-02-20</td>
         <td>
-            <ul>
+            <ol>
                 <li><b>More intuitive Macro API:</b><br/>
                     Use <i>HotPan.switchBack()</i> now instead of <i>HotPan.switchOff(restoreStateBefore=true)</i><br/>
                     (Old function still valid, but flagged as deprecated. Migration recommended.) </li>
@@ -87,7 +105,7 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
                     Some weird asynchronicity / threading behaviour which I couldn't really understand.<br/>.
                     Added some await / Promise logic, plus updated documentation about macro usage (new troubleshooting section).<br/>
                     Any feedback on better solutions highly appreciated!</li>
-            </ul>
+            </ol>
         </td>
     </tr>
     <tr>
@@ -106,7 +124,7 @@ Feel free to follow the ["dev" branch on GitHub](https://github.com/coffiarts/Fo
 Some things I am *considering* to do (feedback welcome!):
 
 - `small`: ~~include ready-to-use macros for the most basic functions in the package~~ => **DONE (Rel. 1.0.2)** 
-- `medium`: expose some more features for usage in macros, e.g. better control over UI notifications
+- `medium`: ~~expose some more features for usage in macros, e.g. better control over UI notifications~~ => **DONE (Rel. 1.0.3)**
 - `big`: allow players to request screen control as well (probably needs some socket-based mechanism for GM approval at runtime, so this might be complex)
 
 ## Tech stuff
@@ -138,20 +156,22 @@ Some variants:
     // use it optionally (by using "?")
     HotPan?.switchOn();
     
-    // And now the advanced scenario:
+    // And now for the advanced scenarios:
     // Use HotPan (optionally) in a macro running a multi-step animation sequence,
     // AND prevent that the GM's preference (active state of the mod) is not overridden afterwards:
     
     // Step 1: activate Hot Pan & Zoom!
-    HotPan?.SetOn();
+    HotPan?.switchOn();
+    // A special recommendation here is to suppress UI messages (supported as of v1.1.0)
+    HotPan?.switchOn(true); // true means "silentMode", being effective always for a single switch action 
     
     // Step 2: Run all your fancy animation stuff and watch the players' map view following yours
     <...>
     
     // Step 3: When all is done, switch of HotPan again, but gracefully: If the user setting was ON before,
     // you don't want to set it to OFF now!
-    // This is done by using the switchBack() method instead of switchOff().
-    HotPan?.switchBack();  // If this doesn't work, refer to "Troubleshooting" below
+    // This is done by using the switchBack(true) method instead of switchOff(true). True, again, meaning "silentMode", which is the recommendation during macro automation
+    HotPan?.switchBack(true);  // If this doesn't work, refer to "Troubleshooting" below
 
 ### Compatibility and Dependencies
 - ***Hot Pan & Zoom!*** uses [socketlib](https://github.com/manuelVo/foundryvtt-socketlib) for sending sync messages between the GM's session and the clients.
