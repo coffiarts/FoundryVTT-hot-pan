@@ -2,24 +2,26 @@ import {Logger} from './logger.js';
 import {Config} from './config.js'
 import {ChatInfo} from "./chatinfo.js";
 
-const DEPENDENCIES = {
+const SUBMODULES = {
     MODULE: Config,
     logger: Logger,
     chatinfo: ChatInfo
-}
+};
 
+let ready2play;
 let socket;
 
-/*
-  Global initializer:
-  First of all, we need to initialize a lot of stuff in correct order:
+/**
+ * Global initializer block:
+ * First of all, we need to initialize a lot of stuff in correct order:
  */
 (async () => {
         console.log("Hot Pan & Zoom! | Initializing Module");
 
         await allPrerequisitesReady();
 
-        Logger.info("Ready to play!");
+        ready2play = true;
+        Logger.infoGreen(`Ready to play! Version: ${game.modules.get(Config.data.modID).version}`);
         Logger.info(Config.data.modDescription);
         if (Config.setting('isActive')) {
             HotPan.switchOn();
@@ -35,8 +37,7 @@ async function allPrerequisitesReady() {
     return Promise.all([
         areDependenciesReady(),
         isSocketlibReady(),
-        areCanvasListenersReady(),
-        areExposedClassesReady()
+        areCanvasListenersReady()
     ]);
 }
 
@@ -44,6 +45,7 @@ async function areDependenciesReady() {
     return new Promise(resolve => {
         Hooks.once('setup', () => {
             resolve(initDependencies());
+            resolve(initExposedClasses());
         });
     });
 }
@@ -64,84 +66,101 @@ async function areCanvasListenersReady() {
     });
 }
 
-async function areExposedClassesReady() {
-    return new Promise(resolve => {
-        Hooks.once('init', () => {
-            resolve(initExposedClasses());
-        });
-    });
-}
-
 async function initDependencies() {
-    Object.values(DEPENDENCIES).forEach(function (cl) {
+    Object.values(SUBMODULES).forEach(function (cl) {
         cl.init(); // includes loading each module's settings
-        Logger.debug("Dependency loaded:", cl.name);
+        Logger.debug("Submodule loaded:", cl.name);
     });
-}
-
-async function initSocketlib() {
-    socket = socketlib.registerModule(Config.data.modName);
-    socket.register("pushPanToClients", pushPanToClients);
-    Logger.debug(`Module ${Config.data.modName} registered in socketlib.`);
-}
-
-async function initCanvasListeners() {
-    Hooks.on("canvasPan", async function (canvas, position) {
-        if (!game.user.isGM) return; // Only the GM shall be allowed to force canvas position on others!
-        if (!Config.setting('isActive')) return;
-        socket.executeForOthers("pushPanToClients", {position: position, username: game.user.name});
-    });
-    Logger.debug("Canvas is ready (listeners registered)");
 }
 
 async function initExposedClasses() {
     window.HotPan = HotPan;
     Hooks.on("updateSetting", async function (setting) {
-        if (setting.key.startsWith(Config.data.modName)) {
+        if (setting.key.startsWith(Config.data.modID)) {
             HotPan.onGameSettingChanged();
         }
     });
     Logger.debug("Exposed classes are ready");
 }
 
-/*
-And then, finally...
-HERE is our core function doing all the work while in game!
-Nice and nifty...
-*/
-async function pushPanToClients(data) {
-    Logger.debug("pushPanToClients from", data.username, "to", game.user.name, "canvasPosition", data.position);
+async function initSocketlib() {
+    socket = socketlib.registerModule(Config.data.modID);
+    socket.register("pushCanvasPositionToClients", pushCanvasPositionToClients);
+    socket.register("stateChangeUIMessage", HotPan.stateChangeUIMessage);
+    Logger.debug(`Module ${Config.data.modID} registered in socketlib.`);
+}
+
+async function initCanvasListeners() {
+    Hooks.on("canvasPan", async function (canvas, position) {
+        if (!game.user.isGM) return; // Only the GM shall be allowed to force canvas position on others!
+        if (!Config.setting('isActive')) return;
+        socket.executeForOthers("pushCanvasPositionToClients", {position: position, username: game.user.name});
+    });
+    Logger.debug("Canvas is ready (listeners registered)");
+}
+
+/**
+ * And then, finally...
+ * HERE is our core function doing all the work while in game!
+ * Nice and nifty...
+ * @param data
+ * @returns {Promise<void>}
+ */
+async function pushCanvasPositionToClients(data) {
+    Logger.debug("pushCanvasPositionToClients from", data.username, "to", game.user.name, "canvasPosition", data.position);
     canvas.animatePan(data.position);
 }
 
-/*
-Public class for accessing this module through macro code
+/**
+ * Public class for accessing this module through macro code
  */
 export class HotPan {
     static #isActive = false;
     static #previousState;
+    static #isSilentMode;
 
-    static switchOn() {
-        this.#switch(true);
+    static healthCheck() {
+        alert(`Module '${Config.data.modTitle}' says: '${ready2play ? `I am alive!` : `I am NOT ready - something went wrong:(`}'` );
     }
 
-    static switchOff() {
-        this.#switch(false);
+    /**
+     * 
+     * @param silentMode if true, any UI messages related to this switch action will be suppressed (overriding game settings)
+     */
+    static switchOn(silentMode = false) {
+        this.#switch(true, silentMode);
+    }
+
+    /**
+     * 
+     * @param silentMode if true, any UI messages related to this switch action will be suppressed (overriding game settings)
+     */
+    static switchOff(silentMode = false) {
+        this.#switch(false, silentMode);
     }
 
     /**
      * @deprecated - Parameter restoreStateBefore is deprecated. Please use switchBack() for restoring previous state.
      */
     static switchOff(restoreStateBefore = false) {
-        this.#switch(restoreStateBefore ? this.#previousState : false);
+        this.#switch(
+            restoreStateBefore ? this.#previousState : false);
     }
 
-    static switchBack() {
-        this.#switch(this.#previousState);
+    /**
+     * 
+     * @param silentMode if true, any UI messages related to this switch action will be suppressed (overriding game settings)
+     */
+    static switchBack(silentMode = false) {
+        this.#switch(this.#previousState, silentMode);
     }
 
-    static toggle() {
-        this.#switch(!this.#isActive);
+    /**
+     * 
+     * @param silentMode if true, any UI messages related to this switch action will be suppressed (overriding game settings)
+     */
+    static toggle(silentMode = false) {
+        this.#switch(!this.#isActive, silentMode);
     }
 
     static isOn() {
@@ -152,7 +171,14 @@ export class HotPan {
         return !this.#isActive;
     }
 
-    static async #switch(newState) {
+    /**
+     * 
+     * @param newState
+     * @param silentMode if true, any UI messages related to this switch action will be suppressed (overriding game settings)
+     * @returns {Promise<void>}
+     */
+    static async #switch(newState, silentMode = false) {
+        this.#isSilentMode = silentMode;
         this.#previousState = this.#isActive;
         // propagate change to the game settings, and wait for it to complete
         // It turned out to be much more stable here by waiting for game.settings to be updated.
@@ -162,15 +188,24 @@ export class HotPan {
 
     static onGameSettingChanged() {
         this.#isActive = Config.setting('isActive');
-        this.stateChangeUIMessage();
+        Logger.debug(`game.user.isGM: ${game.user.isGM}`);
+        if (game.user.isGM && Config.setting('notifyOnChange')) {
+            // UI messages should only be triggered by the GM via sockets.
+            // This seems to be the only way to suppress them if needed.
+            if (!this.#isSilentMode) {
+                socket.executeForEveryone("stateChangeUIMessage");
+            } else {
+                this.#isSilentMode = false;
+            }
+        }
     }
 
     static stateChangeUIMessage() {
         let message =
-            (this.#isActive ? Config.localize('onOffUIMessage.whenON') : Config.localize('onOffUIMessage.whenOFF'));
+            (HotPan.#isActive ? Config.localize('onOffUIMessage.whenON') : Config.localize('onOffUIMessage.whenOFF'));
 
-        if (this.#isActive && Config.setting('warnWhenON') ||
-            !this.#isActive && Config.setting('warnWhenOFF')) {
+        if (HotPan.#isActive && Config.setting('warnWhenON') ||
+            !HotPan.#isActive && Config.setting('warnWhenOFF')) {
             if (Config.setting('notifyOnChange')) {
                 ui.notifications.warn(Config.data.modTitle + " " + message, {
                     permanent: false,
@@ -180,13 +215,11 @@ export class HotPan {
             }
             Logger.warn(true, message);
         } else {
-            if (Config.setting('notifyOnChange')) {
-                ui.notifications.info(Config.data.modTitle + " " + message, {
-                    permanent: false,
-                    localize: false,
-                    console: false
-                });
-            }
+            ui.notifications.info(Config.data.modTitle + " " + message, {
+                permanent: false,
+                localize: false,
+                console: false
+            });
             Logger.info(message);
         }
     }

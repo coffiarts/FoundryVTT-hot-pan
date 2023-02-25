@@ -1,6 +1,10 @@
 {
   "hot-pan": {
     "setting": {
+      "modVersion": {
+        "name": "Version",
+        "hint": "Aktuell installierte Modulversion (hier nicht änderbar)."
+      },
       "debug": {
         "name": "Debug-Modus",
         "hint": "Aktiviert das Debug Logging."
@@ -30,7 +34,7 @@
       "title": "Hot Pan & Zoom!",
       "text1": "&quot;One Thing to Pan Them! One Thing to Find Them! One Thing to Zoom them and to the GM's Canvas Bind Them!&quot;",
       "text2": "Hot Pan & Zoom! ist ein system-unabhängiges Helferlein, mit dem Bildschirmposition und -zoom zwischen Spielleiter und Spielern synchronisiert werden kann. Es funktioniert sowohl im Hintergrund als auch steuerbar via Makros.",
-      "text3": "Bitte Moduleinstellungen in den Spieleinstellungen beachten. Mehr Details zu Hot Pan & Zoom! ausserdem auf GitHub",
+      "text3": "Bitte Moduleinstellungen in den Spieleinstellungen beachten. Mehr Details außerdem auf GitHub",
       "footer": "Diese Nachricht wird nur einmal angezeigt. Zum Wiederanzeigen bitte die entsprechende Option in den Moduleinstellungen verwenden."
     },
     "onOffUIMessage": {
