@@ -17,17 +17,16 @@
 
 [<img src="src/hot-pan/artwork/hot-pan-video-thumb.png" alt="Hot Pan & Zoom! - Video demo on youtube" width="600"/>](https://youtu.be/irUmWkSJ_4M)
 
-- [What does it do ...](#what-does-it-do-)
-- [Changelog](#changelog)
-- [Upcoming features](#upcoming-features)
-- [Tech stuff](#tech-stuff)
-  * [Adjustable module settings (i.e. game settings)](#adjustable-module-settings--ie-game-settings-)
-  * [Control it by macro!](#control-it-by-macro-)
-  * [Compatibility and Dependencies](#compatibility-and-dependencies)
-- [Troubleshooting](#troubleshooting)
-  * [Switching off after switching on inside the same macro fails](#switching-off-after-switching-on-inside-the-same-macro-fails)
-  
-  <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+* [What does it do ...](#what-does-it-do-)
+* [Changelog](#changelog)
+* [Adjustable module settings](#adjustable-module-settings)
+* [Control it by macro](#control-it-by-macro)
+* [Compatibility and Dependencies](#compatibility-and-dependencies)
+* [Upcoming features](#upcoming-features)
+* [Troubleshooting](#troubleshooting)
+  - [Switching off after switching on inside the same macro fails](#switching-off-after-switching-on-inside-the-same-macro-fails)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 ## What does it do ...
 Are you tired of your players complaining about things like...
@@ -53,11 +52,14 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
         <th colspan="3" style="text-align: left">Latest Version</th>
     </tr>
     <tr>
-        <td>1.1.1</td>
-        <td>2023-03-05</td>
+        <td>11.0.0</td>
+        <td>2023-05-28</td>
         <td>
-            <b>Minor technical patch</b><br/>
-            Fixing name of macro pack in manifest
+            <b>Foundry 11 compatibility release</b><br/>
+          <span style="color:green">
+            From now on, major versions will always reflect the corresponding Foundry VTT major version<br/>
+            (i.e. mod version 11.x.x => compatible with Foundry v11, and so on)
+          </span>
         </td>
     </tr>
 </table>
@@ -68,6 +70,14 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
         <th>Release</th>
         <th>Date</th>
         <th>Changes</th>
+    </tr>
+    <tr>
+        <td>1.1.1</td>
+        <td>2023-03-05</td>
+        <td>
+            <b>Minor technical patch</b><br/>
+            Fixing name of macro pack in manifest
+        </td>
     </tr>
     <tr>
         <td>1.1.0</td>
@@ -126,24 +136,14 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
 
 This "canvas sync" is currently a pure GM feature. It does not support players to use it yet (maybe to come in a later release).
 
-## Upcoming features
-Feel free to follow the ["dev" branch on GitHub](https://github.com/coffiarts/FoundryVTT-hot-pan/tree/dev) to stay tuned: [https://github.com/coffiarts/FoundryVTT-hot-pan/tree/dev](https://github.com/coffiarts/FoundryVTT-hot-pan/tree/dev)
-
-Some things I am *considering* to do (feedback welcome!):
-
-- `small`: ~~include ready-to-use macros for the most basic functions in the package~~ => **DONE (Rel. 1.0.2)** 
-- `medium`: ~~expose some more features for usage in macros, e.g. better control over UI notifications~~ => **DONE (Rel. 1.0.3)**
-- `big`: allow players to request screen control as well (probably needs some socket-based mechanism for GM approval at runtime, so this might be complex)
-
-## Tech stuff
-### Adjustable module settings (i.e. game settings)
+## Adjustable module settings
 This screenshot shows the default values.
 
 (!) Note that especially the UI notification messages can be configured to your needs.
 
 <img src="src/hot-pan/artwork/hot-pan-settings.png" alt="Hot Pan & Zoom! settings"/>
 
-### Control it by macro!
+## Control it by macro
 The module runs automatically in the backend as a module, but it can also easily be controlled through macro code.
 
 The module comes with its own macro compendium pack containing just one prebuilt example. Use and modify this according to your needs:
@@ -181,13 +181,21 @@ Some variants:
     // This is done by using the switchBack(true) method instead of switchOff(true). True, again, meaning "silentMode", which is the recommendation during macro automation
     HotPan?.switchBack(true);  // If this doesn't work, refer to "Troubleshooting" below
 
-### Compatibility and Dependencies
+## Compatibility and Dependencies
 - ***Hot Pan & Zoom!*** uses [socketlib](https://github.com/manuelVo/foundryvtt-socketlib) for sending sync messages between the GM's session and the clients.
 - Developed and tested on Foundry VTT 10.2xx, with Chrome as the players' client.
+- Works excellently in combination with [Always Centred](https://github.com/SDoehren/always-centred) by [SDoehren](https://github.com/SDoehren). I WARMLY recommend to use both mods together!
 - **DISCLAIMER:** Be aware that I have developed and tested this mainly in local network sessions (including plain localhost connections)! So I can't claim to have run tough reality checks with this. So I am very eager to know how it works out for others!
 
-## Troubleshooting
-### Switching off after switching on inside the same macro fails
+## Upcoming features
+- `small`: ~~include ready-to-use macros for the most basic functions in the package~~ => **DONE (Rel. 1.0.2)**
+- `medium`: ~~expose some more features for usage in macros, e.g. better control over UI notifications~~ => **DONE (Rel. 1.0.3)**
+- `big`: allow players to request screen control as well (probably needs some socket-based mechanism for GM approval at runtime, so this might be complex)
+
+- Feel free to follow the ["dev" branch on GitHub](https://github.com/coffiarts/FoundryVTT-hot-pan/tree/dev) to stay tuned: [https://github.com/coffiarts/FoundryVTT-hot-pan/tree/dev](https://github.com/coffiarts/FoundryVTT-hot-pan/tree/dev)
+
+# Troubleshooting
+## Switching off after switching on inside the same macro fails
 Toggling within a single thread (like a macro script) (e.g. <i>switchOn() => switchOff()/switchBack(), toggle() => toggle()</i>) can be unreliable.
 It's some weird asynchronicity / threading issue I haven't fully understood.
 
