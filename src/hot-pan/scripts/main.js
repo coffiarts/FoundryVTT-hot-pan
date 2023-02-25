@@ -86,7 +86,7 @@ async function initExposedClasses() {
 async function initSocketlib() {
     socket = socketlib.registerModule(Config.data.modID);
     socket.register("pushCanvasPositionToClients", pushCanvasPositionToClients);
-    socket.register("pushSilentModeToClients", pushSilentModeToClients);
+    socket.register("stateChangeUIMessage", HotPan.stateChangeUIMessage);
     Logger.debug(`Module ${Config.data.modID} registered in socketlib.`);
 }
 
@@ -112,16 +112,6 @@ async function pushCanvasPositionToClients(data) {
 }
 
 /**
- * A socketlib callback for propagating silentMode (=suppress UI message) to the clients
- * @param data - silentMode, username
- * @returns {Promise<void>}
- */
-async function pushSilentModeToClients(data) {
-    Logger.debug("pushSilentModeToClients from", data.username, "to", game.user.name, data.silentMode);
-    HotPan.setSilentMode(data.silentMode);
-}
-
-/**
  * Public class for accessing this module through macro code
  */
 export class HotPan {
@@ -132,10 +122,19 @@ export class HotPan {
     static healthCheck() {
         alert(`Module '${Config.data.modTitle}' says: '${ready2play ? `I am alive!` : `I am NOT ready - something went wrong:(`}'` );
     }
+
+    /**
+     * 
+     * @param silentMode if true, any UI messages related to this switch action will be suppressed (overriding game settings)
+     */
     static switchOn(silentMode = false) {
         this.#switch(true, silentMode);
     }
 
+    /**
+     * 
+     * @param silentMode if true, any UI messages related to this switch action will be suppressed (overriding game settings)
+     */
     static switchOff(silentMode = false) {
         this.#switch(false, silentMode);
     }
@@ -148,10 +147,18 @@ export class HotPan {
             restoreStateBefore ? this.#previousState : false);
     }
 
+    /**
+     * 
+     * @param silentMode if true, any UI messages related to this switch action will be suppressed (overriding game settings)
+     */
     static switchBack(silentMode = false) {
         this.#switch(this.#previousState, silentMode);
     }
 
+    /**
+     * 
+     * @param silentMode if true, any UI messages related to this switch action will be suppressed (overriding game settings)
+     */
     static toggle(silentMode = false) {
         this.#switch(!this.#isActive, silentMode);
     }
@@ -164,19 +171,14 @@ export class HotPan {
         return !this.#isActive;
     }
 
-    static setSilentMode(newValue) {
-        this.#isSilentMode = newValue;
-        Logger.info(`this.#isSilentMode: ${this.#isSilentMode}`);
-    }
-
+    /**
+     * 
+     * @param newState
+     * @param silentMode if true, any UI messages related to this switch action will be suppressed (overriding game settings)
+     * @returns {Promise<void>}
+     */
     static async #switch(newState, silentMode = false) {
-        if (this.#isSilentMode !== silentMode) {
-            this.setSilentMode(silentMode);
-            // if (game.user.isGM) {
-            //     Logger.debug("pushSilentModeToClients from ", game.user.name, "to ALL.", data.silentMode);
-            //     socket.executeForOthers("pushSilentModeToClients", { silentMode: silentMode, username: game.user.name });
-            // }
-        }
+        this.#isSilentMode = silentMode;
         this.#previousState = this.#isActive;
         // propagate change to the game settings, and wait for it to complete
         // It turned out to be much more stable here by waiting for game.settings to be updated.
@@ -186,19 +188,24 @@ export class HotPan {
 
     static onGameSettingChanged() {
         this.#isActive = Config.setting('isActive');
-        this.stateChangeUIMessage();
+        Logger.debug(`game.user.isGM: ${game.user.isGM}`);
+        if (game.user.isGM && Config.setting('notifyOnChange')) {
+            // UI messages should only be triggered by the GM via sockets.
+            // This seems to be the only way to suppress them if needed.
+            if (!this.#isSilentMode) {
+                socket.executeForEveryone("stateChangeUIMessage");
+            } else {
+                this.#isSilentMode = false;
+            }
+        }
     }
 
     static stateChangeUIMessage() {
-        if (this.#isSilentMode) {
-            this.setSilentMode(false);
-            return;
-        }
         let message =
-            (this.#isActive ? Config.localize('onOffUIMessage.whenON') : Config.localize('onOffUIMessage.whenOFF'));
+            (HotPan.#isActive ? Config.localize('onOffUIMessage.whenON') : Config.localize('onOffUIMessage.whenOFF'));
 
-        if (this.#isActive && Config.setting('warnWhenON') ||
-            !this.#isActive && Config.setting('warnWhenOFF')) {
+        if (HotPan.#isActive && Config.setting('warnWhenON') ||
+            !HotPan.#isActive && Config.setting('warnWhenOFF')) {
             if (Config.setting('notifyOnChange')) {
                 ui.notifications.warn(Config.data.modTitle + " " + message, {
                     permanent: false,
@@ -208,13 +215,11 @@ export class HotPan {
             }
             Logger.warn(true, message);
         } else {
-            if (Config.setting('notifyOnChange')) {
-                ui.notifications.info(Config.data.modTitle + " " + message, {
-                    permanent: false,
-                    localize: false,
-                    console: false
-                });
-            }
+            ui.notifications.info(Config.data.modTitle + " " + message, {
+                permanent: false,
+                localize: false,
+                console: false
+            });
             Logger.info(message);
         }
     }
