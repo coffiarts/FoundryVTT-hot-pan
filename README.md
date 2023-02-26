@@ -60,7 +60,7 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
                 <li>
                     <b>Introducing new "silentMode" parameter for suppressing UI messages on demand:</b><br/>
                     Especially when automating Hot Pan & Zoom in macros, UI messages can be tedious.<br/>
-                    Instead of switching them of in the game settings, you can now suppress them for individual calls of <i>switchOn(), switchOff(), switchBack() and toggle()</i> by an optional paramter:<br/>
+                    Instead of switching them off in the game settings, you can now suppress them for individual calls of <i>switchOn(), switchOff(), switchBack() and toggle()</i> by an optional paramter:<br/>
                     <i>swichOn(<b>true</b>);</i><br/>
                     <i>swichOff(<b>true</b>);</i><br/>
                     <i>swichBack(<b>true</b>);</i><br/>
