@@ -53,6 +53,23 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
         <th colspan="3" style="text-align: left">Latest Version</th>
     </tr>
     <tr>
+        <td>1.1.1</td>
+        <td>2023-03-05</td>
+        <td>
+            <b>Minor technical patch</b><br/>
+            Fixing name of macro pack in manifest
+        </td>
+    </tr>
+</table>
+
+<details><summary>Click to see older versions</summary>
+<table>
+    <tr>
+        <th>Release</th>
+        <th>Date</th>
+        <th>Changes</th>
+    </tr>
+    <tr>
         <td>1.1.0</td>
         <td>2023-02-25</td>
         <td>
@@ -69,15 +86,6 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
                 <li>Various minor refactorings</li>
             </ol>
         </td>
-    </tr>
-</table>
-
-<details><summary>Click to see older versions</summary>
-<table>
-    <tr>
-        <th>Release</th>
-        <th>Date</th>
-        <th>Changes</th>
     </tr>
     <tr>
         <td>1.0.2</td>
