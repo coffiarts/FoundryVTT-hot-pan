@@ -56,7 +56,8 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
         <td>2023-05-28</td>
         <td>
             <b>Foundry 11 compatibility release</b><br/>
-            Actually, nothing has changed, technically. It had already been compatible. There are some minor optimizations to logging and readme though.<br/>
+            Actually, nothing has changed, technically. It had already been compatible, and it is still backward-compatible with v10.<br/>
+            There are some minor optimizations to logging and readme, though.<br/>
             In addition, I want to clearly signal v11 compatibility by this new release number.<br>
             <span style="color:green">
               From now on, my major versions will always reflect the corresponding Foundry VTT major version<br/>
