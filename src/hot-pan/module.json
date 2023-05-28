@@ -8,11 +8,11 @@
   "manifest": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/latest/module.json",
   "download": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/latest/module.zip",
   "compatibility": {
-    "minimum": "11",
+    "minimum": "10",
     "verified": "11.299",
     "maximum": "11"
   },
-  "minimumCoreVersion": "11",
+  "minimumCoreVersion": "10",
   "media": [
     {
       "type": "setup",

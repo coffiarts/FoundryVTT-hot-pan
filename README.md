@@ -185,7 +185,7 @@ Some variants:
 
 ## Compatibility and Dependencies
 - ***Hot Pan & Zoom!*** uses [socketlib](https://github.com/manuelVo/foundryvtt-socketlib) for sending sync messages between the GM's session and the clients.
-- Developed and tested on Foundry VTT 10.2xx, with Chrome as the players' client.
+- Developed and tested on Foundry VTT 10.2xx and 11.2xx, with Chrome as the players' client.
 - Works excellently in combination with [Always Centred](https://github.com/SDoehren/always-centred) by [SDoehren](https://github.com/SDoehren). I WARMLY recommend to use both mods together!
 - **DISCLAIMER:** Be aware that I have developed and tested this mainly in local network sessions (including plain localhost connections)! So I can't claim to have run tough reality checks with this. So I am very eager to know how it works out for others!
 
