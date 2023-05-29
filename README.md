@@ -52,6 +52,15 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
         <th colspan="3" style="text-align: left">Latest Version</th>
     </tr>
     <tr>
+        <td>11.0.1</td>
+        <td>2023-05-29</td>
+        <td>
+            <b>Additional recommended dependency added: Always Centred</b><br/>
+            I recommend to use this mod together with [Always Centred](https://github.com/SDoehren/always-centred) by [SDoehren](https://github.com/SDoehren).<br/>
+            The new Foundry version (11) supports such optional dependencies to be properly declared in the manifest, which is what I have done hereby.
+        </td>
+    </tr>
+    <tr>
         <td>11.0.0</td>
         <td>2023-05-28</td>
         <td>
