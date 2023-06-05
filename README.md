@@ -52,6 +52,15 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
         <th colspan="3" style="text-align: left">Latest Version</th>
     </tr>
     <tr>
+        <td>11.0.2</td>
+        <td>2023-06-05</td>
+        <td>
+            <b>Compatibility info simplified</b><br/>
+            Reduced verified compatibility to main version (11) of FoundryVTT (instead of specific patch version)<br/>
+            This gets rid of unnecessary "incompatibility risk" flags with every new patch version.
+        </td>
+    </tr>
+    <tr>
         <td>11.0.1</td>
         <td>2023-05-29</td>
         <td>
