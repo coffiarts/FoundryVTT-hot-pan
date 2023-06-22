@@ -20,15 +20,17 @@ let socket;
 
         await allPrerequisitesReady();
 
-        ready2play = true;
-        Logger.infoGreen(`Ready to play! Version: ${game.modules.get(Config.data.modID).version}`);
-        Logger.info(Config.data.modDescription);
-        if (Config.setting('isActive')) {
-            HotPan.switchOn();
-            HotPan.stateChangeUIMessage();
-        } else {
-            HotPan.switchOff();
-        }
+        Hooks.once("ready", () =>  {
+            ready2play = true;
+            Logger.infoGreen(`Ready to play! Version: ${game.modules.get(Config.data.modID).version}`);
+            Logger.info(Config.data.modDescription);
+            if (Config.setting('isActive')) {
+                HotPan.switchOn();
+                HotPan.stateChangeUIMessage();
+            } else {
+                HotPan.switchOff();
+            }
+        });
     }
 )
 ();

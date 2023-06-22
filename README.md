@@ -52,6 +52,16 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
         <th colspan="3" style="text-align: left">Latest Version</th>
     </tr>
     <tr>
+        <td>11.0.3</td>
+        <td>2023-06-22</td>
+        <td>
+            <b>Getting rid of unnecessary console error on game load</b><br/>
+            Just technical - My module didn't handle its initialization sequence properly, causing an error in the
+            browser console on startup ("Uncaught (in promise) Error: undefined. You may not set a World-level Setting before the Game is ready").
+            The error was harmless but unnecessary. This fix makes it go away.
+        </td>
+    </tr>
+    <tr>
         <td>11.0.2</td>
         <td>2023-06-05</td>
         <td>
