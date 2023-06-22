@@ -52,6 +52,14 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
         <th colspan="3" style="text-align: left">Latest Version</th>
     </tr>
     <tr>
+        <td>11.0.4</td>
+        <td>2023-xx-xx</td>
+        <td>
+            <b>xxx</b><br/>
+            xxx
+        </td>
+    </tr>
+    <tr>
         <td>11.0.3</td>
         <td>2023-06-22</td>
         <td>
