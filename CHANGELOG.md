@@ -54,7 +54,7 @@
 ### 2023-02-21 - Example macro(s) now provided as compendium pack:
 - Find included a compendium pack with a default macro that can easily be adjusted to your needs.<br/>
   Find further explanations inline in the macro's code:<br/>
-  <img src="src/hot-pan/artwork/hot-pan-macro-compendium.png" alt="Hot Pan & Zoom! - Macro Compendium" width="400"/>
+  <img src="https://github.com/coffiarts/FoundryVTT-hot-pan/blob/master/src/hot-pan/artwork/hot-pan-macro-compendium.png?raw=true" alt="Hot Pan & Zoom! - Macro Compendium" width="400"/>
 
 ## 1.0.1
 ### 2023-02-20 - 
