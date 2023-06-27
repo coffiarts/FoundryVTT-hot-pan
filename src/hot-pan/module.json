@@ -42,9 +42,9 @@
       {
         "id": "always-centred",
         "type": "module",
-        "manifest": "https://github.com/SDoehren/always-centred/releases/download/V0008/module.json",
+        "manifest": "https://github.com/SDoehren/always-centred/releases/download/0010/module.json",
         "compatibility": {
-          "verified": "0087"
+          "verified": "0010"
         }
       }
     ]
