@@ -53,10 +53,11 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
     </tr>
     <tr>
         <td>11.0.4</td>
-        <td>2023-xx-xx</td>
+        <td>2023-06-27</td>
         <td>
-            <b>xxx</b><br/>
-            xxx
+            <b>Changelog & Readme optimization for Module Management+</b><br/>
+            Refactored documentation so that it can be properly displayed & linked in-game by [Module Management+](https://github.com/mouse0270/module-credits),
+            which is a veeeery helpful mod that I waaaaarmly recommend!
         </td>
     </tr>
     <tr>
@@ -74,7 +75,7 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
         <td>2023-06-05</td>
         <td>
             <b>Compatibility info simplified</b><br/>
-            Reduced verified compatibility to main version (11) of FoundryVTT (instead of specific patch version)<br/>
+            Reduced verified compatibility to main version (11) of FoundryVTT (instead of specific patch version).<br/>
             This gets rid of unnecessary "incompatibility risk" flags with every new patch version.
         </td>
     </tr>

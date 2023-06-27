@@ -15,7 +15,7 @@ jobs:
 
       - name: Zip Files
         working-directory: ./
-        run: zip -r ./module.zip ./src/hot-pan/*
+        run: zip -r ./module.zip ./src/hot-pan/* ./*.md
 
       - name: Get Version
         shell: bash
