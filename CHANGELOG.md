@@ -1,3 +1,11 @@
+## 11.0.5
+### 2023-12-11 - LockView compatibility fix
+
+- If you're using [LockView](https://github.com/MaterialFoundry/LockView) by [CDeenen](https://github.com/CDeenen) together
+  with my mod, LockView's pan and zoom lock will now be automatically deactivated and reactivated whenever toggling Hot Pan & Zoom! on and off.<br/>
+  Before that, both modules where incompatible (i.e. LockView's pan and zoom locks, while active, were blocking functionality of this mod).
+
+
 ## 11.0.4
 ### 2023-06-27 - Changelog & Readme optimization for Module Management+
 - Refactored documentation so that it can be properly displayed & linked in-game by [Module Management+](https://github.com/mouse0270/module-credits),<br/>

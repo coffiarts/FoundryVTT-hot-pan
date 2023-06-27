@@ -10,6 +10,7 @@ const SUBMODULES = {
 
 let ready2play;
 let socket;
+let lockViewStatus;
 
 /**
  * Global initializer block:
@@ -175,17 +176,43 @@ export class HotPan {
 
     /**
      * 
-     * @param newState
+     * @param newStateIsON
      * @param silentMode if true, any UI messages related to this switch action will be suppressed (overriding game settings)
      * @returns {Promise<void>}
      */
-    static async #switch(newState, silentMode = false) {
+    static async #switch(newStateIsON, silentMode = false) {
+
+        // first of all, handle lockView, if this 3rd-party module is present (see https://github.com/MaterialFoundry/LockView)
+        if (game.modules.get("LockView")?.active) {
+            if (newStateIsON) {
+                // when switching HotPan ON, remember LockView's current state, then disable it
+                lockViewStatus = {
+                    panLock: canvas.scene.getFlag('LockView', 'lockPan'),
+                    zoomLock: canvas.scene.getFlag('LockView', 'lockZoom')
+                };
+                await Hooks.call('setLockView', {
+                    "panLock": false,
+                    "zoomLock": false
+                });
+                Logger.debug("Grabbing current LockView state: ", lockViewStatus);
+            } else {
+                // otherwise (when switching OFF), restore LockView's previous state (given that it's known)
+                if (lockViewStatus) {
+                    Logger.debug("Restoring previous LockView state: ", lockViewStatus);
+                    await Hooks.call('setLockView', {
+                        "panLock": lockViewStatus.panLock,
+                        "zoomLock": lockViewStatus.zoomLock
+                    });
+                    lockViewStatus = null;
+                }
+            }
+        }
         this.#isSilentMode = silentMode;
         this.#previousState = this.#isActive;
         // propagate change to the game settings, and wait for it to complete
         // It turned out to be much more stable here by waiting for game.settings to be updated.
         // Might be an ugly workaround, better ideas welcome!
-        await Config.modifySetting('isActive', newState);
+        await Config.modifySetting('isActive', newStateIsON);
     }
 
     static onGameSettingChanged() {

@@ -61,6 +61,18 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
         <th colspan="3" style="text-align: left">Latest Version</th>
     </tr>
     <tr>
+        <td>11.0.5</td>
+        <td>2023-12-11</td>
+        <td>
+            <b>LockView compatibility fix</b><br/>
+            <img src="src/hot-pan/artwork/hot-pan-lockview-compatibility.png" alt="Hot Pan & Zoom! - LockView compatibility"/><br/>
+            If you're using <a href="https://github.com/MaterialFoundry/LockView" target="_blank">LockView</a> 
+            by <a href="https://github.com/CDeenen" target="_blank">CDeenen</a> together
+            with my mod, LockView's pan and zoom lock will now be automatically deactivated and reactivated whenever toggling Hot Pan & Zoom! on and off.<br/>
+            Before that, both modules where incompatible (i.e. LockView's pan and zoom locks, while active, were blocking functionality of this mod).
+        </td>
+    </tr>
+    <tr>
         <td>11.0.4</td>
         <td>2023-06-27</td>
         <td>
@@ -235,9 +247,8 @@ Some variants:
 
 ## Compatibility and Dependencies
 - ***Hot Pan & Zoom!*** uses [socketlib](https://github.com/manuelVo/foundryvtt-socketlib) for sending sync messages between the GM's session and the clients.
-- Developed and tested on Foundry VTT 10.2xx and 11.2xx, with Chrome as the players' client.
-- Works excellently in combination with [Always Centred](https://github.com/SDoehren/always-centred) by [SDoehren](https://github.com/SDoehren). I WARMLY recommend to use both mods together!
-- **DISCLAIMER:** Be aware that I have developed and tested this mainly in local network sessions (including plain localhost connections)! So I can't claim to have run tough reality checks with this. So I am very eager to know how it works out for others!
+- Developped and tested on Foundry VTT 11.2xx and higher, with Chrome as the players' client (I _assume_, but cannot _guarantee_ that it's still compatible with v10.x).
+- Works excellently in combination with [Always Centred](https://github.com/SDoehren/always-centred) by [SDoehren](https://github.com/SDoehren) and [LockView](https://github.com/MaterialFoundry/LockView) by [CDeenen](https://github.com/CDeenen). I WARMLY recommend to use both mods together!
 
 ## Upcoming features
 - `small`: ~~include ready-to-use macros for the most basic functions in the package~~ => **DONE (Rel. 1.0.2)**
