@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - dev
 
 jobs:
   build:
@@ -13,9 +14,14 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Copy Readme & Changelog to src dir before zipping
+        run: |
+          cp "./README.md" "./src/hot-pan/"
+          cp "./CHANGELOG.md" "./src/hot-pan/"
+
       - name: Zip Files
         working-directory: ./
-        run: zip -r ./module.zip ./src/hot-pan/* ./*.md
+        run: zip -r ./module.zip ./src/hot-pan/*
 
       - name: Get Version
         shell: bash
@@ -31,5 +37,5 @@ jobs:
           draft: false
           prerelease: true
           token: ${{secrets.GITHUB_TOKEN}}
-          artifacts: './module.zip, ./src/hot-pan/module.json'
+          artifacts: './module.zip, ./src/hot-pan/module.json, ./README.md, ./CHANGELOG.md'
           tag: ${{ steps.get-version.outputs.version }}
