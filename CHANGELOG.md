@@ -2,6 +2,7 @@
 ### 2023-06-27 - Changelog & Readme optimization for Module Management+
 - Refactored documentation so that it can be properly displayed & linked in-game by [Module Management+](https://github.com/mouse0270/module-credits),<br/>
   which is a veeeery helpful mod that I waaaaarmly recommend!
+- Updated recommended dependency from always-centred to latest v11-compatible version (0010)
 
 
 ## 11.0.3

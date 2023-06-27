@@ -56,8 +56,11 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
         <td>2023-06-27</td>
         <td>
             <b>Changelog & Readme optimization for Module Management+</b><br/>
-            Refactored documentation so that it can be properly displayed & linked in-game by [Module Management+](https://github.com/mouse0270/module-credits),
-            which is a veeeery helpful mod that I waaaaarmly recommend!
+            <ul>
+                <li>Refactored documentation so that it can be properly displayed & linked in-game by [Module Management+](https://github.com/mouse0270/module-credits),
+                which is a veeeery helpful mod that I waaaaarmly recommend!</li>
+                <li>Updated recommended dependency from always-centred to latest v11-compatible version (0010)</li>
+            </ul>
         </td>
     </tr>
     <tr>
