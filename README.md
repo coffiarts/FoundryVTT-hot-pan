@@ -12,6 +12,15 @@
   </tr>
 </table>
 
+- Are you on [Forge VTT](https://forge-vtt.com/)?
+- Do you like my work?
+- Do you REALLY like my work?
+- Could you even imagine to DONATE?
+
+Feel free to head over to this mod on Forge, where you can even pay for it what you like: https://eu.forge-vtt.com/bazaar/package/shake-them-all
+
+This is absolutely optional! Don't feel obliged in any way to do so. My mod is and will remain available for free.
+
 ## Video demo on youtube
 [Hot Pan & Zoom! Demo](https://youtu.be/irUmWkSJ_4M)
 
