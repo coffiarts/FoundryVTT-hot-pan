@@ -72,6 +72,15 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
             Before that, both modules were incompatible (i.e. LockView's pan and zoom locks, while active, were blocking functionality of this mod).
         </td>
     </tr>
+</table>
+
+<details><summary>Click to see older versions</summary>
+<table>
+    <tr>
+        <th>Release</th>
+        <th>Date</th>
+        <th>Changes</th>
+    </tr>
     <tr>
         <td>11.0.4</td>
         <td>2023-06-27</td>
@@ -125,15 +134,6 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
               (i.e. mod version 11.x.x => compatible with Foundry v11, and so on)
             </span>
         </td>
-    </tr>
-</table>
-
-<details><summary>Click to see older versions</summary>
-<table>
-    <tr>
-        <th>Release</th>
-        <th>Date</th>
-        <th>Changes</th>
     </tr>
     <tr>
         <td>1.1.1</td>
