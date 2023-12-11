@@ -3,7 +3,7 @@
 
 - If you're using [LockView](https://github.com/MaterialFoundry/LockView) by [CDeenen](https://github.com/CDeenen) together
   with my mod, LockView's pan and zoom lock will now be automatically deactivated and reactivated whenever toggling Hot Pan & Zoom! on and off.<br/>
-  Before that, both modules where incompatible (i.e. LockView's pan and zoom locks, while active, were blocking functionality of this mod).
+  Before that, both modules were incompatible (i.e. LockView's pan and zoom locks, while active, were blocking functionality of this mod).
 
 
 ## 11.0.4
