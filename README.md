@@ -61,6 +61,14 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
         <th colspan="3" style="text-align: left">Latest Version</th>
     </tr>
     <tr>
+        <td>11.0.6</td>
+        <td>2023-12-14</td>
+        <td>
+            <b>Minor fix of instable module activation</b><br/>
+            Fixes a minor bug that could sporadically result in this module not activating properly during startup.
+        </td>
+    </tr>
+    <tr>
         <td>11.0.5</td>
         <td>2023-12-11</td>
         <td>

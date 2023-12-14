@@ -163,7 +163,7 @@ export class HotPan {
      * @param silentMode if true, any UI messages related to this switch action will be suppressed (overriding game settings)
      */
     static toggle(silentMode = false) {
-        this.#switch(!this.#isActive, silentMode);
+        this.#switch(!Config.setting('isActive'), silentMode);
     }
 
     static isOn() {
@@ -195,7 +195,7 @@ export class HotPan {
                     "zoomLock": false
                 });
                 Logger.debug("Grabbing current LockView state: ", lockViewStatus);
-            } else {
+            } else { // switching OFF
                 // otherwise (when switching OFF), restore LockView's previous state (given that it's known)
                 if (lockViewStatus) {
                     Logger.debug("Restoring previous LockView state: ", lockViewStatus);
