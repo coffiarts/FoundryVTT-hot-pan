@@ -1,3 +1,8 @@
+## 11.0.7
+### 2024-??-?? - ???
+- ???
+
+
 ## 11.0.6
 ### 2023-12-14 - Minor fix of instable module activation
 - Fixes a minor bug that could sporadically result in this module not activating properly during startup.
