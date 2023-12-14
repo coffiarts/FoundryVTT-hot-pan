@@ -1,3 +1,8 @@
+## 11.0.6
+### 2023-12-14 - Minor fix of instable module activation
+- Fixes a minor bug that could sporadically result in this module not activating properly during startup.
+
+
 ## 11.0.5
 ### 2023-12-11 - LockView compatibility fix
 - If you're using [LockView](https://github.com/MaterialFoundry/LockView) by [CDeenen](https://github.com/CDeenen) together
