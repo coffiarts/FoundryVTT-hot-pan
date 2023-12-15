@@ -34,7 +34,7 @@
       "title": "Hot Pan & Zoom!",
       "text1": "&quot;One Thing to Pan Them! One Thing to Find Them! One Thing to Zoom them and to the GM's Canvas Bind Them!&quot;",
       "text2": "Hot Pan & Zoom! is a systems-agnostic utility for keeping players' canvas position & zoom in sync with the GM's screen. It runs in the backend, but is also controllable through macro code.",
-      "text3": "Please refer to the various module preferences under game settings. Find even more details on GitHub.",
+      "text3": "Please refer to the various module preferences under game settings. Find even more details on GitHub",
       "footer": "This chat card will only be shown once. Activate once more in the module settings if needed."
     },
     "onOffUIMessage": {
