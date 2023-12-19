@@ -49,7 +49,7 @@ export class Config {
         // the manifest. Otherwise, module updates won't be reflected in its value (users would always see their first
         // installed version ever in the settings menu).
         game.settings.set(Config.data.modID, 'modVersion', game.modules.get(MOD_ID).version);
-        Logger.debug("Settings registered)");
+        Logger.debug("(init) Settings registered)");
 
     }
 
@@ -64,7 +64,7 @@ export class Config {
                     ...data
                 }
             );
-            Logger.debug("Game Setting registered:", name);
+            Logger.debug("(registerSettings) Game Setting registered:", name);
         });
     }
 
@@ -92,7 +92,7 @@ export class Config {
     }
 
     static async sleep(msec) {
-        Logger.debug(`Waiting for ${msec} msec. Zzzzzz....`)
+        Logger.debug(`(sleep) Waiting for ${msec} msec. Zzzzzz....`)
         return new Promise(resolve => setTimeout(resolve, msec));
     }
 

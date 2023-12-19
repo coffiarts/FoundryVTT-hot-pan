@@ -72,7 +72,7 @@ async function areCanvasListenersReady() {
 async function initDependencies() {
     Object.values(SUBMODULES).forEach(function (cl) {
         cl.init(); // includes loading each module's settings
-        Logger.debug("Submodule loaded:", cl.name);
+        Logger.debug("(initDependencies) Submodule loaded:", cl.name);
     });
 }
 
@@ -83,14 +83,14 @@ async function initExposedClasses() {
             HotPan.onGameSettingChanged();
         }
     });
-    Logger.debug("Exposed classes are ready");
+    Logger.debug("(initExposedClasses) Exposed classes are ready");
 }
 
 async function initSocketlib() {
     socket = socketlib.registerModule(Config.data.modID);
     socket.register("pushCanvasPositionToClients", pushCanvasPositionToClients);
     socket.register("stateChangeUIMessage", HotPan.stateChangeUIMessage);
-    Logger.debug(`Module ${Config.data.modID} registered in socketlib.`);
+    Logger.debug(`(initSocketlib) Module ${Config.data.modID} registered in socketlib.`);
 }
 
 async function initCanvasListeners() {
@@ -99,7 +99,7 @@ async function initCanvasListeners() {
         if (!Config.setting('isActive')) return;
         socket.executeForOthers("pushCanvasPositionToClients", {position: position, username: game.user.name});
     });
-    Logger.debug("Canvas is ready (listeners registered)");
+    Logger.debug("(initCanvasListeners) Canvas is ready (listeners registered)");
 }
 
 /**
@@ -110,7 +110,7 @@ async function initCanvasListeners() {
  * @returns {Promise<void>}
  */
 async function pushCanvasPositionToClients(data) {
-    Logger.debug("pushCanvasPositionToClients from", data.username, "to", game.user.name, "canvasPosition", data.position);
+    Logger.debug("(pushCanvasPositionToClients) from", data.username, "to", game.user.name, "canvasPosition", data.position);
     canvas.animatePan(data.position);
 }
 
@@ -194,11 +194,11 @@ export class HotPan {
                     "panLock": false,
                     "zoomLock": false
                 });
-                Logger.debug("Grabbing current LockView state: ", lockViewStatus);
+                Logger.debug("(HotPan.#switch) Grabbing current LockView state: ", lockViewStatus);
             } else { // switching OFF
                 // otherwise (when switching OFF), restore LockView's previous state (given that it's known)
                 if (lockViewStatus) {
-                    Logger.debug("Restoring previous LockView state: ", lockViewStatus);
+                    Logger.debug("(HotPan.#switch) Restoring previous LockView state: ", lockViewStatus);
                     await Hooks.call('setLockView', {
                         "panLock": lockViewStatus.panLock,
                         "zoomLock": lockViewStatus.zoomLock
