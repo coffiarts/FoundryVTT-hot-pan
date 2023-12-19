@@ -32,6 +32,9 @@ export class Config {
             },
             isActive: {
                 scope: 'world', config: true, type: Boolean, default: false,
+                onChange: (value) => { // value is the new value of the setting
+                    HotPan.onActiveStateChanged(value);
+                }
             },
             notifyOnChange: {
                 scope: 'world', config: true, type: Boolean, default: true

@@ -78,11 +78,6 @@ async function initDependencies() {
 
 async function initExposedClasses() {
     window.HotPan = HotPan;
-    Hooks.on("updateSetting", async function (setting) {
-        if (setting.key.startsWith(Config.data.modID)) {
-            HotPan.onGameSettingChanged();
-        }
-    });
     Logger.debug("(initExposedClasses) Exposed classes are ready");
 }
 
@@ -215,7 +210,9 @@ export class HotPan {
         await Config.modifySetting('isActive', newStateIsON);
     }
 
-    static onGameSettingChanged() {
+    static onActiveStateChanged(newValue) {
+        Logger.debug("(onActiveStateChanged) newValue: ", newValue);
+
         this.#isActive = Config.setting('isActive');
 
         if (game.user.isGM && Config.setting('notifyOnChange')) {
