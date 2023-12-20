@@ -1,3 +1,5 @@
+![](https://img.shields.io/badge/Foundry-v11-informational) ![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/latest/total)
+
 # Hot Pan & Zoom! for Foundry VTT
 <table style="border:0">
   <tr>
