@@ -198,6 +198,10 @@ export class HotPan {
                         "panLock": lockViewStatus.panLock,
                         "zoomLock": lockViewStatus.zoomLock
                     });
+                    // if LockView has been active before, we automatically switch to silent mode, preventing that
+                    // the clients receive a misleading message stating that canvas control has been released (because
+                    // this isn't the case, as it is still locked by LockView)
+                    silentMode = (lockViewStatus.panLock || lockViewStatus.zoomLock);
                     lockViewStatus = null;
                 }
             }
