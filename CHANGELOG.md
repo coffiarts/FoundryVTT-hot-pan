@@ -3,7 +3,7 @@ Foundry VTT **core** version it is compatible with (and recommended for).
 
 ## 11.0.7.?
 ### 202?-??-?? - ???
-- ???
+- Fix for [Issue #4](https://github.com/coffiarts/FoundryVTT-hot-pan/issues/4): GM can now freely pan & zoom any scene in "view" mode without unintendendly affecting the active scene on the players' clients
 
 
 ## 11.0.7
