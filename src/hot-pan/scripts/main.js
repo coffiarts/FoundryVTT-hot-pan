@@ -92,7 +92,7 @@ async function initCanvasListeners() {
     Hooks.on("canvasPan", async function (canvas, position) {
         if (!game.user.isGM) return; // Only the GM shall be allowed to force canvas position on others!
         if (!Config.setting('isActive')) return;
-        socket.executeForOthers("pushCanvasPositionToClients", {position: position, username: game.user.name});
+        socket.executeForOthers("pushCanvasPositionToClients", {sceneId: game.scenes.current.id, position: position, username: game.user.name});
     });
     Logger.debug("(initCanvasListeners) Canvas is ready (listeners registered)");
 }
@@ -105,8 +105,10 @@ async function initCanvasListeners() {
  * @returns {Promise<void>}
  */
 async function pushCanvasPositionToClients(data) {
-    Logger.debug("(pushCanvasPositionToClients) from", data.username, "to", game.user.name, "canvasPosition", data.position);
-    canvas.animatePan(data.position);
+    Logger.debug(`(pushCanvasPositionToClients) for scene '${game.scenes.get(data.sceneId).name}' (${data.sceneId}) from ${data.username} to ${game.user.name}, canvasPosition:`, data.position);
+    if (game.scenes.current.id === data.sceneId) {
+        canvas.animatePan(data.position);
+    }
 }
 
 /**

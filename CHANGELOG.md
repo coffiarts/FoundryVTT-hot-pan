@@ -1,6 +1,11 @@
 The **major** version number in my modules (like "11") always reflects the
 Foundry VTT **core** version it is compatible with (and recommended for).
 
+## 11.0.8
+### 2024-01-04 - Bugfix
+- Fix for [Issue #4](https://github.com/coffiarts/FoundryVTT-hot-pan/issues/4): GM can now freely pan & zoom any scene in "view" mode without unintendendly affecting the active scene on the players' clients
+
+
 ## 11.0.7
 ### 2023-12-20 - Just an x-mas cleanup release :-)
 Several internal refactorings and stability optimizations that have piled up over time.
