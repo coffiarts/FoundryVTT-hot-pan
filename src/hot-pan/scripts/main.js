@@ -24,7 +24,7 @@ let lockViewStatus;
         Hooks.once("ready", () =>  {
             ready2play = true;
             Logger.infoGreen(`Ready to play! Version: ${game.modules.get(Config.data.modID).version}`);
-            Logger.info(Config.data.modDescription);
+            Logger.infoGreen(Config.data.modDescription);
             if (Config.setting('isActive')) {
                 HotPan.switchOn();
                 HotPan.stateChangeUIMessage();

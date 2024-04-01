@@ -70,6 +70,16 @@ This screenshot shows the default values.
 
 <img src="src/hot-pan/artwork/hot-pan-settings.png" alt="Hot Pan & Zoom! settings"/>
 
+## Toggle by hotkey
+You can assign a custom hotkey in the game settings (by default it is empty to prevent unwanted key collisions):
+
+<img src="src/hot-pan/artwork/hot-pan-keybinding-step1.png" alt="Hot Pan & Zoom! assign keybinding - step 1"/>
+
+<img src="src/hot-pan/artwork/hot-pan-keybinding-step2.png" alt="Hot Pan & Zoom! assign keybinding - step 2"/>
+
+<img src="src/hot-pan/artwork/hot-pan-keybinding-step3.png" alt="Hot Pan & Zoom! assign keybinding - step 3"/>
+
+
 ## Control it by macro
 The module runs automatically in the backend as a module, but it can also easily be controlled through macro code.
 

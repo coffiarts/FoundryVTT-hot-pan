@@ -48,6 +48,22 @@ export class Config {
         };
         Config.registerSettings(data);
 
+        // Add the keybinding
+        game.keybindings.register("hot-pan", "active", {
+            name: "Toggle Hot Pan & Zoom!",
+            editable: [
+                //{ key: "KeyP", modifiers: [KeyboardManager.MODIFIER_KEYS.CONTROL] }
+            ],
+            restricted: true,
+            onDown: () => {
+                if (!game.user.isGM || game.settings.get("core", "noCanvas")) {
+                    return;
+                }
+                HotPan.toggle();
+            }
+        });
+        Logger.info("Empty keybinding registered. Assign it to your liking in the game settings.");
+
         // Whenever loading up, we need to adjust the "pseudo-setting" modVersion once to the current value from
         // the manifest. Otherwise, module updates won't be reflected in its value (users would always see their first
         // installed version ever in the settings menu).
