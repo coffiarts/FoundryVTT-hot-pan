@@ -1,6 +1,11 @@
 The **major** version number in my modules (like "11") always reflects the
 Foundry VTT **core** version it is compatible with (and recommended for).
 
+## 11.0.9.?
+### 2024-??-?? - Prepare next cycle
+- ???
+
+
 ## 11.0.9
 ### 2024-04-01 - Keybinding support ([enhancement request #6](https://github.com/coffiarts/FoundryVTT-hot-pan/issues/6))
 - Adds an optional keybinding for toggling on/off.
