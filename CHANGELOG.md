@@ -1,10 +1,16 @@
 The **major** version number in my modules (like "11") always reflects the
 Foundry VTT **core** version it is compatible with (and recommended for).
 
+## 11.0.9.1
+### 2024-04-02 - Marginal optimizations for keybinding
+- Adds translations for keybinding menu entry
+- Replaces recommended shortcut CTRL + P by SHIFT + P, to avoid interference with browser print function
+
+
 ## 11.0.9
 ### 2024-04-01 - Keybinding support ([enhancement request #6](https://github.com/coffiarts/FoundryVTT-hot-pan/issues/6))
-- Adds an optional keybinding for toggling on/off.
-- "Optional" means: There's no preassigned key combination. Assign it to your liking in the game settings (or ignore it if you don't want to use it). My personal preference is **CTRL + P** ("P" standing for "Pan")
+- Adds an optional keybinding for toggling on/off gamemasters only).
+- "Optional" means: There's no preassigned key combination. Assign it to your liking in the game settings (or ignore it if you don't want to use it). My personal preference is **SHIFT + P** ("P" standing for "Pan").
 - Credits to github member [p4535992](https://github.com/p4535992) for suggesting this.
 
 

@@ -40,6 +40,7 @@
     "onOffUIMessage": {
       "whenON": "Screen is remote controlled by the gamemaster!",
       "whenOFF": "Screen control has been released."
-    }
+    },
+    "keybindingMenuLabel": "Toggle Hot Pan & Zoom! on/off"
   }
 }

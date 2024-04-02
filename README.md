@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Foundry-v11-informational)
 ![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/latest/total?label=Downloads+latest+release)
-![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/11.0.8/total?label=previous+release+[11.0.8])
+![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/11.0.9/total?label=previous+release+[11.0.9])
 
 # Hot Pan & Zoom! for Foundry VTT
 <table style="border:0">
@@ -33,6 +33,7 @@ This is absolutely optional! Don't feel obliged in any way to do so. My mod is a
 * [What does it do ...](#what-does-it-do-)
 * [Changelog](#changelog)
 * [Adjustable module settings](#adjustable-module-settings)
+* [Toggle by hotkey](#toggle-by-hotkey)
 * [Control it by macro](#control-it-by-macro)
 * [Compatibility and Dependencies](#compatibility-and-dependencies)
 * [Upcoming features](#upcoming-features)
@@ -71,7 +72,7 @@ This screenshot shows the default values.
 <img src="src/hot-pan/artwork/hot-pan-settings.png" alt="Hot Pan & Zoom! settings"/>
 
 ## Toggle by hotkey
-You can assign a custom hotkey in the game settings (by default it is empty to prevent unwanted key collisions):
+You (gamemasters only) can assign a custom hotkey in the game settings (by default it is empty to prevent unwanted key collisions). My personal preference is **SHIFT + P** ("P" standing for "Pan"):
 
 <img src="src/hot-pan/artwork/hot-pan-keybinding-step1.png" alt="Hot Pan & Zoom! assign keybinding - step 1"/>
 
