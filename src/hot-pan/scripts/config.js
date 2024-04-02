@@ -50,9 +50,9 @@ export class Config {
 
         // Add the keybinding
         game.keybindings.register("hot-pan", "active", {
-            name: "Toggle Hot Pan & Zoom!",
+            name: Config.localize('keybindingMenuLabel'),
             editable: [
-                //{ key: "KeyP", modifiers: [KeyboardManager.MODIFIER_KEYS.CONTROL] }
+                //{ key: "KeyL", modifiers: [KeyboardManager.MODIFIER_KEYS.SHIFT] }
             ],
             restricted: true,
             onDown: () => {

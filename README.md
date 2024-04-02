@@ -72,7 +72,7 @@ This screenshot shows the default values.
 <img src="src/hot-pan/artwork/hot-pan-settings.png" alt="Hot Pan & Zoom! settings"/>
 
 ## Toggle by hotkey
-You can assign a custom hotkey in the game settings (by default it is empty to prevent unwanted key collisions):
+You (gamemasters only) can assign a custom hotkey in the game settings (by default it is empty to prevent unwanted key collisions). My personal preference is **SHIFT + P** ("P" standing for "Pan"):
 
 <img src="src/hot-pan/artwork/hot-pan-keybinding-step1.png" alt="Hot Pan & Zoom! assign keybinding - step 1"/>
 
