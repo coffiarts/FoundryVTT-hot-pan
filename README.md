@@ -1,6 +1,7 @@
 ![](https://img.shields.io/badge/Foundry-v11-informational)
-![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/latest/total?label=Downloads+latest+release)
-![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/11.0.8/total?label=previous+release+[11.0.8])
+![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/latest/module.zip?label=Downloads+latest+release)
+![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/11.0.8/module.zip?label=previous+release+[11.0.8])
+[![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fhot-pan&colorB=03ff1c)](https://forge-vtt.com/bazaar#package=hot-pan)
 
 # Hot Pan & Zoom! for Foundry VTT
 <table style="border:0">
