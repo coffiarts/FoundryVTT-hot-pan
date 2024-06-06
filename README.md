@@ -1,4 +1,5 @@
 ![](https://img.shields.io/badge/Foundry-v11-informational)
+![](https://img.shields.io/badge/Foundry-v12-informational)
 ![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/latest/module.zip?label=Downloads+latest+release)
 ![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/11.0.9.1/module.zip?label=previous+release+[11.0.9.1])
 [![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fhot-pan)](https://forge-vtt.com/bazaar#package=hot-pan)
@@ -124,8 +125,7 @@ Some variants:
 
 ## Compatibility and Dependencies
 - ***Hot Pan & Zoom!*** uses [socketlib](https://github.com/manuelVo/foundryvtt-socketlib) for sending sync messages between the GM's session and the clients.
-- Developped and tested on Foundry VTT 11.2xx and higher, with Chrome as the players' client (I _assume_, but cannot _guarantee_ that it's still compatible with v10.x).
-- Works excellently in combination with [Always Centred](https://github.com/SDoehren/always-centred) by [SDoehren](https://github.com/SDoehren) and [LockView](https://github.com/MaterialFoundry/LockView) by [CDeenen](https://github.com/CDeenen). I WARMLY recommend to use both mods together!
+- Developped and tested on Foundry VTT 11.2xx and higher (including v12), with Chrome as the players' client (I _assume_, but cannot _guarantee_ that it's still compatible with v10.x).
 
 ## Upcoming features
 - `small`: ~~include ready-to-use macros for the most basic functions in the package~~ => **DONE (Rel. 1.0.2)**
