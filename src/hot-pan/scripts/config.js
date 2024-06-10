@@ -18,8 +18,8 @@ export class Config {
 
     static init() {
 
-        // Register all globally relevant game settings here
-        const data = {
+        // Register all globally relevant game settings
+        const hotPanSettingsdata1 = {
             modVersion: {
                 scope: 'client', config: true, type: String, default: game.modules.get(MOD_ID).version,
                 onChange: value => {
@@ -29,7 +29,16 @@ export class Config {
                         game.settings.set(Config.data.modID, `modVersion`, game.modules.get(MOD_ID).version);
                     }
                 }
-            },
+            }
+        }
+        Config.registerSettings(hotPanSettingsdata1);
+
+        // create separator and title at the beginning of this settings section
+        Hooks.on('renderSettingsConfig', (app, [html]) => {
+            html.querySelector(`[data-setting-id="${Config.data.modID}.isActive"]`).insertAdjacentHTML('beforeBegin', `<h3>Core</h3>`)
+        })
+
+        const hotPanSettingsdata2 = {
             isActive: {
                 scope: 'world', config: true, type: Boolean, default: false,
                 onChange: (value) => { // value is the new value of the setting
@@ -46,7 +55,52 @@ export class Config {
                 scope: 'world', config: true, type: Boolean, default: false
             }
         };
-        Config.registerSettings(data);
+        Config.registerSettings(hotPanSettingsdata2);
+
+        // create separator and title at the beginning of the next settings section
+        Hooks.on('renderSettingsConfig', (app, [html]) => {
+            html.querySelector(`[data-setting-id="${Config.data.modID}.afMode"]`).insertAdjacentHTML(
+                'beforeBegin',
+                `<h3>${Config.localize('autoFocus.title')}</h3>` +
+                `<p class="notes">${Config.localize('autoFocus.description')} ` +
+                    `<a href="https://github.com/SDoehren/always-centred">https://github.com/SDoehren/always-centred</a>` +
+                `</p>`)
+        })
+
+        const autoFocusSettingsData = {
+            afMode: {
+                scope: "world", config: true, type: String, default: "disabled",
+                choices: {
+                    disabled: Config.localize('setting.afMode.options.disabled'),
+                    partyView: Config.localize('setting.afMode.options.partyView'),
+                    selectedToken: Config.localize('setting.afMode.options.selectedToken')
+                },
+                onChange: (value) => { // value is the new value of the setting
+                    HotPan.onAFActiveStateChanged(value);
+                }            },
+            afAutoZoom: { // hidden!
+                scope: "world", config: false, type: Boolean, default: true
+            },
+            afMitigateBounce: { // hidden!
+                scope: "world", config: false, type: Boolean, default: true
+            },
+            afPaddingSq: { // hidden!
+                scope: "world", config: false, type: Number, default: 12
+            },
+            afPaddingPer: { // hidden!
+                scope: "world", config: false, type: Number, default: 33
+            },
+            afMaxZoom: { // hidden!
+                scope: "world", config: false, type: Number, default: 1
+            },
+            afUpdateSpeed: { // hidden!
+                scope: "world", config: false, type: Number, default: 500
+            },
+            afIncludeInvisible: {
+                scope: "world", config: true, type: Boolean, default: false
+            }
+        };
+        Config.registerSettings(autoFocusSettingsData);
 
         // Add the keybinding
         game.keybindings.register("hot-pan", "active", {
@@ -62,7 +116,19 @@ export class Config {
                 HotPan.toggle();
             }
         });
-        Logger.info("Empty keybinding registered. Assign it to your liking in the game settings.");
+        game.keybindings.register("hot-pan", "afActive", {
+            name: Config.localize('keybindingMenuLabelAF'),
+            editable: [
+                //{ key: "KeyL", modifiers: [KeyboardManager.MODIFIER_KEYS.SHIFT] }
+            ],
+            restricted: true,
+            onDown: () => {
+                if (game.user.isGM && !game.settings.get("core", "noCanvas")) {
+                    HotPan.toggleAutoFocus();
+                }
+            }
+        });
+        Logger.info("Empty keybindings registered. Assign them to your liking in the game settings.");
 
         // Whenever loading up, we need to adjust the "pseudo-setting" modVersion once to the current value from
         // the manifest. Otherwise, module updates won't be reflected in its value (users would always see their first
@@ -105,7 +171,7 @@ export class Config {
     static async gameSettingConfirmed(key, expectedValue) {
         // Logger.debug(`expected: ${Config.data.modID}.${key} = ${expectedValue}`);
         let safetyCount = 0;
-        while (safetyCount++ <10 && game.settings.get(Config.data.modID, key) !== expectedValue) {
+        while (safetyCount++ < 10 && game.settings.get(Config.data.modID, key) !== expectedValue) {
             await this.sleep(500);
         }
     }

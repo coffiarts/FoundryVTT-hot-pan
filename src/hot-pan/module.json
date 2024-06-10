@@ -73,8 +73,12 @@
     {
       "name": "hot-pan-macros",
       "label": "Hot Pan & Zoom! - Macros",
-      "path": "./packs/hot-pan-and-zoom-macros.db",
-      "type": "Macro"
+      "path": "packs/hot-pan-and-zoom-macros",
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "socket": true

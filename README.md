@@ -29,7 +29,18 @@ Feel free to [head over to this mod on Forge](https://eu.forge-vtt.com/bazaar/pa
 
 This is absolutely optional! Don't feel obliged in any way to do so. My mod is and will remain available for free.
 
+## It's finally a part of us!
+It's been a long awaited fusion of two mods that seem to love its others sooo much. As of v. 12.1.0, it is done:
+
+This mod now comes with a new feature called **"Auto Focus"**.
+It is basically an integration of one of my favorite mods, [Always Centred](https://github.com/SDoehren/always-centred) by [SDoehren](https://github.com/SDoehren). See [Credits](#credits) and [CHANGELOG.MD](CHANGELOG.md). Go and find out what this fancy new macro button can do!
+
+<img src="src/hot-pan/artwork/auto-focus-macro-icon.png" width="160" alt="New Auto Focus macro"/>
+
+
 ## Video demo on youtube
+(does not show the new "Auto Focus" feature yet)
+
 [Hot Pan & Zoom! Demo](https://youtu.be/irUmWkSJ_4M)
 
 [<img src="src/hot-pan/artwork/hot-pan-video-thumb.png" alt="Hot Pan & Zoom! - Video demo on youtube" width="600"/>](https://youtu.be/irUmWkSJ_4M)
@@ -40,9 +51,9 @@ This is absolutely optional! Don't feel obliged in any way to do so. My mod is a
 * [Toggle by hotkey](#toggle-by-hotkey)
 * [Control it by macro](#control-it-by-macro)
 * [Compatibility and Dependencies](#compatibility-and-dependencies)
-* [Upcoming features](#upcoming-features)
 * [Troubleshooting](#troubleshooting)
   - [Switching off after switching on inside the same macro fails](#switching-off-after-switching-on-inside-the-same-macro-fails)
+- [Credits](#credits)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -88,7 +99,8 @@ You (gamemasters only) can assign a custom hotkey in the game settings (by defau
 ## Control it by macro
 The module runs automatically in the backend as a module, but it can also easily be controlled through macro code.
 
-The module comes with its own macro compendium pack containing just one prebuilt example. Use and modify this according to your needs:
+The module comes with its own macro compendium pack containing two prebuilt examples: One for the Hot Pan & Zoom! core functionality, and one for the "Auto Focus" (fka "Always Centred") added in v. 12.1.0.
+Use and modify them according to your needs:
 
 <img src="src/hot-pan/artwork/hot-pan-macro-compendium.png" alt="Hot Pan & Zoom! - Macro compendium"/>
 
@@ -125,12 +137,7 @@ Some variants:
 
 ## Compatibility and Dependencies
 - ***Hot Pan & Zoom!*** uses [socketlib](https://github.com/manuelVo/foundryvtt-socketlib) for sending sync messages between the GM's session and the clients.
-- Developped and tested on Foundry VTT 11.2xx and higher (including v12), with Chrome as the players' client (I _assume_, but cannot _guarantee_ that it's still compatible with v10.x).
-
-## Upcoming features
-- `small`: ~~include ready-to-use macros for the most basic functions in the package~~ => **DONE (Rel. 1.0.2)**
-- `medium`: ~~expose some more features for usage in macros, e.g. better control over UI notifications~~ => **DONE (Rel. 1.0.3)**
-- `big`: allow players to request screen control as well (probably needs some socket-based mechanism for GM approval at runtime, so this might be complex)
+- Developed and tested on Foundry VTT 11.2xx and higher (including v12), with Chrome as the players' client (I _assume_, but cannot _guarantee_ that it's still compatible with v10.x).
 
 - Feel free to follow the ["dev" branch on GitHub](https://github.com/coffiarts/FoundryVTT-hot-pan/tree/dev) to stay tuned: [https://github.com/coffiarts/FoundryVTT-hot-pan/tree/dev](https://github.com/coffiarts/FoundryVTT-hot-pan/tree/dev)
 
@@ -152,3 +159,6 @@ Workaround:
     setTimeout(function(){HotPan.toggle()}, 100);
 
 This might be an ugly solution caused by my noob-i-ness, any better ideas highly appreciated!
+
+## Credits
+- [SDoehren](https://github.com/SDoehren) for his great mod [Always Centred](https://github.com/SDoehren/always-centred) and his Creative Commons License that allowed me to freely reuse and integrate his code!

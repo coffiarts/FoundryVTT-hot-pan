@@ -15,7 +15,11 @@
       },
       "hideChatInfo": {
         "name": "Modulinfo im Chat ausblenden",
-        "hint": "Blendet beim Start den Chat-Infotext zu diesem Modul wieder ein (zum Wiederanzeigen hier deaktivieren)."
+        "hint": "Blendet die einmalige allgemeine Info zu diesem Modul im Chat aus. Um sie wieder anzuzeigen, diese Option DEAKTIVIEREN."
+      },
+      "hideChatWarnings": {
+        "name": "Warnungen im Chat ausblenden",
+        "hint": "Blendet die einmaligen Versionswarnungen aus, die manchmal nach einem Mod-Update im Chat angezeigt werden. Um sie wieder anzuzeigen, diese Option DEAKTIVIEREN."
       },
       "notifyOnChange": {
         "name": "UI-Meldungen beim Umschalten",
@@ -28,6 +32,43 @@
       "warnWhenOFF": {
         "name": "Warnung bei Deaktivierung",
         "hint": "Bannermeldung beim Abschalten hervorheben (Warnung). Nur wirksam, wenn \"UI-Meldungen beim Umschalten\" aktiviert ist."
+      },
+      "afMode": {
+        "name": "Modus",
+        "hint": "Deaktiviert: Autozentrierung ausgeschaltet (default) | Gruppenmodus: Alle Spielertokens werden berücksichtigt | Ausgewählter Token: Nur markierter Token wird berücksichtigt.",
+        "options": {
+          "disabled": "deaktiviert",
+          "partyView": "Gruppenmodus",
+          "selectedToken": "Ausgewählter Token"
+        }
+      },
+      "afAutoZoom": {
+        "name": "Auto Zoom",
+        "hint": "Automatische Anpassung von Zoom & Position. Empfohlene Einstellung!"
+      },
+      "afMitigateBounce": {
+        "name": "Bouncing-Problem reduzieren",
+        "hint": "Nur relevant, wenn Auto Zoom ausgeschaltet und Modus auf \"Gruppenmodus\" steht. Forciert bei Bedarf automatisch den Auto Zoom."
+      },
+      "afPaddingSq": {
+        "name": "Padding (Raster)",
+        "hint": "Erweiterung des Sichtfensters in allen Richtungen. Wert >2 empfohlen, alles <1 hat keinen Effekt."
+      },
+      "afPaddingPer": {
+        "name": "Padding (%)",
+        "hint": "Prozentuale Erweiterung des Sichtfensters"
+      },
+      "afMaxZoom": {
+        "name": "Maximaler Zoom Level",
+        "hint": "Richtwerte: 0.1 ist sehr weit weg, 3 ist sehr nahe."
+      },
+      "afUpdateSpeed": {
+        "name": "Animationsgeschwindigkeit der Kamera",
+        "hint": "Standardwert: 500"
+      },
+      "afIncludeInvisible": {
+        "name": "Unsichtbare Tokens mitberücksichtigen",
+        "hint": "Sollen bei Berechnungen zur Gruppenansicht ausgeblendete Tokens mit einkalkuliert werden?"
       }
     },
     "chatInfoContent": {
@@ -41,6 +82,21 @@
       "whenON": "Bildschirm wird vom Spielleiter gesteuert!",
       "whenOFF": "Bildschirm ist wieder freigegeben."
     },
-    "keybindingMenuLabel": "Hot Pan & Zoom! an-/ausschalten"
+    "keybindingMenuLabel": "Hot Pan & Zoom! an-/ausschalten",
+    "keybindingMenuLabelAF": "Auto Focus an-/ausschalten (fka 'Always Centred')",
+    "autoFocus": {
+      "title": "Auto Focus (fka 'Always Centred')",
+      "description": "Zusatzfunktion zum automatischen Fokussieren und Zoomen auf Szenentokens (separat ein- und auschaltbar). Ergänzt sich bestens mit Hot Pan & Zoom! Ursprünglich als separates Mod 'Always Centred' bekannt. In Hot Pan & Zoom! integriert mit Genehmigung des Autors (SDoehren). Zum Ursprungsmodul siehe:",
+      "msg": {
+        "invalidMode": "Ungültiger Modus für Auto Focus:",
+        "whenON": "Auto Focus ist AKTIVIERT im Modus '{mode}'.",
+        "whenOFF": "Auto Focus ist DEAKTIVIERT.",
+        "alwaysCentredWarning": {
+          "title": "Warnung:<br/>Original-Mod 'Always Centred' entdeckt!",
+          "text": "Hot Pan & Zoom! hat entdeckt, dass das Modul 'Always Centred' aktiviert ist.<br/>Dieses ist seit Modulversion 12.1.0 in Hot Pan & Zoom! integriert.<br/>Es empfiehlt sich, 'Always Centred' zu deaktivieren, um Konflikte zu vermeiden.<br>Der einzige Grund, das Originalmodul zu behalten, wäre gegeben, wenn die Spieler lokal auf ihren Clients selbst Auto-Fokussierung und Auto-Zooming verwenden wollen.",
+          "footer": "Diese Nachricht wird nur einmal angezeigt!"
+        }
+      }
+    }
   }
 }

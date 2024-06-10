@@ -4,6 +4,12 @@ export class Logger {
 
     static init(){
         // Register game settings relevant to this class specifically (all globally relevant settings are maintained by class Config)
+
+        // create separator and title at the beginning of this settings section
+        Hooks.on('renderSettingsConfig', (app,[html]) => {
+            html.querySelector(`[data-setting-id="${Config.data.modID}.debug"]`).insertAdjacentHTML('beforeBegin', `<h3>Logging</h3>`)
+        })
+
         const settingsData = {
             debug : {
                 scope: "client", config: true, type: Boolean, default: false,

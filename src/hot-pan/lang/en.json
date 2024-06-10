@@ -11,11 +11,15 @@
       },
       "isActive": {
         "name": "Always active",
-        "hint": "Keep module always activated (unless overridden by macro code)."
+        "hint": "Keep module always activated, unless overridden by macro code."
       },
       "hideChatInfo": {
         "name": "Hide module info in chat window",
-        "hint": "Hides the info text about this module in the chat window on game start (deactivate this option to see it again)."
+        "hint": "Hides the general one-time info about this mod in the chat. If you want to see again on next reload, UNCHECK this option."
+      },
+      "hideChatWarnings": {
+        "name": "Hide warnings in chat window",
+        "hint": "Hides sporadic version warnings after a mod update in the chat. If you want to see those again on next reload, UNCHECK this option."
       },
       "notifyOnChange": {
         "name": "UI messages on toggle",
@@ -28,6 +32,43 @@
       "warnWhenOFF": {
         "name": "Warning on deactivate",
         "hint": "Show extra prominent UI message (warning) when toggling OFF. Needs option \"UI messages on toggle\" to be enabled."
+      },
+      "afMode": {
+        "name": "Mode",
+        "hint": "Disabled: Module off (default) | Party View: all player owned tokens | Selected Token: only the selected token.",
+        "options": {
+          "disabled": "disabled",
+          "partyView": "Party View",
+          "selectedToken": "Selected Token"
+        }
+      },
+      "afAutoZoom": {
+        "name": "Auto Zoom",
+        "hint": "Adjust zoom as well as position. Highly Recommended."
+      },
+      "afMitigateBounce": {
+        "name": "Mitigate Bouncing Issue",
+        "hint": "Only relevant when Auto Zoom is set to off and Mode is Party View. Forces Auto Zoom when required."
+      },
+      "afPaddingSq": {
+        "name": "Padding (squares)",
+        "hint": "Padding added to view area in all directions. Highly Recommended to be set to >2 and will have no effect <1."
+      },
+      "afPaddingPer": {
+        "name": "Padding (%)",
+        "hint": "Percentage increase of view area"
+      },
+      "afMaxZoom": {
+        "name": "Max zoom level",
+        "hint": "Hint: 0.1 is far away, 3 is very close."
+      },
+      "afUpdateSpeed": {
+        "name": "Camera animation speed",
+        "hint": "Default: 500"
+      },
+      "afIncludeInvisible": {
+        "name": "Include Invisible",
+        "hint": "Whether to account for tokens that can't be seen by the user in the party view calculations."
       }
     },
     "chatInfoContent": {
@@ -41,6 +82,21 @@
       "whenON": "Screen is remote controlled by the gamemaster!",
       "whenOFF": "Screen control has been released."
     },
-    "keybindingMenuLabel": "Toggle Hot Pan & Zoom! on/off"
+    "keybindingMenuLabel": "Toggle on/off Hot Pan & Zoom!",
+    "keybindingMenuLabelAF": "Toggle on/off Auto Focus (fka 'Always Centred')",
+    "autoFocus": {
+      "title": "Auto Focus (fka 'Always Centred')",
+      "description": "Additional auto-focussing and auto-zooming onto scene tokens (can be switched on/off separately). Formerly known as 'Always Centred' by SDoehren. Works excellently in line with Hot Pan & Zoom! Merged into this mod with approval by its author. Find the original mod at",
+      "msg": {
+        "invalidMode": "You've tried to set an invalid mode for Auto Focus:",
+        "whenON": "Auto Focus is ENABLED and set to '{mode}'.",
+        "whenOFF": "Auto Focus is DISABLED.",
+        "alwaysCentredWarning": {
+          "title": "Warning:<br/>Original Mod 'Always Centred' detected!",
+          "text": "Hot Pan & Zoom! has detected that the mod 'Always Centred' is running in your game.<br/>This mod has been integrated into Hot Pan & Zoom! since mod version 12.1.0.<br/>It is recommended that you uninstall 'Always Centred', to avoid conflicts.<br>The only reason to keep the original would be if players still want to use and configure auto-focussing and auto-zooming locally on their clients.",
+          "footer": "This chat card will only be shown once!"
+        }
+      }
+    }
   }
 }
