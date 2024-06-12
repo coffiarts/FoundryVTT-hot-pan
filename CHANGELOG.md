@@ -2,7 +2,7 @@ The **major** version number in my modules (like "12") always reflects the
 Foundry VTT **core** version it is compatible with (and recommended for).
 
 ## 12.1.0
-### 2024-??-?? - BRAAAND NEW FEATURE: "Auto Focus" (aka "Always Centred")
+### 2024-06-12 - BRAAAND NEW FEATURE: "Auto Focus" (aka "Always Centred")
 - Save the world now from falling out of sight: **"Auto Focus"** is a lean integration of [SDoehren](https://github.com/SDoehren)'s [Always Centred](https://github.com/SDoehren/always-centred) mod, freshly merged into Hot Pan & Zoom!. Big credits to [SDoehren](https://github.com/SDoehren) for his Creative Commons License that allowed me to freely reuse and integrate his code!
 - The included macro compendium comes with a new sample macro for it. Give it a try!
 
