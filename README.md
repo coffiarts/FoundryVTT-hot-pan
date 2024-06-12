@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Foundry-v11-informational)
 ![](https://img.shields.io/badge/Foundry-v12-informational)
-![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/latest/module.zip?label=Downloads+latest+release+[12.?.?])
+![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/latest/module.zip?label=Downloads+latest+release+[12.1.0])
 ![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/12.0.0/module.zip?label=previous+release+[12.0.0])
 [![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fhot-pan)](https://forge-vtt.com/bazaar#package=hot-pan)
 [![GitHub issues](https://img.shields.io/github/issues/coffiarts/FoundryVTT-hot-pan/bug)](https://github.com/coffiarts/FoundryVTT-hot-pan/issues)
@@ -30,7 +30,7 @@ Feel free to [head over to this mod on Forge](https://eu.forge-vtt.com/bazaar/pa
 This is absolutely optional! Don't feel obliged in any way to do so. My mod is and will remain available for free.
 
 ## It's finally a part of us!
-It's been a long awaited fusion of two mods that seem to love its others sooo much. As of v. 12.1.0, it is done:
+It's been a long awaited fusion of two mods that seem to love each others sooo much. As of v. 12.1.0, it is done:
 
 This mod now comes with a new feature called **"Auto Focus"**.
 It is basically an integration of one of my favorite mods, [Always Centred](https://github.com/SDoehren/always-centred) by [SDoehren](https://github.com/SDoehren). See [Credits](#credits) and [CHANGELOG.MD](CHANGELOG.md). Go and find out what this fancy new macro button can do!
@@ -53,7 +53,7 @@ It is basically an integration of one of my favorite mods, [Always Centred](http
 * [Compatibility and Dependencies](#compatibility-and-dependencies)
 * [Troubleshooting](#troubleshooting)
   - [Switching off after switching on inside the same macro fails](#switching-off-after-switching-on-inside-the-same-macro-fails)
-- [Credits](#credits)
+* [Credits](#credits)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -99,7 +99,7 @@ You (gamemasters only) can assign a custom hotkey in the game settings (by defau
 ## Control it by macro
 The module runs automatically in the backend as a module, but it can also easily be controlled through macro code.
 
-The module comes with its own macro compendium pack containing two prebuilt examples: One for the Hot Pan & Zoom! core functionality, and one for the "Auto Focus" (fka "Always Centred") added in v. 12.1.0.
+The module comes with its own macro compendium pack containing two prebuilt examples: One for the Hot Pan & Zoom! core functionality, and one for the "Auto Focus" (aka "Always Centred") added in v. 12.1.0.
 Use and modify them according to your needs:
 
 <img src="src/hot-pan/artwork/hot-pan-macro-compendium.png" alt="Hot Pan & Zoom! - Macro compendium"/>

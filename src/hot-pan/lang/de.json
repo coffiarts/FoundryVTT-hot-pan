@@ -83,9 +83,9 @@
       "whenOFF": "Bildschirm ist wieder freigegeben."
     },
     "keybindingMenuLabel": "Hot Pan & Zoom! an-/ausschalten",
-    "keybindingMenuLabelAF": "Auto Focus an-/ausschalten (fka 'Always Centred')",
+    "keybindingMenuLabelAF": "Auto Focus an-/ausschalten (aka 'Always Centred')",
     "autoFocus": {
-      "title": "Auto Focus (fka 'Always Centred')",
+      "title": "Auto Focus (aka 'Always Centred')",
       "description": "Zusatzfunktion zum automatischen Fokussieren und Zoomen auf Szenentokens (separat ein- und auschaltbar). Ergänzt sich bestens mit Hot Pan & Zoom! Ursprünglich als separates Mod 'Always Centred' bekannt. In Hot Pan & Zoom! integriert mit Genehmigung des Autors (SDoehren). Zum Ursprungsmodul siehe:",
       "msg": {
         "invalidMode": "Ungültiger Modus für Auto Focus:",

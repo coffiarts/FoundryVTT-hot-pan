@@ -83,9 +83,9 @@
       "whenOFF": "Screen control has been released."
     },
     "keybindingMenuLabel": "Toggle on/off Hot Pan & Zoom!",
-    "keybindingMenuLabelAF": "Toggle on/off Auto Focus (fka 'Always Centred')",
+    "keybindingMenuLabelAF": "Toggle on/off Auto Focus (aka 'Always Centred')",
     "autoFocus": {
-      "title": "Auto Focus (fka 'Always Centred')",
+      "title": "Auto Focus (aka 'Always Centred')",
       "description": "Additional auto-focussing and auto-zooming onto scene tokens (can be switched on/off separately). Formerly known as 'Always Centred' by SDoehren. Works excellently in line with Hot Pan & Zoom! Merged into this mod with approval by its author. Find the original mod at",
       "msg": {
         "invalidMode": "You've tried to set an invalid mode for Auto Focus:",
