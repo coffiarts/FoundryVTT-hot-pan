@@ -1,10 +1,13 @@
 ![](https://img.shields.io/badge/Foundry-v11-informational)
 ![](https://img.shields.io/badge/Foundry-v12-informational)
-![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/latest/module.zip?label=Downloads+latest+release+[12.1.0])
-![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/12.0.0/module.zip?label=previous+release+[12.0.0])
 [![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fhot-pan)](https://forge-vtt.com/bazaar#package=hot-pan)
-[![GitHub issues](https://img.shields.io/github/issues/coffiarts/FoundryVTT-hot-pan/bug)](https://github.com/coffiarts/FoundryVTT-hot-pan/issues)
 [![The Forge](https://img.shields.io/badge/The%20Forge-Pay%20What%20You%20Want-success?style=flat-square)](https://eu.forge-vtt.com/bazaar#package=hot-pan)
+
+![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/module.zip?label=All+time+downloads)
+![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/latest/module.zip?label=Latest+release+[12.?.?])
+![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/12.1.0/module.zip?label=Previous+release+[12.1.0])
+
+[![GitHub issues](https://img.shields.io/github/issues/coffiarts/FoundryVTT-hot-pan/bug)](https://github.com/coffiarts/FoundryVTT-hot-pan/issues)
 
 # Hot Pan & Zoom! for Foundry VTT
 <table style="border:0">
