@@ -4,7 +4,7 @@
 [![The Forge](https://img.shields.io/badge/The%20Forge-Pay%20What%20You%20Want-success?style=flat-square)](https://eu.forge-vtt.com/bazaar#package=hot-pan)
 
 ![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/module.zip?label=All+time+downloads)
-![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/latest/module.zip?label=Latest+release+[12.?.?])
+![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/latest/module.zip?label=Latest+release)
 
 [![GitHub issues](https://img.shields.io/github/issues/coffiarts/FoundryVTT-hot-pan/bug)](https://github.com/coffiarts/FoundryVTT-hot-pan/issues)
 
