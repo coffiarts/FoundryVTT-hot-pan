@@ -5,7 +5,6 @@
 
 ![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/module.zip?label=All+time+downloads)
 ![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/latest/module.zip?label=Latest+release+[12.?.?])
-![GitHub All Releases](https://img.shields.io/github/downloads/coffiarts/FoundryVTT-hot-pan/12.1.0/module.zip?label=Previous+release+[12.1.0])
 
 [![GitHub issues](https://img.shields.io/github/issues/coffiarts/FoundryVTT-hot-pan/bug)](https://github.com/coffiarts/FoundryVTT-hot-pan/issues)
 
