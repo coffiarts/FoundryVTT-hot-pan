@@ -1,9 +1,9 @@
-The **major** version number in my modules (like "12") always reflects the
+The **major** version number in my modules (like "13") always reflects the
 Foundry VTT **core** version it is compatible with (and recommended for).
 
-## 12.?.?
-### 2024-??-? - ?
-- ?
+## 13.0.0
+### 2025-08-05 - v13 compatibility
+- Just this. No changes in functionality. Fixes request for compatibility [#10](https://github.com/coffiarts/FoundryVTT-hot-pan/issues/10)
 
 ## 12.1.0
 ### 2024-06-12 - BRAAAND NEW FEATURE: "Auto Focus" (aka "Always Centred")

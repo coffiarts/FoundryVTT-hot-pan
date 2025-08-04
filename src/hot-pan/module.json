@@ -3,7 +3,7 @@
   "name": "hot-pan",
   "title": "Hot Pan & Zoom!",
   "description": "&quot;One Thing to Pan Them! One Thing to Find Them! One Thing to Zoom them and to the GM's Canvas Bind Them!&quot;<br/>Hot Pan & Zoom! is a systems-agnostic utility for keeping players' canvas position & zoom in sync with the GM's screen. It runs in the backend, but is also controllable through macro code.",
-  "version": "12.?.?",
+  "version": "13.0.0",
   "url": "https://github.com/coffiarts/FoundryVTT-hot-pan",
   "manifest": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/latest/module.json",
   "download": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/latest/module.zip",
@@ -11,8 +11,7 @@
   "changelog": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/latest/CHANGELOG.md",
   "compatibility": {
     "minimum": "11",
-    "verified": "12",
-    "maximum": "12"
+    "verified": "13"
   },
   "minimumCoreVersion": "11",
   "media": [
@@ -32,9 +31,9 @@
       {
         "id": "socketlib",
         "type": "module",
-        "manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json",
+        "manifest": "https://github.com/farling42/foundryvtt-socketlib/releases/latest/download/module.json",
         "compatibility": {
-          "verified": "1.0.13"
+          "verified": "v1.1.3"
         }
       }
     ],
@@ -42,9 +41,9 @@
       {
         "id": "LockView",
         "type": "module",
-        "manifest": "https://github.com/CDeenen/LockView/releases/latest/download/module.json",
+        "manifest": "https://github.com/MaterialFoundry/LockView/releases/latest/download/module.json",
         "compatibility": {
-          "verified": "v1.5.9"
+          "verified": "2.0.1"
         }
       }
     ]
