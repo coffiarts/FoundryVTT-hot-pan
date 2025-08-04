@@ -33,7 +33,7 @@ jobs:
         with:
           allowUpdates: true
           name: Release ${{ steps.get-version.outputs.version }}
-          draft: true
+          draft: false
           prerelease: false
           token: ${{secrets.GITHUB_TOKEN}}
           artifacts: './module.zip, ./src/hot-pan/module.json, ./README.md, ./CHANGELOG.md'
