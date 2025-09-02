@@ -34,9 +34,11 @@ export class Config {
         Config.registerSettings(hotPanSettingsdata1);
 
         // create separator and title at the beginning of this settings section
-        Hooks.on('renderSettingsConfig', (app, [html]) => {
-            html.querySelector(`[data-setting-id="${Config.data.modID}.isActive"]`).insertAdjacentHTML('beforeBegin', `<h3>Core</h3>`)
-        })
+        if (!Config.isV13plus()) { // stop using this as of v13. It's horribly complicated and neglectable anyway!
+            Hooks.on('renderSettingsConfig', (app, [html]) => {
+                html.querySelector(`[data-setting-id="${Config.data.modID}.isActive"]`).insertAdjacentHTML('beforeBegin', `<h3>Core</h3>`)
+            });
+        }
 
         const hotPanSettingsdata2 = {
             isActive: {
@@ -58,14 +60,16 @@ export class Config {
         Config.registerSettings(hotPanSettingsdata2);
 
         // create separator and title at the beginning of the next settings section
-        Hooks.on('renderSettingsConfig', (app, [html]) => {
-            html.querySelector(`[data-setting-id="${Config.data.modID}.afMode"]`).insertAdjacentHTML(
-                'beforeBegin',
-                `<h3>${Config.localize('autoFocus.title')}</h3>` +
-                `<p class="notes">${Config.localize('autoFocus.description')} ` +
+        if (!Config.isV13plus()) { // stop using this as of v13. It's horribly complicated and neglectable anyway!
+            Hooks.on('renderSettingsConfig', (app, [html]) => {
+                html.querySelector(`[data-setting-id="${Config.data.modID}.afMode"]`).insertAdjacentHTML(
+                    'beforeBegin',
+                    `<h3>${Config.localize('autoFocus.title')}</h3>` +
+                    `<p class="notes">${Config.localize('autoFocus.description')} ` +
                     `<a href="https://github.com/SDoehren/always-centred">https://github.com/SDoehren/always-centred</a>` +
-                `</p>`)
-        })
+                    `</p>`)
+            });
+        }
 
         const autoFocusSettingsData = {
             afMode: {
@@ -198,5 +202,18 @@ export class Config {
         return game.i18n.format(`${Config.data.modID}.${key}`, data);
     }
 
-
+    static isV13plus() {
+        if (foundry?.utils?.isNewerVersion) {
+            Logger.debug(`Foundry Version: ${game.version}`);
+            // Check if we're on v13.x or higher.
+            // Note the "newer than 13" comparison below may seem unintuitive, but it is actually correct, not "12":
+            // Any 12x version like "12.3.4.3" would be treated as "newer" than "12", so we need to compare agains "13".
+            // Also, there's never a "blank 13" version (without any subversion), so any 13.x will always be "newer" than 13.
+            return foundry.utils.isNewerVersion(game.version, "13");
+        } else {
+            // v12 fallback: no foundry.utils namespace, so definitely not v13
+            Logger.debug(`Foundry Version: ${game.data.version}`);
+            return false;
+        }
+    }
 }
