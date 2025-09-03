@@ -3,17 +3,17 @@
   "name": "hot-pan",
   "title": "Hot Pan & Zoom!",
   "description": "&quot;One Thing to Pan Them! One Thing to Find Them! One Thing to Zoom them and to the GM's Canvas Bind Them!&quot;<br/>Hot Pan & Zoom! is a systems-agnostic utility for keeping players' canvas position & zoom in sync with the GM's screen. It runs in the backend, but is also controllable through macro code.",
-  "version": "13.0.0",
+  "version": "13.0.1",
   "url": "https://github.com/coffiarts/FoundryVTT-hot-pan",
   "manifest": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/latest/module.json",
   "download": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/latest/module.zip",
   "readme": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/latest/README.md",
   "changelog": "https://github.com/coffiarts/FoundryVTT-hot-pan/releases/download/latest/CHANGELOG.md",
   "compatibility": {
-    "minimum": "11",
+    "minimum": "12",
     "verified": "13"
   },
-  "minimumCoreVersion": "11",
+  "minimumCoreVersion": "12",
   "media": [
     {
       "type": "setup",
