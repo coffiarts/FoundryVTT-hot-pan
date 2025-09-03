@@ -34,7 +34,14 @@ export class Config {
         Config.registerSettings(hotPanSettingsdata1);
 
         // create separator and title at the beginning of this settings section
-        if (!Config.isV13plus()) { // stop using this as of v13. It's horribly complicated and neglectable anyway!
+        if (Config.getGameMajorVersion() >= 13) {
+            Hooks.on('renderSettingsConfig', (app, html) => {
+                const inputEl = html.querySelector(`#settings-config-${Config.data.modID.replace(/\./g, "\\.")}\\.isActive`);
+                const formGroup = inputEl.closest(".form-group");
+                formGroup.insertAdjacentHTML("beforebegin", `<h4 style="margin-top: 0; border-bottom: 1px solid #888; padding-bottom: 4px; margin-bottom: 6px;">Core</h4>`);
+            });
+        }
+        else {
             Hooks.on('renderSettingsConfig', (app, [html]) => {
                 html.querySelector(`[data-setting-id="${Config.data.modID}.isActive"]`).insertAdjacentHTML('beforeBegin', `<h3>Core</h3>`)
             });
@@ -60,14 +67,26 @@ export class Config {
         Config.registerSettings(hotPanSettingsdata2);
 
         // create separator and title at the beginning of the next settings section
-        if (!Config.isV13plus()) { // stop using this as of v13. It's horribly complicated and neglectable anyway!
+        if (Config.getGameMajorVersion() >= 13) {
+            Hooks.on('renderSettingsConfig', (app, html) => {
+                const inputEl = html.querySelector(`#settings-config-${Config.data.modID.replace(/\./g, "\\.")}\\.afMode`);
+                const formGroup = inputEl.closest(".form-group");
+                formGroup.insertAdjacentHTML(
+                    "beforebegin",
+                    `<h4 style="margin-top: 0; border-bottom: 1px solid #888; padding-bottom: 4px; margin-bottom: 6px;">${Config.localize('autoFocus.title')}</h4>` +
+                    `<p class="notes" style="margin-top: 0">${Config.localize('autoFocus.description')} ` +
+                    `<a href="https://github.com/SDoehren/always-centred">https://github.com/SDoehren/always-centred</a>` +
+                    `</p>`);
+            });
+        }
+        else {
             Hooks.on('renderSettingsConfig', (app, [html]) => {
                 html.querySelector(`[data-setting-id="${Config.data.modID}.afMode"]`).insertAdjacentHTML(
                     'beforeBegin',
                     `<h3>${Config.localize('autoFocus.title')}</h3>` +
                     `<p class="notes">${Config.localize('autoFocus.description')} ` +
                     `<a href="https://github.com/SDoehren/always-centred">https://github.com/SDoehren/always-centred</a>` +
-                    `</p>`)
+                    `</p>`);
             });
         }
 
@@ -200,6 +219,10 @@ export class Config {
 
     static format(key, data) {
         return game.i18n.format(`${Config.data.modID}.${key}`, data);
+    }
+
+    static getGameMajorVersion() {
+        return game.version.split('.')[0];
     }
 
     static isV13plus() {
