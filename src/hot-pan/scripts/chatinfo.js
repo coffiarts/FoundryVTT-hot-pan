@@ -4,7 +4,7 @@ import {Config} from './config.js'
 export class ChatInfo {
     static contentCardHTML = `
     <div class="div-styled" style= "padding: 5px;">
-        <div style="text-align: justify; color: #000000; padding: 10px; background-color: #CCD0CC; border: 2px solid #FFFFFF; border-radius: 15px;">
+        <div style="color: #000000; padding: 10px; background-color: #CCD0CC; border: 2px solid #FFFFFF; border-radius: 15px;">
             <p style="text-align: center;">
                 <a href="${Config.data.modlink}">
                     <img src="modules/${Config.data.modID}/artwork/${Config.data.modID}-logo.gif" alt="${Config.data.modTitle} - Logo" style="border:0"/>
@@ -13,7 +13,7 @@ export class ChatInfo {
                 Version: chatInfoContent.version [<a href="modules/${Config.data.modID}/CHANGELOG.MD/">Changelog</a>]
             </p>
             <hr><div>
-                <h2 style="text-align: left">chatInfoContent.title</h2>
+                <h2 style="text-align: center">chatInfoContent.title</h2>
             </div>
             <hr>
             <div>
@@ -21,12 +21,12 @@ export class ChatInfo {
                 <p/>
                 <p style="text-align: left; font-style: normal; font-weight: lighter">chatInfoContent.text2</p>
                 <p/>
-                <p style="text-align: justify; font-style: normal; font-weight: lighter">chatInfoContent.text3:</p> 
+                <p style="font-style: normal; font-weight: lighter">chatInfoContent.text3:</p> 
                 <p style="text-align: center; font-style: normal; font-weight: lighter"><a href="${Config.data.modlink}">${Config.data.modlink}</a></p>
             </div>
             <hr>
             <div class="div-styled" style="font-style: italic; font-weight: lighter">
-                <p style="text-align: left;">chatInfoContent.footer</p>
+                <p style="text-align: center;">chatInfoContent.footer</p>
             </div>
 
         </div>
@@ -34,7 +34,7 @@ export class ChatInfo {
 
     static contentCardHTML_AlwaysCentredWarning = `
     <div class="div-styled" style= "padding: 5px;">
-        <div style="text-align: justify; color: #000000; padding: 10px; background-color: #CCD0CC; border: 2px solid #FFFFFF; border-radius: 15px;">
+        <div style="color: #000000; padding: 10px; background-color: #CCD0CC; border: 2px solid #FFFFFF; border-radius: 15px;">
             <p style="text-align: center">
                 <a href="${Config.data.modlink}">
                     <img src="modules/${Config.data.modID}/artwork/${Config.data.modID}-logo.gif" alt="${Config.data.modTitle} - Logo" style="border:0"/>
