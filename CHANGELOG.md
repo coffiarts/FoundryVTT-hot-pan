@@ -1,10 +1,10 @@
 The **major** version number in my modules (like "13") always reflects the
 Foundry VTT **core** version it is compatible with (and recommended for).
 
-## 13.?.?
-### 2025-??-?? - ?
-- ?
-- 
+## 13.0.2
+### 2025-09-03 - v13 compatibility fix
+- Another post-fix for [#11](https://github.com/coffiarts/FoundryVTT-hot-pan/issues/11): Error when opening Settings menu, preventing titles in the config menu to appear squashed
+
 ## 13.0.1
 ### 2025-08-05 - v13 compatibility fix
 - Fixes [#11](https://github.com/coffiarts/FoundryVTT-hot-pan/issues/11): Error when opening Settings menu
