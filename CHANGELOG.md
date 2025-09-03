@@ -18,7 +18,7 @@ Foundry VTT **core** version it is compatible with (and recommended for).
 - Save the world now from falling out of sight: **"Auto Focus"** is a lean integration of [SDoehren](https://github.com/SDoehren)'s [Always Centred](https://github.com/SDoehren/always-centred) mod, freshly merged into Hot Pan & Zoom! Big credits to [SDoehren](https://github.com/SDoehren) for his Creative Commons License that allowed me to freely reuse and integrate his code!
 - The included macro compendium comes with a new sample macro for it. Give it a try!
 
-<img src="src/hot-pan/artwork/auto-focus-new-mcro-preview.png" alt="New Auto Focus macro"/>
+<img src="src/hot-pan/artwork/auto-focus-new-macro-preview.png" alt="New Auto Focus macro"/>
 
 - "Lean integration" means: Functionality of the original mod has been reduced here to its vital core (to what's presumably most useful for GM controlled zooming & panning). I wanted to keep this as plain and intuitive as possible.
 - Don't miss the chance to assign your custom keyboard shortcut to the new "Auto Focus" function!
