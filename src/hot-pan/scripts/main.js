@@ -176,7 +176,7 @@ function afGetBoundingBox(token){
         if (!(pcIds.includes(token.actor.id))) {return;}
 
         tokens = canvas.tokens.placeables.filter(c => c.actor !== null);
-        if (!(Config.setting('afIncludeInvisible'))){
+        if (game.user.isGM && !(Config.setting('afIncludeInvisible'))){
             tokens = tokens.filter(x=>x.worldVisible);
         }
         tokens = tokens.filter(c => c.actor.hasPlayerOwner);
@@ -328,7 +328,7 @@ function afGMControl(data){
         let allChars = canvas.tokens.placeables.filter(c => c.actor !== null);
 
         let visIds;
-        if (!(Config.setting('afIncludeinvisible'))){
+        if (game.user.isGM && !(Config.setting('afIncludeinvisible'))){
             let visChars = allChars.filter(x=>x.worldVisible);
             visIds = visChars.map(c => c.id);
         } else {
