@@ -31,6 +31,7 @@ let lockViewStatus;
             } else {
                 HotPan.switchOff();
             }
+            renderHUDIcon();
         });
     }
 )
@@ -317,6 +318,65 @@ async function afPanAndZoom(boundingBox, panSpeed, zoom){
     //window.Azzu.Pings.perform({x:xMid ,y:yMid})
 }
 
+function renderHUDIcon() {
+    Logger.debug("(renderHUDIcon)");
+
+    clearHUDIcon();
+
+    Logger.debug("(renderHUDIcon) - HotPan.isOn() / Config.setting(\"showHUDIcon\")", HotPan.isOn(), Config.setting("showHUDIcon"));
+    if (!HotPan.isOn() || !Config.setting("showHUDIcon")) {
+        return;
+    }
+
+    // parent.style.position = "relative";
+    const hud = document.createElement("div");
+    hud.id = Config.HUD_ICON_NAME;
+    hud.style.position = "absolute";
+    hud.style.top = getHUDIconTopPosition();
+    const leftPos =
+        (Config.getGameMajorVersion() >= 13)
+            ? (game.system.id === "dsa5")
+                ? -250 * Config.OVERLAY_SCALE_MAPPING[Config.setting("hudIconScale")] // v13 dsa5
+                : 300 - 220 * Config.OVERLAY_SCALE_MAPPING[Config.setting("hudIconScale")] // v13 dnd5
+            : 0; // v12
+    if (Config.getGameMajorVersion() >= 13) {
+        hud.style.left = leftPos + "px";
+    } else {
+        hud.style.right = leftPos + "px";
+    }
+    hud.style.display = "inline-block";
+    hud.style.marginTop = (Config.getGameMajorVersion() >= 13) ? "10px" : "20px";
+    hud.style.marginRight = (Config.getGameMajorVersion() >= 13) ? "0px" : "20px";
+
+    const icon = document.createElement("img");
+    const size = 250 * Config.OVERLAY_SCALE_MAPPING[Config.setting("hudIconScale")];
+    icon.id = `${Config.HUD_ICON_NAME}-icon`;
+    icon.src = Config.HUD_ICON_SRC;
+    icon.width = size;
+    icon.height = size;
+    icon.style.border = "none";
+    icon.style.filter = `opacity(${Config.setting("hudIconOpacity")})`;
+    hud.appendChild(icon);
+
+    // insert into Foundry's own UI container
+    const parentName = (Config.getGameMajorVersion() >= 13) ? "sidebar" : "ui-middle";
+    const parent = document.getElementById(parentName);
+    Logger.debug("(renderHUDIcon) - inserting HUD icon", parent, hud);
+    parent.appendChild(hud);
+
+    HotPan.showsHUDIcon = true;
+}
+
+function clearHUDIcon() {
+    Logger.debug("(clearHUDIcon)");
+    document.getElementById(Config.HUD_ICON_NAME)?.remove();
+    HotPan.showsHUDIcon = true;
+}
+
+function getHUDIconTopPosition() {
+    return "0px"; // TODO: Shift this down whenever lock-the-sheet is installed and currently shows its own HUD icon (if LockTheSheets.showsHUDIcon ...)
+}
+
 function afGMControl(data){
     Logger.debug('(afGMControl)', 'data', data);
 
@@ -342,15 +402,14 @@ function afGMControl(data){
             autoFocus(data.token,true)
         }
     }
-
 }
-
 
 
 /**
  * Public class for accessing this module through macro code
  */
 export class HotPan {
+    static showsHUDIcon;
     static #isActive = false;
     static #previousState;
     static #isSilentMode;
@@ -531,6 +590,7 @@ export class HotPan {
                 this.#isSilentMode = false;
             }
         }
+        renderHUDIcon();
     }
 
     static onAFActiveStateChanged(newValue) {
@@ -613,4 +673,5 @@ export class HotPan {
             Logger.info(message);
         }
     }
+
 }

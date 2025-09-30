@@ -16,6 +16,10 @@ export class Config {
         modlink: MOD_LINK
     };
 
+    static HUD_ICON_NAME = "hot-pan-hud";
+    static HUD_ICON_SRC = `${Config.data.modPath}/artwork/hot-pan-macro-icon.png`;
+    static OVERLAY_SCALE_MAPPING = { zero: 0, small: 0.2, normal: 0.3, large: 0.4 };
+
     static init() {
 
         // Register all globally relevant game settings
@@ -62,6 +66,34 @@ export class Config {
             },
             warnWhenOFF: {
                 scope: 'world', config: true, type: Boolean, default: false
+            },
+            showHUDIcon: {
+                scope: 'world', config: true, type: Boolean, default: true,
+                onChange: () => { // value is the new value of the setting
+                    HotPan.onActiveStateChanged(Config.setting('isActive'));
+                }
+            },
+            hudIconScale: {
+                scope: 'world', config: true, type: String,
+                choices: {
+                    "zero": Config.localize("setting.hudIconScaleOptions.zero"),
+                    "small": Config.localize("setting.hudIconScaleOptions.small"),
+                    "normal": Config.localize("setting.hudIconScaleOptions.normal"),
+                    "large": Config.localize("setting.hudIconScaleOptions.large")
+                },
+                default: "normal",
+                render: "radio",
+                onChange: () => { // value is the new value of the setting
+                    HotPan.onActiveStateChanged(Config.setting('isActive'));
+                }
+            },
+            hudIconOpacity: {
+                scope: 'world', config: true, type: Number, default: 0.5,
+                range: { // define a slider
+                    min: 0.2,
+                    max: 1,
+                    step: 0.1
+                }
             }
         };
         Config.registerSettings(hotPanSettingsdata2);
@@ -125,9 +157,10 @@ export class Config {
         };
         Config.registerSettings(autoFocusSettingsData);
 
-        // Add the keybinding
+        // Add the keybindings
+
         game.keybindings.register("hot-pan", "active", {
-            name: Config.localize('keybindingMenuLabel'),
+            name: Config.localize('setting.keybindingNames.toggle'),
             editable: [
                 //{ key: "KeyL", modifiers: [KeyboardManager.MODIFIER_KEYS.SHIFT] }
             ],
@@ -140,7 +173,7 @@ export class Config {
             }
         });
         game.keybindings.register("hot-pan", "afActive", {
-            name: Config.localize('keybindingMenuLabelAF'),
+            name: Config.localize('setting.keybindingNames.toggleAF'),
             editable: [
                 //{ key: "KeyL", modifiers: [KeyboardManager.MODIFIER_KEYS.SHIFT] }
             ],
@@ -152,6 +185,55 @@ export class Config {
             }
         });
         Logger.info("Empty keybindings registered. Assign them to your liking in the game settings.");
+
+        game.keybindings.register("hot-pan", "scale: zero", {
+            name: Config.localize('setting.keybindingNames.scaleZero'),
+            editable: [],
+            restricted: true,
+            onDown: () => {
+                if (!game.user.isGM) {
+                    return;
+                }
+                Config.modifySetting('hudIconScale', 'zero');
+            }
+        });
+
+        game.keybindings.register("hot-pan", "scale: small", {
+            name: Config.localize('setting.keybindingNames.scaleSmall'),
+            editable: [],
+            restricted: true,
+            onDown: () => {
+                if (!game.user.isGM) {
+                    return;
+                }
+                Config.modifySetting('hudIconScale', 'small');
+            }
+        });
+
+        game.keybindings.register("hot-pan", "scale: normal", {
+            name: Config.localize('setting.keybindingNames.scaleNormal'),
+            editable: [],
+            restricted: true,
+            onDown: () => {
+                if (!game.user.isGM) {
+                    return;
+                }
+                Config.modifySetting('hudIconScale', 'normal');
+            }
+        });
+
+        game.keybindings.register("hot-pan", "scale: large", {
+            name: Config.localize('setting.keybindingNames.scaleLarge'),
+            editable: [],
+            restricted: true,
+            onDown: () => {
+                if (!game.user.isGM) {
+                    return;
+                }
+                Config.modifySetting('hudIconScale', 'large');
+            }
+        });
+
 
         // Whenever loading up, we need to adjust the "pseudo-setting" modVersion once to the current value from
         // the manifest. Otherwise, module updates won't be reflected in its value (users would always see their first

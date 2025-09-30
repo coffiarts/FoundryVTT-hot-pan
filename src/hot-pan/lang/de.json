@@ -33,6 +33,31 @@
         "name": "Warnung bei Deaktivierung",
         "hint": "Bannermeldung beim Abschalten hervorheben (Warnung). Nur wirksam, wenn \"UI-Meldungen beim Umschalten\" aktiviert ist."
       },
+      "showHUDIcon": {
+        "name": "HUD Status Icon anzeigen",
+        "hint": "Erzeugt ein Symbol auf der Szenenansicht (rechts oben, Standard: AN), solange der GM den Bildschirm kontrolliert.\n Kann automatisch nach einer bestimmten Zeitspanne ausgeblendet werden. Dazu bitte untenstehenden Slider anpassen."
+      },
+      "hudIconScale": {
+        "name": "Größe des HUD Status Icons",
+        "hint": "Größe des HUD Status Icons. Kann auch über eigene Tastenkombinationen in den globalen Kontrolleinstellungen umgeschaltet werden."
+      },
+      "hudIconScaleOptions": {
+        "small": "klein",
+        "normal": "normal",
+        "large": "groß"
+      },
+      "hudIconOpacity": {
+        "name": "Sichtbarkeit des HUD Status Icons",
+        "hint": "1 (Maximum) bedeutet vollständig sichtbar, 0.2 (Minimum) zu 20% sichtbar (zu 80% transparent). Standard: 0.7 (70%)."
+      },
+      "keybindingNames": {
+        "toggle": "Hot Pan & Zoom! ein-/ausschalten",
+        "toggleAF": "Auto Focus an-/ausschalten (aka 'Always Centred')",
+        "scaleZero": "Icon-Größe: unsichtbar",
+        "scaleSmall": "Icon-Größe: klein",
+        "scaleNormal": "Icon-Größe: normal",
+        "scaleLarge": "Icon-Größe: groß"
+      },
       "afMode": {
         "name": "Modus",
         "hint": "Deaktiviert: Autozentrierung ausgeschaltet (default) | Gruppenmodus: Alle Spielertokens werden berücksichtigt | Ausgewählter Token: Nur markierter Token wird berücksichtigt.",
@@ -82,8 +107,6 @@
       "whenON": "Bildschirm wird vom Spielleiter gesteuert!",
       "whenOFF": "Bildschirm ist wieder freigegeben."
     },
-    "keybindingMenuLabel": "Hot Pan & Zoom! an-/ausschalten",
-    "keybindingMenuLabelAF": "Auto Focus an-/ausschalten (aka 'Always Centred')",
     "autoFocus": {
       "title": "Auto Focus (aka 'Always Centred')",
       "description": "Zusatzfunktion zum automatischen Fokussieren und Zoomen auf Szenentokens (separat ein- und auschaltbar). Ergänzt sich bestens mit Hot Pan & Zoom! Ursprünglich als separates Mod 'Always Centred' bekannt. In Hot Pan & Zoom! integriert mit Genehmigung des Autors (SDoehren). Zum Ursprungsmodul siehe:",

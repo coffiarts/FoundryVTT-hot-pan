@@ -33,6 +33,30 @@
         "name": "Warning on deactivate",
         "hint": "Show extra prominent UI message (warning) when toggling OFF. Needs option \"UI messages on toggle\" to be enabled."
       },
+      "showHUDIcon": {
+        "name": "Show HUD status icon",
+        "hint": "Display an icon on screen (top-right, default: ON) whenever the GM controls the screen.\n You can automatically make it turn off after a timeout by setting the slider below."
+      },
+      "hudIconScale": {
+        "name": "HUD Icon size",
+        "hint": "Scale of the Status HUD Icon. Can also be toggled by custom keybindings in the global control settings."
+      },
+      "hudIconScaleOptions": {
+        "small": "small",
+        "normal": "normal",
+        "large": "large"
+      },
+      "hudIconOpacity": {
+        "name": "Opacity of the HUD status icon",
+        "hint": "1 (maximum) means fully visible, 0.2 (minimum) means visible by 20% (transparent by 80%). Default: 0.7 (70%)"
+      },
+      "keybindingNames": {
+        "toggle": "Hot Pan & Zoom! (on/off)",
+        "scaleZero": "Icon Size: invisible",
+        "scaleSmall": "Icon Size: small",
+        "scaleNormal": "Icon Size: normal",
+        "scaleLarge": "Icon Size: large"
+      },
       "afMode": {
         "name": "Mode",
         "hint": "Disabled: Module off (default) | Party View: all player owned tokens | Selected Token: only the selected token.",
