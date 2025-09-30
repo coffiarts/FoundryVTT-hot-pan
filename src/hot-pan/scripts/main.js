@@ -328,15 +328,21 @@ function renderHUDIcon() {
         return;
     }
 
-    // parent.style.position = "relative";
-    const hud = document.createElement("div");
-    hud.id = Config.HUD_ICON_NAME;
-    hud.style.position = "absolute";
-    hud.style.top = getHUDIconTopPosition();
+    // Check if "coffiarts-hud" already exists. Only create if it doesn't.'
+    let hud = document.getElementById(Config.HUD_NAME);
+    if (!hud) {
+        hud = document.createElement("div");
+        hud.id = Config.HUD_NAME;
+        hud.style.position = "absolute";
+        hud.style.top = "0px"
+    }
+
+    // Create and append the hud icon
+    clearHUDIcon();
     const leftPos =
         (Config.getGameMajorVersion() >= 13)
             ? (game.system.id === "dsa5")
-                ? -250 * Config.OVERLAY_SCALE_MAPPING[Config.setting("hudIconScale")] // v13 dsa5
+                ? -270 * Config.OVERLAY_SCALE_MAPPING[Config.setting("hudIconScale")] // v13 dsa5
                 : 300 - 220 * Config.OVERLAY_SCALE_MAPPING[Config.setting("hudIconScale")] // v13 dnd5
             : 0; // v12
     if (Config.getGameMajorVersion() >= 13) {
@@ -350,7 +356,7 @@ function renderHUDIcon() {
 
     const icon = document.createElement("img");
     const size = 250 * Config.OVERLAY_SCALE_MAPPING[Config.setting("hudIconScale")];
-    icon.id = `${Config.HUD_ICON_NAME}-icon`;
+    icon.id = Config.HUD_ICON_NAME;
     icon.src = Config.HUD_ICON_SRC;
     icon.width = size;
     icon.height = size;
@@ -363,18 +369,11 @@ function renderHUDIcon() {
     const parent = document.getElementById(parentName);
     Logger.debug("(renderHUDIcon) - inserting HUD icon", parent, hud);
     parent.appendChild(hud);
-
-    HotPan.showsHUDIcon = true;
 }
 
 function clearHUDIcon() {
     Logger.debug("(clearHUDIcon)");
     document.getElementById(Config.HUD_ICON_NAME)?.remove();
-    HotPan.showsHUDIcon = true;
-}
-
-function getHUDIconTopPosition() {
-    return "0px"; // TODO: Shift this down whenever lock-the-sheet is installed and currently shows its own HUD icon (if LockTheSheets.showsHUDIcon ...)
 }
 
 function afGMControl(data){

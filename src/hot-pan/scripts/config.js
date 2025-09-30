@@ -16,7 +16,8 @@ export class Config {
         modlink: MOD_LINK
     };
 
-    static HUD_ICON_NAME = "hot-pan-hud";
+    static HUD_NAME = "coffiarts-hud";
+    static HUD_ICON_NAME = "hot-pan-hud-icon";
     static HUD_ICON_SRC = `${Config.data.modPath}/artwork/hot-pan-macro-icon.png`;
     static OVERLAY_SCALE_MAPPING = { zero: 0, small: 0.2, normal: 0.3, large: 0.4 };
 
@@ -93,6 +94,9 @@ export class Config {
                     min: 0.2,
                     max: 1,
                     step: 0.1
+                },
+                onChange: () => { // value is the new value of the setting
+                    HotPan.onActiveStateChanged(Config.setting('isActive'));
                 }
             }
         };
