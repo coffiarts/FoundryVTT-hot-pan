@@ -17,10 +17,6 @@
         "name": "Modulinfo im Chat ausblenden",
         "hint": "Blendet die einmalige allgemeine Info zu diesem Modul im Chat aus. Um sie wieder anzuzeigen, diese Option DEAKTIVIEREN."
       },
-      "hideChatWarnings": {
-        "name": "Warnungen im Chat ausblenden",
-        "hint": "Blendet die einmaligen Versionswarnungen aus, die manchmal nach einem Mod-Update im Chat angezeigt werden. Um sie wieder anzuzeigen, diese Option DEAKTIVIEREN."
-      },
       "notifyOnChange": {
         "name": "UI-Meldungen beim Umschalten",
         "hint": "Zeige kurze Bannermeldungen an, wenn das Panning & Zooming aus- oder eingeschaltet wird (funktioniert auch beim Umschalten via Macro)."
@@ -101,6 +97,13 @@
       "text1": "&quot;One Thing to Pan Them! One Thing to Find Them! One Thing to Zoom them and to the GM's Canvas Bind Them!&quot;",
       "text2": "Hot Pan & Zoom! ist ein system-unabhängiges Helferlein, mit dem Bildschirmposition und -zoom zwischen Spielleiter und Spielern synchronisiert werden kann. Es funktioniert sowohl im Hintergrund als auch steuerbar via Makros.",
       "text3": "Bitte Moduleinstellungen in den Spieleinstellungen beachten. Mehr Details außerdem auf GitHub",
+      "footer": "Diese Nachricht wird nur einmal angezeigt. Zum Wiederanzeigen bitte die entsprechende Option in den Moduleinstellungen verwenden."
+    },
+    "chatInfoContentHUDIcon": {
+      "title": "Neues Feature: HUD Icon",
+      "text1": "Ein neues Statussymbol in der rechten oberen Ecke der Szenenansicht zeigt nun an, wann der Spielleiter den Bildschirm steuert.",
+      "text2": "In den Moduleinstellungen kannst du seine Größe ändern, oder es auch ganz deaktivieren, wenn es dir zu immersiv ist.",
+      "text3": "Es funktioniert genau so wie das entsprechende Icon in meinem anderen Modul <a href='https://github.com/coffiarts/FoundryVTT-lock-the-sheets' style='font-weight: bold; text-decoration: underline'>-&gt; Lock The Sheets!</a>. Beide Mods/Icons können zusammen verwendet werden.",
       "footer": "Diese Nachricht wird nur einmal angezeigt. Zum Wiederanzeigen bitte die entsprechende Option in den Moduleinstellungen verwenden."
     },
     "onOffUIMessage": {

@@ -72,10 +72,13 @@ And a more fancy thing: I like scripting big macros for playing cinematic animat
 **This is why I've created this whole thing.**
 
 It is a systems-agnostic utility for keeping players' canvas position & zoom in sync with the GM's screen.
-
 For instance, it allows to take over control of the players' canvas for a short time to draw their attention to important things ("Hey! Have a look at THIS!").
-
 And it comes in handy for cinematic reasons, like in the animation sequence shown in the video demo. Feel free to experiment!
+
+<img src="src/hot-pan/artwork/hot-pan-hud-icon.png" width="100" alt="New HUD Status icon"/>
+
+As of version 13.0.4, there's also this icon which signals to players whenever the GM has taken over screen control.
+
 
 ## Changelog
 Has been moved to [CHANGELOG.md](CHANGELOG.md)

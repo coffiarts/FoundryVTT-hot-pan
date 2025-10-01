@@ -28,7 +28,6 @@ export class ChatInfo {
             <div class="div-styled" style="font-style: italic; font-weight: lighter">
                 <p style="text-align: center;">chatInfoContent.footer</p>
             </div>
-
         </div>
     </div>`;
 
@@ -56,7 +55,32 @@ export class ChatInfo {
             <div class="div-styled" style="font-style: italic; font-weight: lighter">
                 <p style="text-align: left;">chatInfoContent.footer</p>
             </div>
+        </div>
+    </div>`;
 
+    static contentCardHTML_HUDIconInfo = `
+    <div class="div-styled" style= "padding: 5px;">
+        <div style="color: #000000; padding: 10px; background-color: #CCD0CC; border: 2px solid #FFFFFF; border-radius: 15px;">
+            <p style="text-align: center">
+                <img src="${Config.HUD_ICON_SRC}" alt="New HUD Icon" title="New HUD Icon" style="border:0; width:100px"/>
+                <br/>
+                Version: chatInfoContent.version [<a href="modules/${Config.data.modID}/CHANGELOG.MD/">Changelog</a>]
+            </p>
+            <hr><div>
+                <h2 style="text-align: center">chatInfoContent.title</h2>
+            </div>
+            <hr>
+            <div>
+                <p style="text-align: left; font-style: normal; font-weight: lighter">chatInfoContent.text1</p>
+                <p/>
+                <p style="text-align: left; font-style: normal; font-weight: lighter">chatInfoContent.text2</p>
+                <p/>
+                <p style="text-align: left; font-style: normal; font-weight: lighter">chatInfoContent.text3</p>
+            </div>
+            <hr>
+            <div class="div-styled" style="font-style: italic; font-weight: lighter">
+                <p style="text-align: left;">chatInfoContent.footer</p>
+            </div>
         </div>
     </div>`;
 
@@ -78,10 +102,13 @@ export class ChatInfo {
         // Register game settings relevant to this class specifically (all globally relevant settings are maintained by class Config)
         const settingsData = {
             hideChatInfo: {
-                scope: 'client', config: true, type: Boolean, default: false,
+                scope: 'world', config: true, type: Boolean, default: false
             },
-            hideChatWarnings: {
-                scope: 'client', config: true, type: Boolean, default: false,
+            oneTimeChatInfoAF: {
+                scope: 'world', config: false, type: Boolean, default: false
+            },
+            oneTimeChatInfoHUDIcon: {
+                scope: 'world', config: false, type: Boolean, default: false
             }
         };
         Config.registerSettings(settingsData);
@@ -104,16 +131,13 @@ export class ChatInfo {
                         ,
                     }, {});
                     Logger.debug("(ChatInfo.init) Chat message created");
-
-                    await Config.modifySetting('hideChatInfo', true);
                 }
-            }
 
-            // Show a one-time chat warning if 'always-centred' is installed (compatibility check for 12.1.0 and higher).
-            if (game.modules.get('always-centred')?.active) {
-                if (Config.setting('hideChatWarnings') === false) {
+                // Show a one-time chat warning if 'always-centred' is installed.
+                if ((Config.setting('hideChatInfo') === false || Config.setting('oneTimeChatInfoAF') === false) && game.modules.get('always-centred')?.active) {
                     // Create Chat Message
                     await ChatMessage.create({
+                        whisper: ChatMessage.getWhisperRecipients("GM"),
                         user: game.user.id ?? game.user._id,
                         speaker: ChatMessage.getSpeaker({alias: Config.data.modTitle}),
                         content: ChatInfo.contentCardHTML_AlwaysCentredWarning
@@ -123,12 +147,31 @@ export class ChatInfo {
                             .replace('chatInfoContent.version', Config.setting('modVersion'))
                         ,
                     }, {});
-                    Logger.debug("(ChatInfo.init) Always Centred chat warning created");
-
-                    await Config.modifySetting('hideChatWarnings', true);
+                    Logger.debug("(ChatInfo.init) One-time chat warning for Always Centred created.");
                 }
-            }
 
+                // Show a one-time chat warning after introducing the HUD icon
+                if ((Config.setting('hideChatInfo') === false || Config.setting('oneTimeChatInfoHUDIcon') === false) && Config.getModuleVersionAsNumber() >= 1303) {
+                    // Create Chat Message
+                    await ChatMessage.create({
+                        whisper: ChatMessage.getWhisperRecipients("GM"),
+                        user: game.user.id ?? game.user._id,
+                        speaker: ChatMessage.getSpeaker({alias: Config.data.modTitle}),
+                        content: ChatInfo.contentCardHTML_HUDIconInfo
+                            .replace('chatInfoContent.title', Config.localize('chatInfoContentHUDIcon.title'))
+                            .replace('chatInfoContent.text1', Config.localize('chatInfoContentHUDIcon.text1'))
+                            .replace('chatInfoContent.text2', Config.localize('chatInfoContentHUDIcon.text2'))
+                            .replace('chatInfoContent.text3', Config.localize('chatInfoContentHUDIcon.text3'))
+                            .replace('chatInfoContent.footer', Config.localize('chatInfoContentHUDIcon.footer'))
+                            .replace('chatInfoContent.version', Config.setting('modVersion'))
+                        ,
+                    }, {});
+                    Logger.debug("(ChatInfo.init) One-time chat info for HUD Icon feature created");
+                }
+                await Config.modifySetting('hideChatInfo', true);
+                await Config.modifySetting('oneTimeChatInfoAF', true);
+                await Config.modifySetting('oneTimeChatInfoHUDIcon', true);
+            }
         })
 
     }

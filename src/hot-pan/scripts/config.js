@@ -238,7 +238,6 @@ export class Config {
             }
         });
 
-
         // Whenever loading up, we need to adjust the "pseudo-setting" modVersion once to the current value from
         // the manifest. Otherwise, module updates won't be reflected in its value (users would always see their first
         // installed version ever in the settings menu).
@@ -309,6 +308,10 @@ export class Config {
 
     static getGameMajorVersion() {
         return game.version.split('.')[0];
+    }
+
+    static getModuleVersionAsNumber() {
+        return parseInt(game.modules.get(MOD_ID).version.replaceAll('.',''));
     }
 
     static isV13plus() {
