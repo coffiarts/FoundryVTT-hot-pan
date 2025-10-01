@@ -324,7 +324,7 @@ function renderHUDIcon() {
     clearHUDIcon();
 
     Logger.debug("(renderHUDIcon) - HotPan.isOn() / Config.setting(\"showHUDIcon\")", HotPan.isOn(), Config.setting("showHUDIcon"));
-    if (!HotPan.isOn() || !Config.setting("showHUDIcon")) {
+    if (!Config.setting('isActive') || !Config.setting("showHUDIcon")) {
         return;
     }
 
@@ -334,7 +334,7 @@ function renderHUDIcon() {
         hud = document.createElement("div");
         hud.id = Config.HUD_NAME;
         hud.style.position = "absolute";
-        hud.style.top = "0px"
+        hud.style.top = "0px";
     }
 
     // Create and append the hud icon

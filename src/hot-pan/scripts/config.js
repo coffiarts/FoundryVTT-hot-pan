@@ -18,7 +18,7 @@ export class Config {
 
     static HUD_NAME = "coffiarts-hud";
     static HUD_ICON_NAME = "hot-pan-hud-icon";
-    static HUD_ICON_SRC = `${Config.data.modPath}/artwork/hot-pan-macro-icon.png`;
+    static HUD_ICON_SRC = `${Config.data.modPath}/artwork/hot-pan-hud-icon.png`;
     static OVERLAY_SCALE_MAPPING = { zero: 0, small: 0.2, normal: 0.3, large: 0.4 };
 
     static init() {
