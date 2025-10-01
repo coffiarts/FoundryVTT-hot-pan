@@ -311,7 +311,9 @@ export class Config {
     }
 
     static getModuleVersionAsNumber() {
-        return parseInt(game.modules.get(MOD_ID).version.replaceAll('.',''));
+        const versionNo = parseInt(game.modules.get(MOD_ID).version.replaceAll('.',''));
+        Logger.debug("(getModuleVersionAsNumber)", versionNo);
+        return versionNo;
     }
 
     static isV13plus() {

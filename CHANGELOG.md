@@ -1,14 +1,14 @@
 The **major** version number in my modules (like "13") always reflects the
 Foundry VTT **core** version it is compatible with (and recommended for).
 
-## 13.0.4
+## 13.1.0
 ### 2025-10-01 - New Feature: HUD Icon
 <img src="src/hot-pan/artwork/hot-pan-hud-icon.png" width="100" alt="New HUD Status icon"/>
 
 - Introducing this new status icon, which will show up in the top-right corner of the scene view whenever Hot Pan & Zoom! is toggled on. This helps to avoid player confusion whenever the GM takes over screen control.
 - Configure its size in the module settings, or disable it completely, if you find it too invasive.
 - It works like the similar HUD icon in my other module [Lock The Sheets!](https://github.com/coffiarts/FoundryVTT-lock-the-sheets) (feel free to check it out!). Both mods/icons are designed to work alongside with each other.
-**Important:** If you're already using both mods, make sure to update both of them, to avoid flaws in the UI! 
+**Important:** If you're already using both mods, make sure to also update both of them, to avoid flaws in the UI! 
 
 ## 13.0.3
 ### 2025-09-16 - Maintenance release, fixing fancy technical details no one would ever have noticed ;-)

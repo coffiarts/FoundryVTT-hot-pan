@@ -408,7 +408,6 @@ function afGMControl(data){
  * Public class for accessing this module through macro code
  */
 export class HotPan {
-    static showsHUDIcon;
     static #isActive = false;
     static #previousState;
     static #isSilentMode;
