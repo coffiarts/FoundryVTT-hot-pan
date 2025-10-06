@@ -22,8 +22,9 @@ let lockViewStatus;
         await allPrerequisitesReady();
 
         Hooks.once("ready", () => {
+            Config.modifySetting(`modVersion`, game.modules.get("hot-pan").version);
             ready2play = true;
-            Logger.infoGreen(`Ready to play! Version: ${game.modules.get(Config.data.modID).version}`);
+            Logger.infoGreen(`Ready to play! Version: ${Config.setting("modVersion")}`);
             Logger.infoGreen(Config.data.modDescription);
             if (Config.setting('isActive')) {
                 HotPan.switchOn();
