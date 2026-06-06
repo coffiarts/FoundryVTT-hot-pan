@@ -94,9 +94,18 @@ async function initSocketlib() {
 
 async function initCanvasListener() {
     Hooks.on("canvasPan", async function (canvas, position) {
-        if (!game.user.isGM) return; // Only the GM shall be allowed to force canvas position on others!
+        if (game.user.role !== CONST.USER_ROLES.GAMEMASTER) return; // Only the GM (excluding Assitants) shall be allowed to force canvas position on others!
         if (!Config.setting('isActive')) return;
-        socket.executeForOthers("pushCanvasPositionToClients", {sceneId: game.scenes.current.id, position: position, username: game.user.name});
+        // regular users
+        socket.executeForUsers(
+            "pushCanvasPositionToClients",
+            game.users.players.map(p => p.id),
+            {sceneId: game.scenes.current.id, position: position, username: game.user.name});
+        // GM Assistants
+        socket.executeForUsers(
+            "pushCanvasPositionToClients",
+            game.users.filter(u => u.role === CONST.USER_ROLES.ASSISTANT).map(p => p.id),
+            {sceneId: game.scenes.current.id, position: position, username: game.user.name});
     });
     Logger.debug("(initCanvasListener) Canvas is ready (listeners registered)");
 }
@@ -580,7 +589,8 @@ export class HotPan {
 
         this.#isActive = Config.setting('isActive');
 
-        if (game.user.isGM && Config.setting('notifyOnChange')) {
+        if (game.user.role === CONST.USER_ROLES.GAMEMASTER // this excludes GM Assistants to prevent double-firing
+            && Config.setting('notifyOnChange')) {
             // UI messages should only be triggered by the GM via sockets.
             // This seems to be the only way to suppress them if needed.
             if (!this.#isSilentMode) {
