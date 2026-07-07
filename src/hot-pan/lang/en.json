@@ -46,6 +46,24 @@
         "name": "Opacity of the HUD status icon",
         "hint": "1 (maximum) means fully visible, 0.2 (minimum) means visible by 20% (transparent by 80%). Default: 0.7 (70%)"
       },
+      "hudIconAnchor": {
+        "name": "Anchoring position of the HUD status icon",
+        "hint": "Base position relative to your screen (which corner?). May be fine-tuned by offset settings further below."
+      },
+      "hudIconAnchorOptions": {
+        "topleft": "top-left",
+        "topright": "top-right (default)",
+        "bottomleft": "bottom-left",
+        "bottomright": "bottom-right"
+      },
+      "hudIconOffsetX": {
+        "name": "Horizontal offset (pixels) of the HUD status icon",
+        "hint": "Relative adaption of the Left-Right position"
+      },
+      "hudIconOffsetY": {
+        "name": " Vertical offset (pixels) of the HUD status icon",
+        "hint": "Relative adaption of the Top-Down position."
+      },
       "keybindingNames": {
         "toggle": "Hot Pan & Zoom! (on/off)",
         "scaleZero": "Icon Size: invisible",

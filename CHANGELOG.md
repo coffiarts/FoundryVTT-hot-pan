@@ -1,5 +1,11 @@
-The **major** version number in my modules (like "13") always reflects the
+The **major** version number in my modules (like "14") always reflects the
 Foundry VTT **core** version it is compatible with (and recommended for).
+
+## 14.0.0
+### 2026-??-?? - HUD Status Icon position now configurable
+- Implements request #12, enabling fine-tuning of the HUD Icon's position. This is meant to help avoid UI conflicts in specific systems (like PF2)
+- Formal declaration of v14 compatibility (though it had already been compatible). We're still backward-compatible with v13, **but: v12 compatibility has been dropped**
+- minor background fixes and optimizations
 
 ## 13.1.0
 ### 2025-10-01 - New Feature: HUD Icon

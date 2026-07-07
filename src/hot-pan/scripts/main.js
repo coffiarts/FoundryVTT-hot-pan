@@ -32,7 +32,7 @@ let lockViewStatus;
             } else {
                 HotPan.switchOff();
             }
-            renderHUDIcon();
+            HotPan.renderHUDIcon();
         });
     }
 )
@@ -328,64 +328,6 @@ async function afPanAndZoom(boundingBox, panSpeed, zoom){
     //window.Azzu.Pings.perform({x:xMid ,y:yMid})
 }
 
-function renderHUDIcon() {
-    Logger.debug("(renderHUDIcon)");
-
-    clearHUDIcon();
-
-    Logger.debug("(renderHUDIcon) - HotPan.isOn() / Config.setting(\"showHUDIcon\")", HotPan.isOn(), Config.setting("showHUDIcon"));
-    if (!Config.setting('isActive') || !Config.setting("showHUDIcon")) {
-        return;
-    }
-
-    // Check if "coffiarts-hud" already exists. Only create if it doesn't.'
-    let hud = document.getElementById(Config.HUD_NAME);
-    if (!hud) {
-        hud = document.createElement("div");
-        hud.id = Config.HUD_NAME;
-        hud.style.position = "absolute";
-        hud.style.top = "0px";
-    }
-
-    // Create and append the hud icon
-    clearHUDIcon();
-    const leftPos =
-        (Config.getGameMajorVersion() >= 13)
-            ? (game.system.id === "dsa5")
-                ? -270 * Config.OVERLAY_SCALE_MAPPING[Config.setting("hudIconScale")] // v13 dsa5
-                : 300 - 220 * Config.OVERLAY_SCALE_MAPPING[Config.setting("hudIconScale")] // v13 dnd5
-            : 0; // v12
-    if (Config.getGameMajorVersion() >= 13) {
-        hud.style.left = leftPos + "px";
-    } else {
-        hud.style.right = leftPos + "px";
-    }
-    hud.style.display = "inline-block";
-    hud.style.marginTop = (Config.getGameMajorVersion() >= 13) ? "10px" : "20px";
-    hud.style.marginRight = (Config.getGameMajorVersion() >= 13) ? "0px" : "20px";
-
-    const icon = document.createElement("img");
-    const size = 250 * Config.OVERLAY_SCALE_MAPPING[Config.setting("hudIconScale")];
-    icon.id = Config.HUD_ICON_NAME;
-    icon.src = Config.HUD_ICON_SRC;
-    icon.width = size;
-    icon.height = size;
-    icon.style.border = "none";
-    icon.style.filter = `opacity(${Config.setting("hudIconOpacity")})`;
-    hud.appendChild(icon);
-
-    // insert into Foundry's own UI container
-    const parentName = (Config.getGameMajorVersion() >= 13) ? "sidebar" : "ui-middle";
-    const parent = document.getElementById(parentName);
-    Logger.debug("(renderHUDIcon) - inserting HUD icon", parent, hud);
-    parent.appendChild(hud);
-}
-
-function clearHUDIcon() {
-    Logger.debug("(clearHUDIcon)");
-    document.getElementById(Config.HUD_ICON_NAME)?.remove();
-}
-
 function afGMControl(data){
     Logger.debug('(afGMControl)', 'data', data);
 
@@ -649,6 +591,7 @@ export class HotPan {
             Logger.info(message);
         }
     }
+    
     static afStateChangeUIMessage() {
         let message =
             (HotPan.#afMode !== "disabled")
@@ -681,6 +624,72 @@ export class HotPan {
             });
             Logger.info(message);
         }
+    }
+
+    static renderHUDIcon() {
+        Logger.debug("(renderHUDIcon)");
+    
+        HotPan.clearHUDIcon();
+    
+        Logger.debug("(renderHUDIcon) - HotPan.isOn() / Config.setting(\"showHUDIcon\")", HotPan.isOn(), Config.setting("showHUDIcon"));
+        if (!Config.setting('isActive') || !Config.setting("showHUDIcon")) {
+            return;
+        }
+    
+        // Check if "coffiarts-hud" already exists. Only create it if it doesn't.
+        let hud = document.getElementById(Config.HUD_NAME);
+        if (!hud) {
+            hud = document.createElement("div");
+            hud.id = Config.HUD_NAME;
+            hud.style.position = "absolute";
+            if (Config.setting("hudIconAnchor").startsWith("bottom")) { // "bottomleft" or "bottomright"
+                hud.style.bottom = parseInt(Config.setting("hudIconOffsetY")) + "px";
+            } else { // "topleft" or "topright"
+                hud.style.top = parseInt(Config.setting("hudIconOffsetY")) + "px";
+            }
+        }
+    
+        HotPan.clearHUDIcon();
+        
+        // Fine-tune horizontal position. This is VERY hacky - still searching for a better solution
+        if (Config.setting("hudIconAnchor").endsWith("left")) { // "topleft" or "bottomleft"
+            const leftPos = parseInt(Config.setting("hudIconOffsetX")); // TODO - probably not right yet!
+        } else { // "topright" or "bottomright"
+            const leftPos = (game.system.id === "dsa5")
+                ? -270 * Config.OVERLAY_SCALE_MAPPING[Config.setting("hudIconScale")] // dsa5
+                : 300 - 220 * Config.OVERLAY_SCALE_MAPPING[Config.setting("hudIconScale")]; // others (tested only for dnd5!)
+            leftPos += parseInt(Config.setting("hudIconOffsetX"));    
+            hud.style.left = leftPos + "px";
+        }
+        
+        // Finalize icon settings
+        hud.style.display = "inline-block";
+        hud.style.margin = "10px";
+        const icon = document.createElement("img");
+        const size = 250 * Config.OVERLAY_SCALE_MAPPING[Config.setting("hudIconScale")];
+        icon.id = Config.HUD_ICON_NAME;
+        icon.src = Config.HUD_ICON_SRC;
+        icon.width = size;
+        icon.height = size;
+        icon.style.border = "none";
+        icon.style.filter = `opacity(${Config.setting("hudIconOpacity")})`;
+        hud.appendChild(icon);
+    
+        // insert into Foundry's own UI container
+        const parentName;
+        if (Config.setting("hudIconAnchor").endsWith("left")) { // "topleft" or "bottomleft"
+            parentName = "ui-left-column-1"; // TODO - this need to be something else here
+        } else { // "topright" or "bottomright"
+            parentName = "sidebar";
+        }
+        const parent = document.getElementById(parentName);
+        Logger.debug("(renderHUDIcon) - inserting HUD icon", parent, hud);
+        parent.appendChild(hud);
+    }
+
+    static clearHUDIcon() {
+        Logger.debug("(clearHUDIcon)");
+        document.getElementById(Config.HUD_ICON_NAME)?.remove();
     }
 
 }

@@ -23,8 +23,10 @@ export class Config {
 
     static init() {
 
+        let settingsData;
+
         // Register all globally relevant game settings
-        const hotPanSettingsdata1 = {
+        settingsData = {
             modVersion: {
                 scope: 'client', config: true, type: String, default: game.modules.get(MOD_ID).version,
                 onChange: value => {
@@ -36,23 +38,16 @@ export class Config {
                 }
             }
         }
-        Config.registerSettings(hotPanSettingsdata1);
+        Config.registerSettings(settingsData);
 
         // create separator and title at the beginning of this settings section
-        if (Config.getGameMajorVersion() >= 13) {
-            Hooks.on('renderSettingsConfig', (app, html) => {
-                const inputEl = html.querySelector(`#settings-config-${Config.data.modID.replace(/\./g, "\\.")}\\.isActive`);
-                const formGroup = inputEl?.closest(".form-group");
-                formGroup?.insertAdjacentHTML("beforebegin", `<div><h4 style="margin-top: 0; border-bottom: 1px solid #888; padding-bottom: 4px; margin-bottom: 6px;">Core</h4></div>`);
-            });
-        }
-        else {
-            Hooks.on('renderSettingsConfig', (app, [html]) => {
-                html.querySelector(`[data-setting-id="${Config.data.modID}.isActive"]`)?.insertAdjacentHTML('beforeBegin', `<h3>Core</h3>`)
-            });
-        }
-
-        const hotPanSettingsdata2 = {
+        Hooks.on('renderSettingsConfig', (app, html) => {
+            const inputEl = html.querySelector(`#settings-config-${Config.data.modID.replace(/\./g, "\\.")}\\.isActive`);
+            const formGroup = inputEl?.closest(".form-group");
+            formGroup?.insertAdjacentHTML("beforebegin", `<div><h4 style="margin-top: 0; border-bottom: 1px solid #888; padding-bottom: 4px; margin-bottom: 6px;">Core</h4></div>`);
+        });
+        
+        settingsData = {
             isActive: {
                 scope: 'world', config: true, type: Boolean, default: false,
                 onChange: (value) => { // value is the new value of the setting
@@ -70,8 +65,8 @@ export class Config {
             },
             showHUDIcon: {
                 scope: 'world', config: true, type: Boolean, default: true,
-                onChange: () => { // value is the new value of the setting
-                    HotPan.onActiveStateChanged(Config.setting('isActive'));
+                onChange: () => {
+                    HotPan.renderHUDIcon();
                 }
             },
             hudIconScale: {
@@ -84,8 +79,8 @@ export class Config {
                 },
                 default: "normal",
                 render: "radio",
-                onChange: () => { // value is the new value of the setting
-                    HotPan.onActiveStateChanged(Config.setting('isActive'));
+                onChange: () => {
+                    HotPan.renderHUDIcon();
                 }
             },
             hudIconOpacity: {
@@ -95,38 +90,62 @@ export class Config {
                     max: 1,
                     step: 0.1
                 },
-                onChange: () => { // value is the new value of the setting
-                    HotPan.onActiveStateChanged(Config.setting('isActive'));
+                onChange: () => {
+                    HotPan.renderHUDIcon();
+                }
+            },
+            hudIconAnchor: {
+                scope: 'world', config: true, type: String,
+                choices: {
+                    "topleft": Config.localize("setting.hudIconAnchorOptions.topleft"),
+                    "topright": Config.localize("setting.hudIconAnchorOptions.topright"),
+                    "bottomleft": Config.localize("setting.hudIconAnchorOptions.bottomleft"),
+                    "bottomright": Config.localize("setting.hudIconAnchorOptions.bottomright")
+                },
+                default: "topright",
+                render: "radio",
+                onChange: () => {
+                    HotPan.renderHUDIcon();
+                }
+            },
+            hudIconOffsetX: {
+                scope: 'world', config: true, type: Number, default: 0,
+                range: { // define a slider
+                    min: -200,
+                    max: 200,
+                    step: 1
+                },
+                onChange: () => {
+                    HotPan.renderHUDIcon();
+                }
+            },
+            hudIconOffsetY: {
+                scope: 'world', config: true, type: Number, default: 0,
+                range: { // define a slider
+                    min: -200,
+                    max: 200,
+                    step: 1
+                },
+                onChange: () => {
+                    HotPan.renderHUDIcon();
                 }
             }
         };
-        Config.registerSettings(hotPanSettingsdata2);
+        Config.registerSettings(settingsData);
 
         // create separator and title at the beginning of the next settings section
-        if (Config.getGameMajorVersion() >= 13) {
-            Hooks.on('renderSettingsConfig', (app, html) => {
-                const inputEl = html.querySelector(`#settings-config-${Config.data.modID.replace(/\./g, "\\.")}\\.afMode`);
-                const formGroup = inputEl?.closest(".form-group");
-                formGroup?.insertAdjacentHTML(
-                    "beforebegin",
-                    `<div><h4 style="margin-top: 0; border-bottom: 1px solid #888; padding-bottom: 4px; margin-bottom: 6px;">${Config.localize('autoFocus.title')}</h4></div>` +
-                    `<p class="notes" style="margin-top: 0">${Config.localize('autoFocus.description')} ` +
-                    `<a href="https://github.com/SDoehren/always-centred">https://github.com/SDoehren/always-centred</a>` +
-                    `</p>`);
-            });
-        }
-        else {
-            Hooks.on('renderSettingsConfig', (app, [html]) => {
-                html.querySelector(`[data-setting-id="${Config.data.modID}.afMode"]`)?.insertAdjacentHTML(
-                    'beforeBegin',
-                    `<h3>${Config.localize('autoFocus.title')}</h3>` +
-                    `<p class="notes">${Config.localize('autoFocus.description')} ` +
-                    `<a href="https://github.com/SDoehren/always-centred">https://github.com/SDoehren/always-centred</a>` +
-                    `</p>`);
-            });
-        }
+        Hooks.on('renderSettingsConfig', (app, html) => {
+            const inputEl = html.querySelector(`#settings-config-${Config.data.modID.replace(/\./g, "\\.")}\\.afMode`);
+            const formGroup = inputEl?.closest(".form-group");
+            formGroup?.insertAdjacentHTML(
+                "beforebegin",
+                `<div><h4 style="margin-top: 0; border-bottom: 1px solid #888; padding-bottom: 4px; margin-bottom: 6px;">${Config.localize('autoFocus.title')}</h4></div>` +
+                `<p class="notes" style="margin-top: 0">${Config.localize('autoFocus.description')} ` +
+                `<a href="https://github.com/SDoehren/always-centred">https://github.com/SDoehren/always-centred</a>` +
+                `</p>`);
+        });
 
-        const autoFocusSettingsData = {
+        settingsData = {
             afMode: {
                 scope: "world", config: true, type: String, default: "disabled",
                 choices: {
@@ -159,7 +178,7 @@ export class Config {
                 scope: "world", config: true, type: Boolean, default: false
             }
         };
-        Config.registerSettings(autoFocusSettingsData);
+        Config.registerSettings(settingsData);
 
         // Add the keybindings
 

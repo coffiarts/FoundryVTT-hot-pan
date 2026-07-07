@@ -1,5 +1,5 @@
-![](https://img.shields.io/badge/Foundry-v12-informational)
 ![](https://img.shields.io/badge/Foundry-v13-informational)
+![](https://img.shields.io/badge/Foundry-v14-informational)
 [![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fhot-pan)](https://forge-vtt.com/bazaar#package=hot-pan)
 [![The Forge](https://img.shields.io/badge/The%20Forge-Pay%20What%20You%20Want-success?style=flat-square)](https://eu.forge-vtt.com/bazaar#package=hot-pan)
 
@@ -78,6 +78,8 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
 <img src="src/hot-pan/artwork/hot-pan-hud-icon.png" width="100" alt="New HUD Status icon"/>
 
 As of version 13.0.4, there's also this icon which signals to players whenever the GM has taken over screen control.
+
+As of version 14.0.0, the HUD Icons position can be fine-controlled to avoid UI interferences in specific systems.
 
 
 ## Changelog
