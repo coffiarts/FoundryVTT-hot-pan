@@ -16,7 +16,7 @@ export class Config {
         modlink: MOD_LINK
     };
 
-    static HUD_NAME = "coffiarts-hud";
+    static HUD_NAME = "hot-pan-hud";
     static HUD_ICON_NAME = "hot-pan-hud-icon";
     static HUD_ICON_SRC = `${Config.data.modPath}/artwork/hot-pan-hud-icon.png`;
     static OVERLAY_SCALE_MAPPING = { zero: 0, small: 0.2, normal: 0.3, large: 0.4 };
@@ -70,7 +70,7 @@ export class Config {
                 }
             },
             hudIconScale: {
-                scope: 'world', config: true, type: String,
+                scope: 'client', config: true, type: String,
                 choices: {
                     "zero": Config.localize("setting.hudIconScaleOptions.zero"),
                     "small": Config.localize("setting.hudIconScaleOptions.small"),
@@ -84,7 +84,7 @@ export class Config {
                 }
             },
             hudIconOpacity: {
-                scope: 'world', config: true, type: Number, default: 0.5,
+                scope: 'client', config: true, type: Number, default: 0.5,
                 range: { // define a slider
                     min: 0.2,
                     max: 1,
@@ -95,7 +95,7 @@ export class Config {
                 }
             },
             hudIconAnchor: {
-                scope: 'world', config: true, type: String,
+                scope: 'client', config: true, type: String,
                 choices: {
                     "topleft": Config.localize("setting.hudIconAnchorOptions.topleft"),
                     "topright": Config.localize("setting.hudIconAnchorOptions.topright"),
@@ -109,7 +109,7 @@ export class Config {
                 }
             },
             hudIconOffsetX: {
-                scope: 'world', config: true, type: Number, default: 0,
+                scope: 'client', config: true, type: Number, default: -10,
                 range: { // define a slider
                     min: -200,
                     max: 200,
@@ -120,7 +120,7 @@ export class Config {
                 }
             },
             hudIconOffsetY: {
-                scope: 'world', config: true, type: Number, default: 0,
+                scope: 'client', config: true, type: Number, default: 0,
                 range: { // define a slider
                     min: -200,
                     max: 200,

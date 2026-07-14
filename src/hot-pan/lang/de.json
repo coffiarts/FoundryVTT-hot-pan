@@ -38,6 +38,7 @@
         "hint": "Größe des HUD Status Icons. Kann auch über eigene Tastenkombinationen in den globalen Kontrolleinstellungen umgeschaltet werden."
       },
       "hudIconScaleOptions": {
+        "zero": "unsichtbar",
         "small": "klein",
         "normal": "normal",
         "large": "groß"
@@ -58,11 +59,11 @@
       },
       "hudIconOffsetX": {
         "name": "Horizontaler Offset (in Pixeln) des HUD Status Icons",
-        "hint": "Relative Verschiebung der Links-Rechts-Position."
+        "hint": "Relative Verschiebung der Links-Rechts-Position (Standard: -10)."
       },
       "hudIconOffsetY": {
         "name": " Vertikaler Offset (in Pixeln) des HUD Status Icons",
-        "hint": "Relative Verschiebung der Oben-Unten-Position."
+        "hint": "Relative Verschiebung der Oben-Unten-Position (Standard: 0)."
       },
       "keybindingNames": {
         "toggle": "Hot Pan & Zoom! ein-/ausschalten",

@@ -3,13 +3,15 @@ Foundry VTT **core** version it is compatible with (and recommended for).
 
 ## 14.0.0
 ### 2026-??-?? - HUD Status Icon position now configurable
-- Implements request #12, enabling fine-tuning of the HUD Icon's position. This is meant to help avoid UI conflicts in specific systems (like PF2)
+- Now supporting fine-tuning of the HUD Icon's position (implements request #12). This is meant to help avoid UI conflicts in specific systems (like PF2).
+- Players can now adjust position, scale and transparency of the HUD Icon locally (overriding GM settings).
 - Formal declaration of v14 compatibility (though it had already been compatible). We're still backward-compatible with v13, **but: v12 compatibility has been dropped**
 - minor background fixes and optimizations
+- fixed broken image links in this changelog
 
 ## 13.1.0
 ### 2025-10-01 - New Feature: HUD Icon
-<img src="src/hot-pan/artwork/hot-pan-hud-icon.png" width="100" alt="New HUD Status icon"/>
+<img src="/modules/hot-pan/artwork/hot-pan-hud-icon.png" width="100" alt="New HUD Status icon"/>
 
 - Introducing this new status icon, which will show up in the top-right corner of the scene view whenever Hot Pan & Zoom! is toggled on. This helps to avoid player confusion whenever the GM takes over screen control.
 - Configure its size in the module settings, or disable it completely, if you find it too invasive.
@@ -39,7 +41,7 @@ Foundry VTT **core** version it is compatible with (and recommended for).
 - Save the world now from falling out of sight: **"Auto Focus"** is a lean integration of [SDoehren](https://github.com/SDoehren)'s [Always Centred](https://github.com/SDoehren/always-centred) mod, freshly merged into Hot Pan & Zoom! Big credits to [SDoehren](https://github.com/SDoehren) for his Creative Commons License that allowed me to freely reuse and integrate his code!
 - The included macro compendium comes with a new sample macro for it. Give it a try!
 
-<img src="src/hot-pan/artwork/auto-focus-new-macro-preview.png" alt="New Auto Focus macro"/>
+<img src="/modules/hot-pan/artwork/auto-focus-new-macro-preview.png" alt="New Auto Focus macro"/>
 
 - "Lean integration" means: Functionality of the original mod has been reduced here to its vital core (to what's presumably most useful for GM controlled zooming & panning). I wanted to keep this as plain and intuitive as possible.
 - Don't miss the chance to assign your custom keyboard shortcut to the new "Auto Focus" function!
@@ -130,7 +132,7 @@ Mainly optimizes debug logging. Nothing vital, just wanted to push this out befo
 ### 2023-02-21 - Example macro(s) now provided as compendium pack:
 - Find included a compendium pack with a default macro that can easily be adjusted to your needs.<br/>
   Find further explanations inline in the macro's code:<br/>
-  <img src="https://github.com/coffiarts/FoundryVTT-hot-pan/blob/master/src/hot-pan/artwork/hot-pan-macro-compendium.png?raw=true" alt="Hot Pan & Zoom! - Macro Compendium" width="400"/>
+  <img src="/modules/hot-pan/artwork/hot-pan-macro-compendium.png?raw=true" alt="Hot Pan & Zoom! - Macro Compendium" width="400"/>
 
 ## 1.0.1
 ### 2023-02-20 - 

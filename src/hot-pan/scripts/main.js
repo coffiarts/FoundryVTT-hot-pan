@@ -541,7 +541,7 @@ export class HotPan {
                 this.#isSilentMode = false;
             }
         }
-        renderHUDIcon();
+        HotPan.renderHUDIcon();
     }
 
     static onAFActiveStateChanged(newValue) {
@@ -636,32 +636,37 @@ export class HotPan {
             return;
         }
     
-        // Check if "coffiarts-hud" already exists. Only create it if it doesn't.
+        // Check if HUD already exists. Only create it if it doesn't.
         let hud = document.getElementById(Config.HUD_NAME);
         if (!hud) {
             hud = document.createElement("div");
             hud.id = Config.HUD_NAME;
             hud.style.position = "absolute";
-            if (Config.setting("hudIconAnchor").startsWith("bottom")) { // "bottomleft" or "bottomright"
-                hud.style.bottom = parseInt(Config.setting("hudIconOffsetY")) + "px";
-            } else { // "topleft" or "topright"
-                hud.style.top = parseInt(Config.setting("hudIconOffsetY")) + "px";
-            }
         }
-    
+
+        if (Config.setting("hudIconAnchor").startsWith("bottom")) { // "bottomleft" or "bottomright"
+            hud.style.removeProperty("top");
+            hud.style.bottom = parseInt(Config.setting("hudIconOffsetY")) * -1 + "px";
+        } else { // "topleft" or "topright"
+            hud.style.removeProperty("bottom");
+            hud.style.top = parseInt(Config.setting("hudIconOffsetY")) + "px";
+        }
+
         HotPan.clearHUDIcon();
-        
+
+        let leftPos = 0;
         // Fine-tune horizontal position. This is VERY hacky - still searching for a better solution
         if (Config.setting("hudIconAnchor").endsWith("left")) { // "topleft" or "bottomleft"
-            const leftPos = parseInt(Config.setting("hudIconOffsetX")); // TODO - probably not right yet!
+            leftPos = parseInt(Config.setting("hudIconOffsetX"));
         } else { // "topright" or "bottomright"
-            const leftPos = (game.system.id === "dsa5")
+            leftPos = (game.system.id === "dsa5")
                 ? -270 * Config.OVERLAY_SCALE_MAPPING[Config.setting("hudIconScale")] // dsa5
                 : 300 - 220 * Config.OVERLAY_SCALE_MAPPING[Config.setting("hudIconScale")]; // others (tested only for dnd5!)
-            leftPos += parseInt(Config.setting("hudIconOffsetX"));    
-            hud.style.left = leftPos + "px";
+            leftPos += parseInt(Config.setting("hudIconOffsetX"));
         }
-        
+
+        hud.style.left = leftPos + "px";
+
         // Finalize icon settings
         hud.style.display = "inline-block";
         hud.style.margin = "10px";
@@ -676,9 +681,9 @@ export class HotPan {
         hud.appendChild(icon);
     
         // insert into Foundry's own UI container
-        const parentName;
+        let parentName = null;
         if (Config.setting("hudIconAnchor").endsWith("left")) { // "topleft" or "bottomleft"
-            parentName = "ui-left-column-1"; // TODO - this need to be something else here
+            parentName = "ui-left-column-1";
         } else { // "topright" or "bottomright"
             parentName = "sidebar";
         }

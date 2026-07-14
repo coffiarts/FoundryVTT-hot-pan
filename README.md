@@ -79,7 +79,7 @@ And it comes in handy for cinematic reasons, like in the animation sequence show
 
 As of version 13.0.4, there's also this icon which signals to players whenever the GM has taken over screen control.
 
-As of version 14.0.0, the HUD Icons position can be fine-controlled to avoid UI interferences in specific systems.
+As of version 14.0.0, the HUD Icon position can be fine-controlled to avoid UI interferences in specific systems.
 
 
 ## Changelog
