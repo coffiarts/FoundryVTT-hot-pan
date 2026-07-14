@@ -2,7 +2,7 @@ The **major** version number in my modules (like "14") always reflects the
 Foundry VTT **core** version it is compatible with (and recommended for).
 
 ## 14.0.0
-### 2026-??-?? - HUD Status Icon position now configurable
+### 2026-07-14 - HUD Status Icon position now configurable
 - Now supporting fine-tuning of the HUD Icon's position (implements request #12). This is meant to help avoid UI conflicts in specific systems (like PF2).
 - Players can now adjust position, scale and transparency of the HUD Icon locally (overriding GM settings).
 - Formal declaration of v14 compatibility (though it had already been compatible). We're still backward-compatible with v13, **but: v12 compatibility has been dropped**
