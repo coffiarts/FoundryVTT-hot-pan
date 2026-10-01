@@ -3,39 +3,39 @@
     "setting": {
       "modVersion": {
         "name": "Version",
-        "hint": "Aktuell installierte Modulversion (hier nicht änderbar)."
+        "hint": "Derzeit installierte Modulversion (kann hier nicht geändert werden)."
       },
       "debug": {
-        "name": "Debug-Modus",
-        "hint": "Aktiviert das Debug Logging."
+        "name": "Debugmodus",
+        "hint": "Clientseitige Einstellung zur Aktivierung einer erweiterten Debug-Protokollierung."
       },
       "isActive": {
-        "name": "Immer aktiviert",
-        "hint": "Modul permanent aktivieren (kann durch Macros übersteuert werden)."
+        "name": "Immer aktiv",
+        "hint": "Modul immer aktiviert lassen, sofern es nicht durch Makrocode überschrieben wird."
       },
       "hideChatInfo": {
-        "name": "Modulinfo im Chat ausblenden",
-        "hint": "Blendet die einmalige allgemeine Info zu diesem Modul im Chat aus. Um sie wieder anzuzeigen, diese Option DEAKTIVIEREN."
+        "name": "Modulinformationen im Chatfenster ausblenden",
+        "hint": "Blendet die allgemeinen einmaligen Informationen zu diesem Modul im Chat aus. Wenn du sie beim nächsten Neuladen wieder sehen möchtest, DEAKTIVIERE diese Option."
       },
       "notifyOnChange": {
         "name": "UI-Meldungen beim Umschalten",
-        "hint": "Zeige kurze Bannermeldungen an, wenn das Panning & Zooming aus- oder eingeschaltet wird (funktioniert auch beim Umschalten via Macro)."
+        "hint": "Zeigt beim Ein- und Ausschalten vorübergehende UI-Meldungen an (funktioniert auch beim Umschalten per Makrocode)."
       },
       "warnWhenON": {
-        "name": "Warnung bei Aktivierung",
-        "hint": "Bannermeldung beim Anschalten hervorheben (Warnung). Nur wirksam, wenn \"UI-Meldungen beim Umschalten\" aktiviert ist."
+        "name": "Warnung beim Aktivieren",
+        "hint": "Zeigt beim EINSCHALTEN eine besonders auffällige UI-Meldung (Warnung) an. Die Option 'UI-Meldungen beim Umschalten“ muss aktiviert sein."
       },
       "warnWhenOFF": {
-        "name": "Warnung bei Deaktivierung",
-        "hint": "Bannermeldung beim Abschalten hervorheben (Warnung). Nur wirksam, wenn \"UI-Meldungen beim Umschalten\" aktiviert ist."
+        "name": "Warnung beim Deaktivieren",
+        "hint": "Zeigt beim AUSSCHALTEN eine besonders auffällige UI-Meldung (Warnung) an. Die Option 'UI-Meldungen beim Umschalten“ muss aktiviert sein."
       },
       "showHUDIcon": {
-        "name": "HUD Status Icon anzeigen",
-        "hint": "Erzeugt ein Symbol auf der Szenenansicht (rechts oben, Standard: AN), solange der GM den Bildschirm kontrolliert.\n Kann automatisch nach einer bestimmten Zeitspanne ausgeblendet werden. Dazu bitte untenstehenden Slider anpassen."
+        "name": "HUD-Statussymbol anzeigen",
+        "hint": "Zeigt auf dem Bildschirm (oben rechts, standardmäßig AN) ein Symbol an, sobald die SL die Bildschirmsteuerung übernimmt.\n Du kannst es automatisch nach einer bestimmten Zeit ausblenden lassen, indem du den folgenden Schieberegler einstellst."
       },
       "hudIconScale": {
-        "name": "Größe des HUD Status Icons",
-        "hint": "Größe des HUD Status Icons. Kann auch über eigene Tastenkombinationen in den globalen Kontrolleinstellungen umgeschaltet werden."
+        "name": "Größe des HUD-Symbols",
+        "hint": "Skalierung des HUD-Statussymbols. Kann auch über benutzerdefinierte Tastenbelegungen in den globalen Steuerungseinstellungen geändert werden."
       },
       "hudIconScaleOptions": {
         "zero": "unsichtbar",
@@ -44,12 +44,12 @@
         "large": "groß"
       },
       "hudIconOpacity": {
-        "name": "Sichtbarkeit des HUD Status Icons",
-        "hint": "1 (Maximum) bedeutet vollständig sichtbar, 0.2 (Minimum) zu 20% sichtbar (zu 80% transparent). Standard: 0.7 (70%)."
+        "name": "Deckkraft des HUD-Statussymbols",
+        "hint": "1 (Maximum) bedeutet vollständig sichtbar, 0,2 (Minimum) bedeutet zu 20 % sichtbar (zu 80 % transparent). Standard: 0,7 (70 %)"
       },
-	  "hudIconAnchor": {
-        "name": "Ankerposition des HUD Status Icons",
-        "hint": "Ausgangsposition relativ zum Bildschirm (welche Ecke?). Kann durch die Offset-Einstellungen weiter unten verfeinert werden."
+      "hudIconAnchor": {
+        "name": "Verankerungsposition des HUD-Statussymbols",
+        "hint": "Grundposition relativ zu deinem Bildschirm (welche Ecke?). Kann mithilfe der weiter unten aufgeführten Versatzeinstellungen feinjustiert werden."
       },
       "hudIconAnchorOptions": {
         "topleft": "oben links",
@@ -58,88 +58,89 @@
         "bottomright": "unten rechts"
       },
       "hudIconOffsetX": {
-        "name": "Horizontaler Offset (in Pixeln) des HUD Status Icons",
-        "hint": "Relative Verschiebung der Links-Rechts-Position (Standard: -10)."
+        "name": "Horizontaler Versatz (Pixel) des HUD-Statussymbols",
+        "hint": "Relative Anpassung der Position links-rechts (Standard: -10)."
       },
       "hudIconOffsetY": {
-        "name": " Vertikaler Offset (in Pixeln) des HUD Status Icons",
-        "hint": "Relative Verschiebung der Oben-Unten-Position (Standard: 0)."
+        "name": "Vertikaler Versatz (Pixel) des HUD-Statussymbols",
+        "hint": "Relative Anpassung der Position oben-unten (Standard: 0)."
       },
       "keybindingNames": {
-        "toggle": "Hot Pan & Zoom! ein-/ausschalten",
-        "toggleAF": "Auto Focus an-/ausschalten (aka 'Always Centred')",
-        "scaleZero": "Icon-Größe: unsichtbar",
-        "scaleSmall": "Icon-Größe: klein",
-        "scaleNormal": "Icon-Größe: normal",
-        "scaleLarge": "Icon-Größe: groß"
+        "toggle": "Hot Pan & Zoom! (ein/aus)",
+        "scaleZero": "Symbolgröße: unsichtbar",
+        "scaleSmall": "Symbolgröße: klein",
+        "scaleNormal": "Symbolgröße: normal",
+        "scaleLarge": "Symbolgröße: groß"
       },
       "afMode": {
         "name": "Modus",
-        "hint": "Deaktiviert: Autozentrierung ausgeschaltet (default) | Gruppenmodus: Alle Spielertokens werden berücksichtigt | Ausgewählter Token: Nur markierter Token wird berücksichtigt.",
+        "hint": "Deaktiviert: Modul aus (Standard) | Gruppenansicht: alle den Spielern gehörenden Token | Ausgewählter Token: nur der ausgewählte Token.",
         "options": {
           "disabled": "deaktiviert",
-          "partyView": "Gruppenmodus",
+          "partyView": "Gruppenansicht",
           "selectedToken": "Ausgewählter Token"
         }
       },
       "afAutoZoom": {
-        "name": "Auto Zoom",
-        "hint": "Automatische Anpassung von Zoom & Position. Empfohlene Einstellung!"
+        "name": "Auto-Zoom",
+        "hint": "Zoom und Position anpassen. Dringend empfohlen."
       },
       "afMitigateBounce": {
-        "name": "Bouncing-Problem reduzieren",
-        "hint": "Nur relevant, wenn Auto Zoom ausgeschaltet und Modus auf \"Gruppenmodus\" steht. Forciert bei Bedarf automatisch den Auto Zoom."
+        "name": "Bouncing-Problem abmildern",
+        "hint": "Nur relevant, wenn der Auto-Zoom ausgeschaltet und der Modus auf Gruppenansicht gesetzt ist. Erzwingt bei Bedarf den Auto-Zoom."
       },
       "afPaddingSq": {
-        "name": "Padding (Raster)",
-        "hint": "Erweiterung des Sichtfensters in allen Richtungen. Wert >2 empfohlen, alles <1 hat keinen Effekt."
+        "name": "Innenabstand (Rasterfelder)",
+        "hint": "Fügt dem Ansichtsbereich in alle Richtungen Innenabstand hinzu. Es wird dringend empfohlen, einen Wert von >2 einzustellen; bei Werten <1 hat die Einstellung keine Wirkung."
       },
       "afPaddingPer": {
-        "name": "Padding (%)",
-        "hint": "Prozentuale Erweiterung des Sichtfensters"
+        "name": "Innenabstand (%)",
+        "hint": "Prozentuale Vergrößerung des Ansichtsbereichs"
       },
       "afMaxZoom": {
-        "name": "Maximaler Zoom Level",
-        "hint": "Richtwerte: 0.1 ist sehr weit weg, 3 ist sehr nahe."
+        "name": "Maximale Zoomstufe",
+        "hint": "Hinweis: 0,1 bedeutet weit entfernt, 3 bedeutet sehr nah."
       },
       "afUpdateSpeed": {
-        "name": "Animationsgeschwindigkeit der Kamera",
-        "hint": "Standardwert: 500"
+        "name": "Geschwindigkeit der Kameraanimation",
+        "hint": "Standard: 500"
       },
       "afIncludeInvisible": {
-        "name": "Unsichtbare Tokens mitberücksichtigen",
-        "hint": "Sollen bei Berechnungen zur Gruppenansicht ausgeblendete Tokens mit einkalkuliert werden?"
+        "name": "Unsichtbare einbeziehen",
+        "hint": "Legt fest, ob Token, die für den Benutzer nicht sichtbar sind, bei den Berechnungen der Gruppenansicht berücksichtigt werden."
       }
     },
     "chatInfoContent": {
       "title": "Hot Pan & Zoom!",
       "text1": "&quot;One Thing to Pan Them! One Thing to Find Them! One Thing to Zoom them and to the GM's Canvas Bind Them!&quot;",
-      "text2": "Hot Pan & Zoom! ist ein system-unabhängiges Helferlein, mit dem Bildschirmposition und -zoom zwischen Spielleiter und Spielern synchronisiert werden kann. Es funktioniert sowohl im Hintergrund als auch steuerbar via Makros.",
-      "text3": "Bitte Moduleinstellungen in den Spieleinstellungen beachten. Mehr Details außerdem auf GitHub",
-      "footer": "Diese Nachricht wird nur einmal angezeigt. Zum Wiederanzeigen bitte die entsprechende Option in den Moduleinstellungen verwenden."
+      "text2": "Hot Pan & Zoom! ist ein systemunabhängiges Helferlein, das die Canvas-Position und den Zoom der Spieler mit dem Bildschirm der SL synchron hält. Es läuft im Hintergrund, kann aber auch über Makrocode gesteuert werden.",
+      "text3": "Sieh dir die verschiedenen Moduleinstellungen in den Spieleinstellungen an. Noch mehr Details findest du auf GitHub.",
+      "footer": "Diese Chatkarte wird nur einmal angezeigt. Aktiviere sie bei Bedarf in den Moduleinstellungen erneut."
     },
     "chatInfoContentHUDIcon": {
-      "title": "Neues Feature: HUD Icon",
-      "text1": "Ein neues Statussymbol in der rechten oberen Ecke der Szenenansicht zeigt nun an, wann der Spielleiter den Bildschirm steuert.",
-      "text2": "In den Moduleinstellungen kannst du seine Größe ändern, oder es auch ganz deaktivieren, wenn es dir zu immersiv ist.",
-      "text3": "Es funktioniert genau so wie das entsprechende Icon in meinem anderen Modul <a href='https://github.com/coffiarts/FoundryVTT-lock-the-sheets' style='font-weight: bold; text-decoration: underline'>-&gt; Lock The Sheets!</a>. Beide Mods/Icons können zusammen verwendet werden.",
-      "footer": "Diese Nachricht wird nur einmal angezeigt. Zum Wiederanzeigen bitte die entsprechende Option in den Moduleinstellungen verwenden."
+      "title": "Neue Funktion: HUD-Symbol",
+      "text1": "Ein neues Symbol in der oberen rechten Ecke der Szenenansicht zeigt jetzt an, sobald die SL die Bildschirmsteuerung übernimmt.",
+      "text2": "Konfiguriere seine Größe in den Moduleinstellungen oder deaktiviere es vollständig, wenn es dich zu sehr stört.",
+      "text3": "Es funktioniert wie das entsprechende HUD-Symbol in meinem anderen Modul <a href='https://github.com/coffiarts/FoundryVTT-lock-the-sheets' style='font-weight: bold; text-decoration: underline'>-&gt; Lock The Sheets!</a>. Beide Module/Symbole sind darauf ausgelegt, miteinander zu funktionieren.",
+      "footer": "Diese Nachrichtenkarte wird nur einmal angezeigt. Aktiviere sie bei Bedarf in den Moduleinstellungen erneut."
     },
     "onOffUIMessage": {
-      "whenON": "Bildschirm wird vom Spielleiter gesteuert!",
-      "whenOFF": "Bildschirm ist wieder freigegeben."
+      "whenON": "Der Bildschirm wird von der Spielleitung ferngesteuert!",
+      "whenOFF": "Die Bildschirmsteuerung wurde freigegeben."
     },
+    "keybindingMenuLabel": "Hot Pan & Zoom! ein-/ausschalten",
+    "keybindingMenuLabelAF": "Auto-Fokus (auch 'Always Centred“ genannt) ein-/ausschalten",
     "autoFocus": {
-      "title": "Auto Focus (aka 'Always Centred')",
-      "description": "Zusatzfunktion zum automatischen Fokussieren und Zoomen auf Szenentokens (separat ein- und auschaltbar). Ergänzt sich bestens mit Hot Pan & Zoom! Ursprünglich als separates Mod 'Always Centred' bekannt. In Hot Pan & Zoom! integriert mit Genehmigung des Autors (SDoehren). Zum Ursprungsmodul siehe:",
+      "title": "Auto-Fokus (aka 'Always Centred“)",
+      "description": "Zusätzliche automatische Fokussierung und automatische Zoom-Anpassung auf Szenen-Token (kann unabhängig ein- und ausgeschaltet werden). Früher als 'Always Centred“ von SDoehren bekannt. Funktioniert hervorragend zusammen mit Hot Pan & Zoom! Mit Genehmigung des Autors in dieses Modul integriert. Das ursprüngliche Modul findest du hier:",
       "msg": {
         "invalidMode": "Ungültiger Modus für Auto Focus:",
-        "whenON": "Auto Focus ist AKTIVIERT im Modus '{mode}'.",
-        "whenOFF": "Auto Focus ist DEAKTIVIERT.",
+        "whenON": "Der Auto-Fokus ist AKTIVIERT und auf '{mode}“ eingestellt.",
+        "whenOFF": "Der Auto-Fokus ist DEAKTIVIERT.",
         "alwaysCentredWarning": {
-          "title": "Warnung:<br/>Original-Mod 'Always Centred' entdeckt!",
-          "text": "Hot Pan & Zoom! hat entdeckt, dass das Modul 'Always Centred' aktiviert ist.<br/>Dieses ist seit Modulversion 12.1.0 in Hot Pan & Zoom! integriert.<br/>Es empfiehlt sich, 'Always Centred' zu deaktivieren, um Konflikte zu vermeiden.<br>Der einzige Grund, das Originalmodul zu behalten, wäre gegeben, wenn die Spieler lokal auf ihren Clients selbst Auto-Fokussierung und Auto-Zooming verwenden wollen.",
-          "footer": "Diese Nachricht wird nur einmal angezeigt!"
+          "title": "Warnung:<br/>Ursprüngliches Modul 'Always Centred“ erkannt!",
+          "text": "Hot Pan & Zoom! hat erkannt, dass das Modul 'Always Centred' in deinem Spiel ausgeführt wird.<br/>Dieses Modul ist seit der Modulversion 12.1.0 in Hot Pan & Zoom! integriert.<br/>Es wird empfohlen, 'Always Centred' zu deinstallieren, um Konflikte zu vermeiden.<br>Der einzige Grund, das ursprüngliche Modul zu behalten, wäre, wenn Spieler die automatische Fokussierung und den automatischen Zoom weiterhin lokal auf ihren Clients verwenden und konfigurieren möchten.",
+          "footer": "Diese Chatkarte wird nur einmal angezeigt!"
         }
       }
     }

@@ -1,0 +1,148 @@
+{
+  "hot-pan": {
+    "setting": {
+      "modVersion": {
+        "name": "Versión",
+        "hint": "Versión del módulo instalada actualmente (no se puede cambiar aquí)."
+      },
+      "debug": {
+        "name": "modo de depuración",
+        "hint": "Configuración del cliente que permite un registro de depuración ampliado."
+      },
+      "isActive": {
+        "name": "Siempre activo",
+        "hint": "Mantener el módulo siempre activado, salvo que el código de macro lo sobrescriba."
+      },
+      "hideChatInfo": {
+        "name": "Ocultar información del módulo en la ventana de chat",
+        "hint": "Oculta la información general que se muestra una sola vez sobre este módulo en el chat. Si quieres volver a verla en la próxima recarga, DESMARCA esta opción."
+      },
+      "notifyOnChange": {
+        "name": "Mensajes de la interfaz al activar o desactivar",
+        "hint": "Mostrar mensajes temporales de la interfaz cada vez que se activa o desactiva (también funciona al cambiar mediante código de macro)."
+      },
+      "warnWhenON": {
+        "name": "Advertencia al activar",
+        "hint": "Mostrar un mensaje de la interfaz especialmente destacado (advertencia) al activar. Es necesario habilitar la opción \"Mensajes de la interfaz al activar o desactivar\"."
+      },
+      "warnWhenOFF": {
+        "name": "Advertencia al desactivar",
+        "hint": "Mostrar un mensaje de la interfaz especialmente destacado (advertencia) al desactivar. Es necesario habilitar la opción \"Mensajes de la interfaz al activar o desactivar\"."
+      },
+      "showHUDIcon": {
+        "name": "Mostrar el icono de estado del HUD",
+        "hint": "Mostrar un icono en la pantalla (arriba a la derecha, activado de forma predeterminada) cada vez que el director de juego controle la pantalla.\n Puedes hacer que se desactive automáticamente después de un tiempo de espera configurando el control deslizante de abajo."
+      },
+      "hudIconScale": {
+        "name": "Tamaño del icono del HUD",
+        "hint": "Escala del icono de estado del HUD. También se puede cambiar mediante combinaciones de teclas personalizadas en la configuración de controles globales."
+      },
+      "hudIconScaleOptions": {
+        "zero": "invisible",
+        "small": "pequeño",
+        "normal": "normal",
+        "large": "grande"
+      },
+      "hudIconOpacity": {
+        "name": "Opacidad del icono de estado del HUD",
+        "hint": "1 (máximo) significa completamente visible; 0.2 (mínimo) significa visible al 20 % (transparente al 80 %). Predeterminado: 0.7 (70 %)"
+      },
+      "hudIconAnchor": {
+        "name": "Posición de anclaje del icono de estado del HUD",
+        "hint": "Posición base relativa a tu pantalla (¿en qué esquina?). Se puede ajustar con mayor precisión mediante las opciones de desplazamiento que aparecen más abajo."
+      },
+      "hudIconAnchorOptions": {
+        "topleft": "arriba a la izquierda",
+        "topright": "arriba a la derecha (predeterminado)",
+        "bottomleft": "abajo a la izquierda",
+        "bottomright": "abajo a la derecha"
+      },
+      "hudIconOffsetX": {
+        "name": "Desplazamiento horizontal (píxeles) del icono de estado del HUD",
+        "hint": "Ajuste relativo de la posición izquierda-derecha (predeterminado: -10)."
+      },
+      "hudIconOffsetY": {
+        "name": " Desplazamiento vertical (píxeles) del icono de estado del HUD",
+        "hint": "Ajuste relativo de la posición arriba-abajo (predeterminado: 0)."
+      },
+      "keybindingNames": {
+        "toggle": "Hot Pan & Zoom! (activar/desactivar)",
+        "scaleZero": "Tamaño del icono: invisible",
+        "scaleSmall": "Tamaño del icono: pequeño",
+        "scaleNormal": "Tamaño del icono: normal",
+        "scaleLarge": "Tamaño del icono: grande"
+      },
+      "afMode": {
+        "name": "Modo",
+        "hint": "Desactivado: módulo desactivado (predeterminado) | Vista del grupo: todos los tokens propiedad de los jugadores | Token seleccionado: solo el token seleccionado.",
+        "options": {
+          "disabled": "desactivado",
+          "partyView": "vista del grupo",
+          "selectedToken": "token seleccionado"
+        }
+      },
+      "afAutoZoom": {
+        "name": "zoom automático",
+        "hint": "Ajustar tanto el zoom como la posición. Muy recomendable."
+      },
+      "afMitigateBounce": {
+        "name": "Mitigar el problema de los rebotes",
+        "hint": "Solo es relevante cuando el zoom automático está desactivado y el modo es Vista del grupo. Fuerza el zoom automático cuando es necesario."
+      },
+      "afPaddingSq": {
+        "name": "Margen (cuadrados)",
+        "hint": "Margen añadido al área de visualización en todas las direcciones. Se recomienda encarecidamente establecerlo en >2; no tendrá ningún efecto con valores <1."
+      },
+      "afPaddingPer": {
+        "name": "Margen (%)",
+        "hint": "Incremento porcentual del área de visualización"
+      },
+      "afMaxZoom": {
+        "name": "Nivel máximo de zoom",
+        "hint": "Consejo: 0.1 está muy lejos; 3 está muy cerca."
+      },
+      "afUpdateSpeed": {
+        "name": "Velocidad de animación de la cámara",
+        "hint": "Predeterminado: 500"
+      },
+      "afIncludeInvisible": {
+        "name": "incluir invisibles",
+        "hint": "Indica si se deben tener en cuenta los tokens que el usuario no puede ver en los cálculos de la vista del grupo."
+      }
+    },
+    "chatInfoContent": {
+      "title": "Hot Pan & Zoom!",
+      "text1": "&quot;¡Una cosa para desplazarles! ¡Una cosa para encontrarlos! ¡Una cosa para aplicarles zoom y vincularlos al lienzo del director de juego!&quot;",
+      "text2": "Hot Pan & Zoom! es una utilidad independiente del sistema para mantener sincronizados la posición y el zoom del lienzo de los jugadores con la pantalla del director de juego. Se ejecuta en el backend, pero también se puede controlar mediante código de macro.",
+      "text3": "Consulta las distintas preferencias del módulo en la configuración del juego. Encuentra aún más detalles en GitHub",
+      "footer": "Esta tarjeta de chat solo se mostrará una vez. Actívala de nuevo en la configuración del módulo si es necesario."
+    },
+    "chatInfoContentHUDIcon": {
+      "title": "Nueva función: icono del HUD",
+      "text1": "Un nuevo icono en la esquina superior derecha de la vista de la escena indica ahora cuándo el director de juego controla la pantalla.",
+      "text2": "Configura su tamaño en la configuración del módulo o desactívalo por completo si te resulta demasiado intrusivo.",
+      "text3": "Funciona como el icono de estado del HUD similar de mi otro módulo <a href='https://github.com/coffiarts/FoundryVTT-lock-the-sheets' style='font-weight: bold; text-decoration: underline'>-&gt; Lock The Sheets!</a>. Ambos módulos/iconos están diseñados para funcionar conjuntamente.",
+      "footer": "Esta tarjeta de mensaje solo se mostrará una vez. Actívala de nuevo en la configuración del módulo si es necesario."
+    },
+    "onOffUIMessage": {
+      "whenON": "¡La pantalla está controlada remotamente por el director de juego!",
+      "whenOFF": "Se ha liberado el control de la pantalla."
+    },
+    "keybindingMenuLabel": "Activar/desactivar Hot Pan & Zoom!",
+    "keybindingMenuLabelAF": "Activar/desactivar el enfoque automático (también llamado «Always Centred»)",
+    "autoFocus": {
+      "title": "Enfoque automático (también llamado «Always Centred»)",
+      "description": "Enfoque automático y zoom automático adicionales sobre los tokens de la escena (se pueden activar o desactivar por separado). Anteriormente conocido como «Always Centred» por SDoehren. Funciona perfectamente junto con Hot Pan & Zoom! Se integró en este módulo con la aprobación de su autor. Encuentra el módulo original en",
+      "msg": {
+        "invalidMode": "Has intentado establecer un modo no válido para el enfoque automático:",
+        "whenON": "El enfoque automático está ACTIVADO y configurado como «{mode}».",
+        "whenOFF": "El enfoque automático está DESACTIVADO.",
+        "alwaysCentredWarning": {
+          "title": "Advertencia:<br/>¡Se ha detectado el módulo original «Always Centred»!",
+          "text": "Hot Pan & Zoom! ha detectado que el módulo «Always Centred» se está ejecutando en tu partida.<br/>Este módulo se integró en Hot Pan & Zoom! a partir de la versión 12.1.0 del módulo.<br/>Se recomienda desinstalar «Always Centred» para evitar conflictos.<br>La única razón para conservar el original sería que los jugadores aún quisieran usar y configurar localmente el enfoque automático y el zoom automático en sus clientes.",
+          "footer": "¡Esta tarjeta de chat solo se mostrará una vez!"
+        }
+      }
+    }
+  }
+}

@@ -22,14 +22,16 @@
   </tr>
 </table>
 
-- Are you on [Forge VTT](https://forge-vtt.com/)?
-- Do you like my work?
-- Do you REALLY like my work?
-- Could you even imagine to DONATE?
+## Support This Project
 
-Feel free to [head over to this mod on Forge](https://eu.forge-vtt.com/bazaar/package/hot-pan), where you can even pay for it what you like.
+Hot Pan & Zoom! is free and always will be. If it brings you fun, or saved you time (or your sanity), consider buying me a Stamina Potion 𖠞
 
-This is absolutely optional! Don't feel obliged in any way to do so. My mod is and will remain available for free.
+[![GitHub Sponsors](src/hot-pan/artwork/the-forge-logo.png)](https://eu.forge-vtt.com/bazaar#name=%22Hot%20Pan%20%26%20Zoom!%22&sort=featured&package=hot-pan)
+&nbsp;[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/coffiarts) &nbsp;
+[![GitHub Sponsors](src/hot-pan/artwork/github-sponsor.png)](https://github.com/sponsors/coffiarts)
+
+In "The Forge Bazaar" <img src="src/hot-pan/artwork/the-forge-logo.png" alt="The Forge - Bazaar" width="20"/>, you can download this mod for free, or - which would make my heart go booom! - voluntarily pay for it whatever you want (PWYW)?
+
 
 ## It's finally a part of us!
 It's been a long awaited fusion of two mods that seem to love each others sooo much. As of v. 12.1.0, it is done:
@@ -49,6 +51,7 @@ It is basically an integration of one of my favorite mods, [Always Centred](http
 
 * [What does it do ...](#what-does-it-do-)
 * [Changelog](#changelog)
+* [Translations](#translations)
 * [Adjustable module settings](#adjustable-module-settings)
 * [Toggle by hotkey](#toggle-by-hotkey)
 * [Control it by macro](#control-it-by-macro)
@@ -84,6 +87,21 @@ As of version 14.0.0, the HUD Icon position can be fine-controlled to avoid UI i
 
 ## Changelog
 Has been moved to [CHANGELOG.md](CHANGELOG.md)
+
+
+## Translations
+Thanks to my new **Foundry Translation Tool**, which is free to use and download on GitHub ...
+
+[![CFBT - Coffiarts' Foundry Babele Translator](https://raw.githubusercontent.com/coffiarts/FoundryVTT-Babele-translator/fbefbc94f01ecf23e88c54afa420f34e44056f86/docs/img/readme-screenshot-theme-fantasy.jpg)](https://github.com/coffiarts/FoundryVTT-Babele-translator)
+**[=> Coffiart's Foundry VTT Babele Translator](https://github.com/coffiarts/FoundryVTT-Babele-translator)**
+
+... this mod now works in an increasing number of languages. So far (more to come):
+- English
+- Deutsch
+- Français
+- Italiano
+- Español
+- 日本語 (Japanese) => (experimental)
 
 
 ## Adjustable module settings

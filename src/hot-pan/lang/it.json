@@ -1,0 +1,148 @@
+{
+  "hot-pan": {
+    "setting": {
+      "modVersion": {
+        "name": "Versione",
+        "hint": "Versione del modulo attualmente installata (non può essere modificata qui)."
+      },
+      "debug": {
+        "name": "Modalità debug",
+        "hint": "Impostazione lato client che abilita la registrazione estesa dei log di debug."
+      },
+      "isActive": {
+        "name": "Sempre attivo",
+        "hint": "Mantiene il modulo sempre attivo, salvo override tramite codice macro."
+      },
+      "hideChatInfo": {
+        "name": "Nascondi le informazioni sul modulo nella finestra della chat",
+        "hint": "Nasconde le informazioni generali mostrate una sola volta su questo modulo nella chat. Se vuoi visualizzarle di nuovo al prossimo ricaricamento, DESELEZIONA questa opzione."
+      },
+      "notifyOnChange": {
+        "name": "Messaggi dell'interfaccia grafica all'attivazione/disattivazione",
+        "hint": "Mostra messaggi temporanei dell'interfaccia grafica ogni volta che attivi o disattivi la funzione (funziona anche quando cambi impostazione tramite codice macro)."
+      },
+      "warnWhenON": {
+        "name": "Avviso all'attivazione",
+        "hint": "Mostra un messaggio dell'interfaccia grafica particolarmente evidente (avviso) quando attivi la funzione. Per funzionare, l'opzione \"Messaggi dell'interfaccia grafica all'attivazione/disattivazione\" deve essere abilitata."
+      },
+      "warnWhenOFF": {
+        "name": "Avviso alla disattivazione",
+        "hint": "Mostra un messaggio dell'interfaccia grafica particolarmente evidente (avviso) quando disattivi la funzione. Per funzionare, l'opzione \"Messaggi dell'interfaccia grafica all'attivazione/disattivazione\" deve essere abilitata."
+      },
+      "showHUDIcon": {
+        "name": "Mostra l'icona di stato dell'HUD",
+        "hint": "Mostra un'icona sullo schermo (in alto a destra, predefinita: ATTIVA) ogni volta che il Game Master controlla lo schermo.\n Puoi farla disattivare automaticamente dopo un determinato intervallo impostando il cursore qui sotto."
+      },
+      "hudIconScale": {
+        "name": "Dimensione dell'icona HUD",
+        "hint": "Dimensione dell'icona di stato dell'HUD. Può anche essere modificata tramite associazioni di tasti personalizzate nelle impostazioni dei comandi globali."
+      },
+      "hudIconScaleOptions": {
+        "zero": "invisibile",
+        "small": "piccola",
+        "normal": "normale",
+        "large": "grande"
+      },
+      "hudIconOpacity": {
+        "name": "Opacità dell'icona di stato dell'HUD",
+        "hint": "1 (massimo) significa completamente visibile, 0,2 (minimo) significa visibile al 20% (trasparente all'80%). Predefinito: 0,7 (70%)"
+      },
+      "hudIconAnchor": {
+        "name": "Posizione di ancoraggio dell'icona di stato dell'HUD",
+        "hint": "Posizione di base relativa allo schermo (quale angolo?). Può essere regolata più precisamente tramite le impostazioni di offset più in basso."
+      },
+      "hudIconAnchorOptions": {
+        "topleft": "in alto a sinistra",
+        "topright": "in alto a destra (predefinito)",
+        "bottomleft": "in basso a sinistra",
+        "bottomright": "in basso a destra"
+      },
+      "hudIconOffsetX": {
+        "name": "Offset orizzontale (pixel) dell'icona di stato dell'HUD",
+        "hint": "Regolazione relativa della posizione sinistra-destra (predefinita: -10)."
+      },
+      "hudIconOffsetY": {
+        "name": "Offset verticale (pixel) dell'icona di stato dell'HUD",
+        "hint": "Regolazione relativa della posizione dall'alto verso il basso (predefinita: 0)."
+      },
+      "keybindingNames": {
+        "toggle": "Hot Pan & Zoom! (attivazione/disattivazione)",
+        "scaleZero": "Dimensione dell'icona: invisibile",
+        "scaleSmall": "Dimensione dell'icona: piccola",
+        "scaleNormal": "Dimensione dell'icona: normale",
+        "scaleLarge": "Dimensione dell'icona: grande"
+      },
+      "afMode": {
+        "name": "Modalità",
+        "hint": "Disabilitata: modulo disattivato (predefinito) | Vista del gruppo: tutti i token dei giocatori | Token selezionato: solo il token selezionato.",
+        "options": {
+          "disabled": "disabilitata",
+          "partyView": "Vista del gruppo",
+          "selectedToken": "Token selezionato"
+        }
+      },
+      "afAutoZoom": {
+        "name": "Zoom automatico",
+        "hint": "Regola lo zoom oltre alla posizione. Altamente consigliato."
+      },
+      "afMitigateBounce": {
+        "name": "Riduci il problema del rimbalzo",
+        "hint": "Rilevante solo quando lo Zoom automatico è disattivato e la modalità è Vista del gruppo. Forza lo Zoom automatico quando necessario."
+      },
+      "afPaddingSq": {
+        "name": "Margine (quadrati)",
+        "hint": "Margine aggiunto all'area visualizzata in tutte le direzioni. Si consiglia vivamente di impostarlo su un valore >2; non avrà alcun effetto su valori <1."
+      },
+      "afPaddingPer": {
+        "name": "Margine (%)",
+        "hint": "Aumento percentuale dell'area visualizzata"
+      },
+      "afMaxZoom": {
+        "name": "Livello massimo di zoom",
+        "hint": "Suggerimento: 0,1 è molto lontano, 3 è molto vicino."
+      },
+      "afUpdateSpeed": {
+        "name": "Velocità dell'animazione della fotocamera",
+        "hint": "Predefinita: 500"
+      },
+      "afIncludeInvisible": {
+        "name": "Includi gli invisibili",
+        "hint": "Indica se nei calcoli della Vista del gruppo devono essere inclusi i token che non puoi vedere."
+      }
+    },
+    "chatInfoContent": {
+      "title": "Hot Pan & Zoom!",
+      "text1": "&quot;Una cosa per spostarli! Una cosa per trovarli! Una cosa per ingrandirli e vincolarli al canvas del Game Master!&quot;",
+      "text2": "Hot Pan & Zoom! è un'utilità indipendente dal sistema che mantiene sincronizzati la posizione e lo zoom del canvas dei giocatori con lo schermo del Game Master. Viene eseguito nel backend, ma può anche essere controllato tramite codice macro.",
+      "text3": "Consulta le varie preferenze del modulo nelle impostazioni di gioco. Trovi ulteriori dettagli su GitHub",
+      "footer": "Questa scheda della chat verrà mostrata una sola volta. Se necessario, attivala nuovamente nelle impostazioni del modulo."
+    },
+    "chatInfoContentHUDIcon": {
+      "title": "Nuova funzionalità: icona HUD",
+      "text1": "Una nuova icona nell'angolo in alto a destra della vista della scena indica ora quando il Game Master controlla lo schermo.",
+      "text2": "Configura le sue dimensioni nelle impostazioni del modulo oppure disabilitala completamente se la ritieni troppo invasiva.",
+      "text3": "Funziona come l'analoga icona HUD del mio altro modulo <a href='https://github.com/coffiarts/FoundryVTT-lock-the-sheets' style='font-weight: bold; text-decoration: underline'>-&gt; Lock The Sheets!</a>. Entrambi i moduli e le relative icone sono progettati per funzionare insieme.",
+      "footer": "Questa scheda del messaggio verrà mostrata una sola volta. Se necessario, attivala nuovamente nelle impostazioni del modulo."
+    },
+    "onOffUIMessage": {
+      "whenON": "Lo schermo è controllato da remoto dal Game Master!",
+      "whenOFF": "Il controllo dello schermo è stato rilasciato."
+    },
+    "keybindingMenuLabel": "Attiva/disattiva Hot Pan & Zoom!",
+    "keybindingMenuLabelAF": "Attiva/disattiva la Messa a fuoco automatica (nota anche come \"Always Centred\")",
+    "autoFocus": {
+      "title": "Messa a fuoco automatica (nota anche come \"Always Centred\")",
+      "description": "Messa a fuoco e zoom automatici aggiuntivi sui token della scena (possono essere attivati o disattivati separatamente). Precedentemente noto come \"Always Centred\" di SDoehren. Funziona perfettamente insieme a Hot Pan & Zoom! Integrato in questo modulo con l'approvazione del suo autore. Trovi il modulo originale qui",
+      "msg": {
+        "invalidMode": "Hai provato a impostare una modalità non valida per la Messa a fuoco automatica:",
+        "whenON": "La Messa a fuoco automatica è ABILITATA e impostata su '{mode}'.",
+        "whenOFF": "La Messa a fuoco automatica è DISABILITATA.",
+        "alwaysCentredWarning": {
+          "title": "Avviso:<br/>Rilevato il modulo originale 'Always Centred'!",
+          "text": "Hot Pan & Zoom! ha rilevato che il modulo 'Always Centred' è in esecuzione nella tua partita.<br/>Questo modulo è stato integrato in Hot Pan & Zoom! a partire dalla versione 12.1.0 del modulo.<br/>Ti consigliamo di disinstallare 'Always Centred' per evitare conflitti.<br>L'unico motivo per conservare il modulo originale sarebbe permettere ai giocatori di continuare a usare e configurare localmente la messa a fuoco e lo zoom automatici sui propri client.",
+          "footer": "Questa scheda della chat verrà mostrata una sola volta!"
+        }
+      }
+    }
+  }
+}
